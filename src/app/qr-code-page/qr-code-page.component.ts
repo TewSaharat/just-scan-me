@@ -26,7 +26,7 @@ export class QrCodePageComponent {
   }
 
   generateQRCode(name_id: string): void {
-    const url = `http://localhost:4200/notify?name_id=${encodeURIComponent(name_id)}`;
+    const url = `https://just-scan-me.vercel.app/notify?name_id=${encodeURIComponent(name_id)}`;
     QRCode.toDataURL(url, (err, url) => {
       if (err) {
         console.error('Error generating QR code', err);
@@ -57,7 +57,6 @@ export class QrCodePageComponent {
         `);
         printWindow.document.close();
         printWindow.print();
-        printWindow.close();
       }
     }
   }
@@ -66,5 +65,6 @@ export class QrCodePageComponent {
  onCancel() {
     this.dialogRef.close(); // ปิด Dialog
   }
+
 }
 

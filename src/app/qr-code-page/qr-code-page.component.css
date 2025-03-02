@@ -9,6 +9,7 @@
     background-color: #ffffff; /* สีพื้นหลัง */
     padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
     margin: auto; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: center;
 }
 
 .qrcode img {

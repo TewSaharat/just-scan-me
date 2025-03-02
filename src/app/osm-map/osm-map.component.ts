@@ -482,6 +482,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       data: { name_id },
       width: '1000px',
       height: '600px',
+      
     });
 
     dialogRef.afterClosed().subscribe(result => {
