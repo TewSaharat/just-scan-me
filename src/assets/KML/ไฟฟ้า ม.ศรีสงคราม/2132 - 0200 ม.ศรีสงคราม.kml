@@ -1,0 +1,2803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>2132 - 0200</name>
+	<gx:CascadingStyle kml:id="__managed_style_26F53A82AF29FE03CE94">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1D7D87298329FE03CE94">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0B7B82359029FE03CE94">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1D7D87298329FE03CE94</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_26F53A82AF29FE03CE94</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="03BE05E2E829F29681A8">
+		<name>LT1 - SG - 2132 - 0200 - 21+120</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>TnRRYRGZ38_ddKjpJQgZqw</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2396923181413</longitude>
+			<latitude>17.43183896788856</latitude>
+			<altitude>164.1878051757812</altitude>
+			<heading>257.8295887179131</heading>
+			<tilt>83.11472915568157</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396181020706,17.43182535069113,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="085FF6251F29F2926ED8">
+		<name>LT2 - SG - 2132 - 0200 - 21+313</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>yWS89XVUtBW-IXyk2Awj1Q</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2396752856938</longitude>
+			<latitude>17.4326868573441</latitude>
+			<altitude>166.4076080322266</altitude>
+			<heading>231.0362468761771</heading>
+			<tilt>76.84800965111859</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999994952854</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.239626296054,17.43265810822042,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="046215F26C29F292DC52">
+		<name>LT3 - SG - 2132 - 0200 - 21+357</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>r86seuOZfrNlZGEuddBlMg</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2396843341813</longitude>
+			<latitude>17.43304601883569</latitude>
+			<altitude>167.3699340820312</altitude>
+			<heading>279.055981292128</heading>
+			<tilt>66.18932148403098</tilt>
+			<roll>0</roll>
+			<gx:fovy>31.52985107309416</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396379225599,17.43307142780415,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B7240635C29F2935149">
+		<name>LT4 - SG - 2132 - 0200 - 21+401</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>1HqW5OmOEXbkT_KaBr_3sA</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.239693205248</longitude>
+			<latitude>17.43351573085037</latitude>
+			<altitude>168.5663299560547</altitude>
+			<heading>218.3773431617647</heading>
+			<tilt>72.74403227961088</tilt>
+			<roll>0</roll>
+			<gx:fovy>15</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396444259293,17.43348428137859,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="067749DBC029F293B8C0">
+		<name>LT5 - SG - 2132 - 0200 - 21+446 *รอการซ่อม</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>3To2FmI4VWM1vGWEexwVxQ</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2397362299293</longitude>
+			<latitude>17.43387013703438</latitude>
+			<altitude>169.5139007568359</altitude>
+			<heading>272.4180067713795</heading>
+			<tilt>75.58180538534909</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396577212688,17.43386705903781,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E9263A34B29F2940319">
+		<name>LT6 - SG - 2132 - 0200 - 21+490</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>w50AxjLuUd_lhlsnWaFDJQ</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2397451009992</longitude>
+			<latitude>17.43422182044887</latitude>
+			<altitude>170.3229370117188</altitude>
+			<heading>288.3747043147618</heading>
+			<tilt>87.76016238227896</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396669220837,17.43425085230268,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F2E4C4B8D29F2944510">
+		<name>LT7 - SG - 2132 - 0200 - 21+534</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>XwvzjpUAh2zX9mCMymWkLQ</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2397510446164</longitude>
+			<latitude>17.43467499882042</latitude>
+			<altitude>170.8792114257812</altitude>
+			<heading>270.7122615866361</heading>
+			<tilt>91.63268578584488</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396823780115,17.43464902812989,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="049802D7D729F2947791">
+		<name>LT8 - SG - 2132 - 0200 - 21+574</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>jJ0w0_br3kjbr5fMCUMmLQ</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2397616899014</longitude>
+			<latitude>17.43504268575921</latitude>
+			<altitude>171.0087890625</altitude>
+			<heading>270.7779814682578</heading>
+			<tilt>91.63268578584491</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2396963922633,17.43504343355273,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0483485EBC29F294AC99">
+		<name>LT9 - SG - 2132 - 0200 - 21+621</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>OqeAOCCQtCmST3PYZlmB3A</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2397666577014</longitude>
+			<latitude>17.43540937472847</latitude>
+			<altitude>171.0296630859375</altitude>
+			<heading>270.7779814682577</heading>
+			<tilt>91.63268578584493</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2397072778058,17.43543434268036,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05DEB41DC229F2A362D6">
+		<name>RT1 - SG - 2132 - 0200 - 23+883</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>ABnzEArszGjnY9c1JUXrmw</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.240228309005</longitude>
+			<latitude>17.45663223923285</latitude>
+			<altitude>166.8247833251953</altitude>
+			<heading>87.66951979638978</heading>
+			<tilt>60.34107111991749</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2402600169297,17.45664309519559,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="081FF5459329F2A3A6A7">
+		<name>RT2 - SG - 2132 - 0200 - 23+928</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>ySlZCACjd_Ua3_V8yKLj9Q</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402402849905</longitude>
+			<latitude>17.45707214891229</latitude>
+			<altitude>167.1829986572266</altitude>
+			<heading>83.65118943556367</heading>
+			<tilt>61.20795194528118</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2402622820322,17.45707571033122,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01C4A139AE29F2A45A3F">
+		<name>RT3 - SG - 2132 - 0200 - 23+969</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>liKaarbRswyYAuXJdvpTLw</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402529706652</longitude>
+			<latitude>17.45752584830975</latitude>
+			<altitude>167.5474700927734</altitude>
+			<heading>119.1817501242272</heading>
+			<tilt>61.62839284739577</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2402782189764,17.45751009363094,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01D11C2A4729F2A4A27F">
+		<name>RT4 - SG - 2132 - 0200 - 24+000</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>6MwOwcD0LMAYqD9TWw-hpg</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402581159042</longitude>
+			<latitude>17.45782758584046</latitude>
+			<altitude>167.8703460693359</altitude>
+			<heading>89.23577637571957</heading>
+			<tilt>54.71512840696052</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2402811422178,17.45783032152392,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A0C74432429F2A50D47">
+		<name>RT5 - SG - 2132 - 0200 - 24+041</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>6VXOcAeGGzlfnLK8Iw90EA</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402661886071</longitude>
+			<latitude>17.4580979919204</latitude>
+			<altitude>168.0114288330078</altitude>
+			<heading>38.93206686018617</heading>
+			<tilt>58.32306118959165</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2402937091521,17.45816251924857,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="032B7B6D4A29F2A559A7">
+		<name>RT6 - SG - 2132 - 0200 - 24+077</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>O6n5GGoRp8LyLLc4M0bn1Q</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402735516222</longitude>
+			<latitude>17.45847071129888</latitude>
+			<altitude>168.0849761962891</altitude>
+			<heading>85.57878367916091</heading>
+			<tilt>53.115556354635</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2402977624086,17.45849227840581,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="06050BA23729F2A58CE8">
+		<name>RT7 - SG - 2132 - 0200 - 24+118</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>8RYUjeQ0ZYtzWdJOQnAx2w</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402810033488</longitude>
+			<latitude>17.45882332507806</latitude>
+			<altitude>167.7898254394531</altitude>
+			<heading>62.59513944341131</heading>
+			<tilt>66.14196237975121</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2403158272521,17.45886023576445,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0705E83F3429F2A5E746">
+		<name>RT8 - SG - 2132 - 0200 - 24+164</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>iffvxgK9I0YjgU6XoGYpOQ</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2402931567608</longitude>
+			<latitude>17.45923607334458</latitude>
+			<altitude>166.9692687988281</altitude>
+			<heading>48.22580281490554</heading>
+			<tilt>69.61013702861247</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999999999</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2403423896213,17.45929142857833,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="059BAFE3B329F2AE0BA2">
+		<name>RT9 - SG - 2132 - 0200 - 33+506</name>
+		<LookAt>
+			<longitude>104.2422763740071</longitude>
+			<latitude>17.54370401421544</latitude>
+			<altitude>168.4967021764959</altitude>
+			<heading>28.33205183877592</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>76.58283277576631</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422167751559,17.54367710837579,167.6443016982689</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C451FC88529F2AE292F">
+		<name>RT10 - SG - 2132 - 0200 - 33+601</name>
+		<LookAt>
+			<longitude>104.2422763945014</longitude>
+			<latitude>17.5439079034422</latitude>
+			<altitude>169.4033162137262</altitude>
+			<heading>28.33205184516643</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>75.67622359360939</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422247733418,17.54410391282588,168.3778186540431</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="062219BD7629F2AE5586">
+		<name>RT11 - SG - 2132 - 0200 - 33+646</name>
+		<LookAt>
+			<longitude>104.2423302094721</longitude>
+			<latitude>17.5443219975849</latitude>
+			<altitude>168.2432303004175</altitude>
+			<heading>28.33206806775594</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>76.83631459116442</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422355832304,17.54452318907311,166.8275278115164</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="07DBDA4EF229F2AE795F">
+		<name>RT12 - SG - 2132 - 0200 - 33+691</name>
+		<LookAt>
+			<longitude>104.2423156266775</longitude>
+			<latitude>17.54477479375729</latitude>
+			<altitude>166.0149696005527</altitude>
+			<heading>28.33206367272609</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>79.0645742272136</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.242247728597,17.54493344106006,166.2371916648177</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03C6E23FDE29F2B24737">
+		<name>RT13 - SG - 2132 - 0200 - 33+736</name>
+		<LookAt>
+			<longitude>104.2422374814396</longitude>
+			<latitude>17.54530449736814</latitude>
+			<altitude>166.9357423160363</altitude>
+			<heading>145.0942517810804</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>187.1017386829226</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422572057877,17.54531962172246,167.2146109463469</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D5095F33A29F2AEAE4F">
+		<name>RT14 - SG - 2132 - 0200 - 33+781</name>
+		<LookAt>
+			<longitude>104.2423568323267</longitude>
+			<latitude>17.54548911490227</latitude>
+			<altitude>166.8223208054035</altitude>
+			<heading>28.33205270733637</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>142.7438116442136</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422529952178,17.54575282440736,166.935523339408</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FE7E128F529F2AEDE15">
+		<name>RT15 - SG - 2132 - 0200 - 33+827</name>
+		<LookAt>
+			<longitude>104.2423294855069</longitude>
+			<latitude>17.54608010469953</latitude>
+			<altitude>167.11912189635</altitude>
+			<heading>28.33208176794102</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>50.19281235033304</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422691107148,17.54616314856277,167.1972533583073</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D78926F4E29F2AF05AE">
+		<name>RT16 - SG - 2132 - 0200 - 33+871</name>
+		<Camera>
+			<gx:ViewerOptions>
+				<gx:option name="streetview"></gx:option>
+				<gx:streetViewPanoId>mW7kNnWsyORe9Rz5ShwGEQ</gx:streetViewPanoId>
+			</gx:ViewerOptions>
+			<longitude>104.2422632650543</longitude>
+			<latitude>17.54697142720815</latitude>
+			<altitude>170.4388765101178</altitude>
+			<heading>91.88192650674873</heading>
+			<tilt>65.4204332156564</tilt>
+			<roll>0</roll>
+			<gx:fovy>59.99999999173561</gx:fovy>
+			<altitudeMode>absolute</altitudeMode>
+		</Camera>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422741445653,17.546570281338,166.5995282251063</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FB7583A9729F2AF7A58">
+		<name>RT17 - SG - 2132 - 0200 - 33+917</name>
+		<LookAt>
+			<longitude>104.2422047219588</longitude>
+			<latitude>17.54702238846573</latitude>
+			<altitude>167.7470280739898</altitude>
+			<heading>91.88192650579288</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>212.429952720886</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422916485126,17.54695124057756,167.9016075732547</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="073005501329F2AF9686">
+		<name>RT18 - SG - 2132 - 0200 - 33+962</name>
+		<LookAt>
+			<longitude>104.2422047219588</longitude>
+			<latitude>17.54702238846573</latitude>
+			<altitude>167.7470280739898</altitude>
+			<heading>91.88192650579288</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>212.429952720886</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2423005166235,17.54737650096841,169.3369418934497</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="018B2108EF29F2AFB545">
+		<name>RT19 - SG - 2132 - 0200 - 34+002</name>
+		<LookAt>
+			<longitude>104.2422978538385</longitude>
+			<latitude>17.54738202937634</latitude>
+			<altitude>169.1502853231636</altitude>
+			<heading>91.8819545854745</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>211.0267113228474</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422633212678,17.54775765849603,168.5616200176042</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D9F0243CA29F2AFC996">
+		<name>RT20 - SG - 2132 - 0200 - 34+034</name>
+		<LookAt>
+			<longitude>104.2422978538385</longitude>
+			<latitude>17.54738202938691</latitude>
+			<altitude>169.1502853245783</altitude>
+			<heading>91.8819545854745</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>211.0267345004468</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422121810481,17.54805152048896,168.3048431657614</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D32AF1C2229F2B02CBE">
+		<name>RT21 - SG - 2132 - 0200 - 34+070</name>
+		<LookAt>
+			<longitude>104.2421254290478</longitude>
+			<latitude>17.54846603543214</latitude>
+			<altitude>168.9081985020294</altitude>
+			<heading>127.2105482633576</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.00002407169999</gx:fovy>
+			<range>105.8063321061309</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2420929828465,17.54835575154049,168.442438981852</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F47E8D23E29F2B0873F">
+		<name>RT22 - SG - 2132 - 0200 - 34+107</name>
+		<LookAt>
+			<longitude>104.2419609709715</longitude>
+			<latitude>17.54869622344377</latitude>
+			<altitude>169.5487488098837</altitude>
+			<heading>146.3144596197355</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>87.12014009989616</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2419790784775,17.54867124188472,169.6634129922539</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="086CFC943829F2B0A108">
+		<name>RT23 - SG - 2132 - 0200 - 34+142</name>
+		<LookAt>
+			<longitude>104.2418896629701</longitude>
+			<latitude>17.54883039090737</latitude>
+			<altitude>170.1407584159758</altitude>
+			<heading>146.3144381191935</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>86.52813206264909</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2418719695142,17.54895249981259,170.9897898196252</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04359F734529F2B0BF4E">
+		<name>RT24 - SG - 2132 - 0200 - 34+178</name>
+		<LookAt>
+			<longitude>104.2417296765164</longitude>
+			<latitude>17.54917955512764</latitude>
+			<altitude>170.1404185184051</altitude>
+			<heading>146.3143898799264</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>86.5284797266395</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2417438073102,17.54925509697742,170.4326203265499</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C9B15872129F2B111FE">
+		<name>RT25 - SG - 2132 - 0200 - 34+255</name>
+		<LookAt>
+			<longitude>104.2416625373703</longitude>
+			<latitude>17.549382876744</latitude>
+			<altitude>169.1056638920575</altitude>
+			<heading>95.48958133491297</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>109.62784309977</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2416012661953,17.54961106938952,167.7489043093681</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D6E11EED829F2B141E0">
+		<name>RT26 - SG - 2132 - 0200 - 34+301</name>
+		<LookAt>
+			<longitude>104.2414866034882</longitude>
+			<latitude>17.54987448832427</latitude>
+			<altitude>166.5073434687037</altitude>
+			<heading>95.48953114695507</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>115.3911965453699</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2414499989066,17.5499675756688,166.4596640390479</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FDCCCB1E329F2C369E7">
+		<name>RT27 - SG - 2132 - 0200 - 35+347</name>
+		<LookAt>
+			<longitude>104.2376378522701</longitude>
+			<latitude>17.55951845487516</latitude>
+			<altitude>156.1887205207171</altitude>
+			<heading>11.98884408387759</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>281.6325163645161</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.237668932701,17.55952311406398,156.3802377070002</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="071D6DB6E529F2C3856E">
+		<name>RT28 - SG - 2132 - 0200 - 35+383</name>
+		<LookAt>
+			<longitude>104.2376306941313</longitude>
+			<latitude>17.55964614154278</latitude>
+			<altitude>156.6493480562058</altitude>
+			<heading>11.98884408380085</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>142.812579581514</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2375498245647,17.55980862256948,157.2405735224648</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="046DFEF57929F2C3A4CD">
+		<name>RT29 - SG - 2132 - 0200 - 35+432</name>
+		<LookAt>
+			<longitude>104.2376180434439</longitude>
+			<latitude>17.55997579075495</latitude>
+			<altitude>157.593375670267</altitude>
+			<heading>11.98882260984558</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>292.3320842673638</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2374091000456,17.56015021573472,157.6044927930234</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01BF8F2D0D29F2C3B864">
+		<name>RT30 - SG - 2132 - 0200 - 35+455</name>
+		<LookAt>
+			<longitude>104.2376180434328</longitude>
+			<latitude>17.55997579075495</latitude>
+			<altitude>157.593375670267</altitude>
+			<heading>11.98882260984558</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>292.3320842673638</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2373141580678,17.56045768992514,159.2473264867015</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C7842ADB529F2C3D8F3">
+		<name>RT31 - SG - 2132 - 0200 - 35+488</name>
+		<LookAt>
+			<longitude>104.2376180434217</longitude>
+			<latitude>17.55997579075495</latitude>
+			<altitude>157.593375670267</altitude>
+			<heading>11.98882260984558</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>292.3320842673638</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2371926801106,17.5607627040799,158.5078426583586</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="06D99A148129F2C3F45D">
+		<name>RT32 - SG - 2132 - 0200 - 35+524</name>
+		<LookAt>
+			<longitude>104.2374404847422</longitude>
+			<latitude>17.56072655151585</latitude>
+			<altitude>159.6828363020629</altitude>
+			<heading>11.98876904196639</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>290.2426236850806</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2370387390149,17.56109508269541,154.6953652551164</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0037C0462929F2C4062E">
+		<name>RT33 - SG - 2132 - 0200 - 35+565</name>
+		<LookAt>
+			<longitude>104.2374404847422</longitude>
+			<latitude>17.56072655147359</latitude>
+			<altitude>159.6828363020629</altitude>
+			<heading>11.98876904196639</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>290.2426236850807</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2369522473134,17.56141885305327,155.3014652202374</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C04D5502D29F2C42AA5">
+		<name>RT34 - SG - 2132 - 0200 - 35+596</name>
+		<LookAt>
+			<longitude>104.2372492304985</longitude>
+			<latitude>17.56137222778183</latitude>
+			<altitude>157.4185070631618</altitude>
+			<heading>11.98871134321446</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>292.5069360769339</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2368071112566,17.56170721285544,157.5846254653655</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FC68F860329F2C44193">
+		<name>RT35 - SG - 2132 - 0200 - 35+683</name>
+		<LookAt>
+			<longitude>104.2372492305208</longitude>
+			<latitude>17.56137222773957</latitude>
+			<altitude>157.4185070617472</altitude>
+			<heading>11.98871134321446</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>292.5069360769339</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2366661023952,17.56201694882153,158.8758697321648</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="038539ED5B29F2C9D4D0">
+		<name>LT10 - SG - 2132 - 0200 - 36+865</name>
+		<LookAt>
+			<longitude>104.2324921409961</longitude>
+			<latitude>17.57231319954422</latitude>
+			<altitude>165.6140472483775</altitude>
+			<heading>227.2175718329238</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>130.6788513630818</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2324788948687,17.57227339755109,165.8882719195949</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08D648B6C129F2C9EB1C">
+		<name>RT36 - SG - 2132 - 0200 - 36+895</name>
+		<LookAt>
+			<longitude>104.2324921409961</longitude>
+			<latitude>17.57231319954422</latitude>
+			<altitude>165.6140472483775</altitude>
+			<heading>227.2175718329239</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>130.6788513630818</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2324541176822,17.57255118156356,165.0023163722479</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04232D306C29F2CA0814">
+		<name>LT11 - SG - 2132 - 0200 - 36+922</name>
+		<LookAt>
+			<longitude>104.2324921409961</longitude>
+			<latitude>17.57231319954422</latitude>
+			<altitude>165.6140472483775</altitude>
+			<heading>227.2175718329239</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>130.6788513630818</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2322595955677,17.57267956833955,164.4782167234996</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="07088FC17529F2CA2A5D">
+		<name>LT12 - SG - 2132 - 0200 - 36+944</name>
+		<LookAt>
+			<longitude>104.2323430981577</longitude>
+			<latitude>17.57260345251215</latitude>
+			<altitude>164.6789395569131</altitude>
+			<heading>227.2175264796669</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>131.6139631980514</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2322025975579,17.57290390809636,164.0757087975157</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F6353CBDA29F2CA60E0">
+		<name>RT37 - SG - 2132 - 0200 - 36+960</name>
+		<LookAt>
+			<longitude>104.2324108713415</longitude>
+			<latitude>17.57291065141071</latitude>
+			<altitude>163.6859881005469</altitude>
+			<heading>227.2175463117773</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>132.6069147322233</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2323166026848,17.573106572629,163.899132436496</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08CA53F58629F2CAD0BA">
+		<name>LT13 - SG - 2132 - 0200 - 36+993</name>
+		<LookAt>
+			<longitude>104.2322993203988</longitude>
+			<latitude>17.57349648183421</latitude>
+			<altitude>163.8670884219953</altitude>
+			<heading>227.2175063906832</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>132.4258165596257</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2321979651269,17.57340779055265,164.1389880367939</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D2468506929F2CAF108">
+		<name>RT38 - SG - 2132 - 0200 - 37+025</name>
+		<LookAt>
+			<longitude>104.2322993203987</longitude>
+			<latitude>17.57349648181308</latitude>
+			<altitude>163.8670884219953</altitude>
+			<heading>227.2175063906832</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>132.4258165596257</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2322906608247,17.57367003378722,163.9664925762993</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D0483421129F2CB0C2D">
+		<name>LT14 - SG - 2132 - 0200 - 37+056</name>
+		<LookAt>
+			<longitude>104.2322993203987</longitude>
+			<latitude>17.57349648179195</latitude>
+			<altitude>163.8670884219953</altitude>
+			<heading>227.2175063849536</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>132.4258165596257</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.232235280762,17.57395120096339,163.1882303175892</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04712B286B29F30834A8">
+		<name>LT15 - SG - 2132 - 0200 - 37+900</name>
+		<LookAt>
+			<longitude>104.2329663875298</longitude>
+			<latitude>17.58164136495517</latitude>
+			<altitude>160.9669629030376</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>105.0292799099953</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.232939963835,17.5815992802958,161.1976181030478</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A47E474B429F3086BBF">
+		<name>LT16 - SG - 2132 - 0200 - 37+940</name>
+		<LookAt>
+			<longitude>104.2330178500613</longitude>
+			<latitude>17.58192344589397</latitude>
+			<altitude>160.3079995768982</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>105.6882306485932</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2329795388616,17.58195965790565,160.4049348861508</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="06ABC87E9829F308C77F">
+		<name>LT17 - SG - 2132 - 0200 - 37+980</name>
+		<LookAt>
+			<longitude>104.2330292077457</longitude>
+			<latitude>17.58250077134526</latitude>
+			<altitude>159.6787833626944</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.02729396813193</gx:fovy>
+			<range>104.6747553501882</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.232994551408,17.58222302074117,159.8491187631606</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C2315A4D829F30A4494">
+		<name>LT18 - SG - 2132 - 0200 - 38+020</name>
+		<LookAt>
+			<longitude>104.2330456342668</longitude>
+			<latitude>17.58238542542537</latitude>
+			<altitude>159.781152379587</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.02729396813192</gx:fovy>
+			<range>104.5724030714155</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2330214250259,17.58251747436068,159.8326592170548</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E15D3FECB29F30A7B2D">
+		<name>LT19 - SG - 2132 - 0200 - 38+060</name>
+		<LookAt>
+			<longitude>104.233081983249</longitude>
+			<latitude>17.58272966594859</latitude>
+			<altitude>159.2223553623438</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.02729396813192</gx:fovy>
+			<range>105.1312034031799</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2330458345948,17.58283101133057,158.8653969000228</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="038B09011729F30B0E51">
+		<name>LT20 - SG - 2132 - 0200 - 38+100</name>
+		<LookAt>
+			<longitude>104.2330821350809</longitude>
+			<latitude>17.58301053899129</latitude>
+			<altitude>157.6002565045158</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>113.9794721459657</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2330814319415,17.58311209228624,157.2175434254511</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F7698930729F30B2DD9">
+		<name>LT21 - SG - 2132 - 0200 - 38+140</name>
+		<LookAt>
+			<longitude>104.2330419137533</longitude>
+			<latitude>17.58331593121591</latitude>
+			<altitude>156.1426301710561</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>115.4370881921022</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2331080085581,17.5834124738175,155.9904884891565</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="039285869C29F30B490A">
+		<name>LT22 - SG - 2132 - 0200 - 38+180</name>
+		<LookAt>
+			<longitude>104.2330425352217</longitude>
+			<latitude>17.58372065253754</latitude>
+			<altitude>155.723848537833</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>115.8558726461342</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2331420671915,17.58382129460961,155.9506877043547</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03DCB5B98129F30B60E8">
+		<name>LT23 - SG - 2132 - 0200 - 38+220</name>
+		<LookAt>
+			<longitude>104.2330531856514</longitude>
+			<latitude>17.58404916432892</latitude>
+			<altitude>157.8655077093644</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>113.7142161100928</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2331755757543,17.58417206238951,159.7597998568754</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F1FC99F2C29F30B7858">
+		<name>LT24 - SG - 2132 - 0200 - 38+260</name>
+		<LookAt>
+			<longitude>104.2330947893932</longitude>
+			<latitude>17.58444933717583</latitude>
+			<altitude>162.4183554228158</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>109.1613707350552</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2332051112782,17.5844802498087,162.8528777968195</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01F938090129F30BEC10">
+		<name>LT25 - SG - 2132 - 0200 - 38+300</name>
+		<LookAt>
+			<longitude>104.2332363386519</longitude>
+			<latitude>17.58475826328845</latitude>
+			<altitude>161.0903610036444</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.5872086061609</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2332438843084,17.58479518583496,160.938338939718</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="042B1301BA29F30C0EED">
+		<name>LT26 - SG - 2132 - 0200 - 38+340</name>
+		<LookAt>
+			<longitude>104.2332660323171</longitude>
+			<latitude>17.58493187414993</latitude>
+			<altitude>159.8949700964553</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>107.7826048819407</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2332663660428,17.58514132360441,159.7921503182141</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0510AF0C9529F30D2EA2">
+		<name>LT27 - SG - 2132 - 0200 - 38+380</name>
+		<LookAt>
+			<longitude>104.2333253133444</longitude>
+			<latitude>17.58536840355762</latitude>
+			<altitude>159.069706407045</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>36.60195520223692</gx:fovy>
+			<range>136.7791375705747</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2332935869197,17.58540830855889,159.1779488494899</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F4FA0010A29F30D48BD">
+		<name>LT28 - SG - 2132 - 0200 - 38+420</name>
+		<LookAt>
+			<longitude>104.2333394047706</longitude>
+			<latitude>17.58563034469821</latitude>
+			<altitude>159.0990819417736</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>36.60195520223692</gx:fovy>
+			<range>136.7497715521858</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.233374197726,17.5857731613758,159.39170651196</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AEC50DE4329F30D6C46">
+		<name>LT29 - SG - 2132 - 0200 - 38+460</name>
+		<LookAt>
+			<longitude>104.2334096307203</longitude>
+			<latitude>17.58585588207081</latitude>
+			<altitude>159.117861888731</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>136.7309861079048</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.23348658726,17.58609251864855,159.1059200733336</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D462CF9E329F30D8596">
+		<name>LT30 - SG - 2132 - 0200 - 38+500</name>
+		<LookAt>
+			<longitude>104.2335179116897</longitude>
+			<latitude>17.58612793570031</latitude>
+			<altitude>158.9813189996951</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>136.8675253457332</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2336542141484,17.58645710606309,159.9125856615318</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B1DE2D1D129F310B860">
+		<name>LT31 - SG - 2132 - 0200 - 38+540</name>
+		<LookAt>
+			<longitude>104.2338323042587</longitude>
+			<latitude>17.58677207211824</latitude>
+			<altitude>159.735353986477</altitude>
+			<heading>254.0646238086731</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>166.5160091379585</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>104.2338418897345,17.58682197524594,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0934F5D86229F311C83B">
+		<name>LT32 - SG - 2132 - 0200 - 38+580</name>
+		<LookAt>
+			<longitude>104.2340129583638</longitude>
+			<latitude>17.58727197939796</latitude>
+			<altitude>158.3683917290112</altitude>
+			<heading>254.0646718713971</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>112.7154817648807</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2340325915668,17.58721603052596,158.5946118122538</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AB32D82AF29F312F7B0">
+		<name>LT33 - SG - 2132 - 0200 - 38+620</name>
+		<LookAt>
+			<longitude>104.234202453152</longitude>
+			<latitude>17.5875930568912</latitude>
+			<altitude>158.3810170245968</altitude>
+			<heading>250.6414463064204</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>114.6842797648969</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2342014174373,17.58758167367317,158.5683476230793</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="068E1560CF29F31394EF">
+		<name>LT34 - SG - 2132 - 0200 - 38+660</name>
+		<LookAt>
+			<longitude>104.2343709281027</longitude>
+			<latitude>17.58787418723526</latitude>
+			<altitude>158.9033379072339</altitude>
+			<heading>250.6414821676941</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>100.1644176923765</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2343797984847,17.58793155262164,159.0810975109222</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02A427B3FC29F3146BCF">
+		<name>LT35 - SG - 2132 - 0200 - 38+700</name>
+		<LookAt>
+			<longitude>104.2344932942217</longitude>
+			<latitude>17.58825497873748</latitude>
+			<altitude>158.7636945304739</altitude>
+			<heading>341.4334655836548</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>99.14182200862345</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2345512736132,17.58828732038249,158.8984786902576</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05182E704229F314CE88">
+		<name>LT36 - SG - 2132 - 0200 - 38+740</name>
+		<LookAt>
+			<longitude>104.23475936337</longitude>
+			<latitude>17.58867641788964</latitude>
+			<altitude>158.06721077911</altitude>
+			<heading>297.5665724505766</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>135.21212325546</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2347048381318,17.58869088064563,158.1528369992778</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="021B67375429F314EA01">
+		<name>LT37 - SG - 2132 - 0200 - 38+780</name>
+		<LookAt>
+			<longitude>104.2347968508177</longitude>
+			<latitude>17.58889715461283</latitude>
+			<altitude>157.9761503299521</altitude>
+			<heading>297.5665832512233</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>135.3031996321442</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2348700117529,17.58905083196859,158.1529347447028</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0EB410E8D629F315EB3D">
+		<name>LT38 - SG - 2132 - 0200 - 38+820</name>
+		<LookAt>
+			<longitude>104.2350220203693</longitude>
+			<latitude>17.58942283023709</latitude>
+			<altitude>157.9760859563767</altitude>
+			<heading>-49.84784419536818</heading>
+			<tilt>0.1568544013242382</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>92.31888143069227</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2350150486923,17.58942207487473,158.1528098005632</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0969E93A1429F3160D33">
+		<name>LT39 - SG - 2132 - 0200 - 38+860</name>
+		<LookAt>
+			<longitude>104.2351413590273</longitude>
+			<latitude>17.58966626289554</latitude>
+			<altitude>157.4846034553522</altitude>
+			<heading>-49.84780814361842</heading>
+			<tilt>0.1568544130351268</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>92.8103624251162</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2351448677562,17.58974744778176,157.5076535377377</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0950A45D4629F316574B">
+		<name>LT40 - SG - 2132 - 0200 - 38+900</name>
+		<LookAt>
+			<longitude>104.235210696504</longitude>
+			<latitude>17.59012417337882</latitude>
+			<altitude>156.4861713101603</altitude>
+			<heading>310.1521905681145</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>95.1153804758451</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2352731276466,17.59015607128412,156.6974260919781</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04DFA6E75229F317DD7B">
+		<name>LT41 - SG - 2132 - 0200 - 38+940</name>
+		<LookAt>
+			<longitude>104.235480122515</longitude>
+			<latitude>17.59057809141717</latitude>
+			<altitude>156.1217506963125</altitude>
+			<heading>238.4609987306787</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.4039201504238</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2354274937889,17.59056995148609,156.2963776160232</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02564285BB29F318BFB6">
+		<name>LT42 - SG - 2132 - 0200 - 38+980</name>
+		<LookAt>
+			<longitude>104.2356153893979</longitude>
+			<latitude>17.59105081524743</latitude>
+			<altitude>155.5366666514076</altitude>
+			<heading>213.8546852181442</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>189.709276554895</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2355481163624,17.59096136366416,155.8151194904799</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0688886B6129F31B2C84">
+		<name>LT43 - SG - 2132 - 0200 - 39+020</name>
+		<LookAt>
+			<longitude>104.2356412560366</longitude>
+			<latitude>17.59127153205084</latitude>
+			<altitude>155.1105369340576</altitude>
+			<heading>263.0580888738249</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>171.4367061924349</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2356700775029,17.59134519561676,155.1557909157123</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BADD59C9829F31BA779">
+		<name>LT44 - SG - 2132 - 0200 - 39+060</name>
+		<LookAt>
+			<longitude>104.2357196402385</longitude>
+			<latitude>17.59160225894124</latitude>
+			<altitude>154.9208916029602</altitude>
+			<heading>263.0581124834574</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>171.6263568991963</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2357978277918,17.59171530612343,154.9835475287413</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B6EEA5A8629F31C51F4">
+		<name>LT45 - SG - 2132 - 0200 - 39+100</name>
+		<LookAt>
+			<longitude>104.2359521409324</longitude>
+			<latitude>17.5919500011726</latitude>
+			<altitude>155.4437919637768</altitude>
+			<heading>263.0581121409996</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.00005205439808</gx:fovy>
+			<range>257.6806692981336</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2359426349467,17.59212420379446,155.9868507740187</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B9FC3590629F31D036A">
+		<name>LT46 - SG - 2132 - 0200 - 39+140</name>
+		<LookAt>
+			<longitude>104.2359988190731</longitude>
+			<latitude>17.59212097782346</latitude>
+			<altitude>155.8927736383278</altitude>
+			<heading>263.0581256585736</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.00005205439808</gx:fovy>
+			<range>257.2316960209355</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2360758809124,17.59249253395603,156.0893063705605</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D8821D16429F31D20B1">
+		<name>LT47 - SG - 2132 - 0200 - 39+180</name>
+		<LookAt>
+			<longitude>104.2359988190731</longitude>
+			<latitude>17.59212097776006</latitude>
+			<altitude>155.8927736383278</altitude>
+			<heading>263.0581256585736</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.00005205439808</gx:fovy>
+			<range>257.2316960209355</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2361656919555,17.59279239383165,155.1803658940522</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09607DE3A829F31E961D">
+		<name>LT48 - SG - 2132 - 0200 - 39+220</name>
+		<LookAt>
+			<longitude>104.2362968283699</longitude>
+			<latitude>17.59305449948661</latitude>
+			<altitude>154.4753934760413</altitude>
+			<heading>325.3294195323336</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>194.3616581303831</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2362670852688,17.59307151280318,154.7938456062076</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01AF8CF14B29F31EEAB8">
+		<name>LT49 - SG - 2132 - 0200 - 39+260</name>
+		<LookAt>
+			<longitude>104.2363430386404</longitude>
+			<latitude>17.59317639098134</latitude>
+			<altitude>154.2993097439625</altitude>
+			<heading>357.8628386035394</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>221.2509530180251</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2363668480292,17.5933421529128,154.4854933478819</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E93B3A15B29F31F87C2">
+		<name>LT50 - SG - 2132 - 0200 - 39+300</name>
+		<LookAt>
+			<longitude>104.2363931350204</longitude>
+			<latitude>17.59351241029925</latitude>
+			<altitude>154.7346707225581</altitude>
+			<heading>322.1849711015437</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>81.13279253968359</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2364574315334,17.59362015662404,155.2100392980044</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D10BD034E29F31FFDD4">
+		<name>LT51 - SG - 2132 - 0200 - 39+340</name>
+		<LookAt>
+			<longitude>104.2365901287377</longitude>
+			<latitude>17.59400324194598</latitude>
+			<altitude>155.7316021337526</altitude>
+			<heading>334.4258216452667</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>150.2189119241303</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2365627182682,17.59392441428407,155.8305873308044</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0492E51FA829F320B11C">
+		<name>LT52 - SG - 2132 - 0200 - 39+380</name>
+		<LookAt>
+			<longitude>104.2365806097569</longitude>
+			<latitude>17.5938699847598</latitude>
+			<altitude>155.9255681844285</altitude>
+			<heading>241.1128585472185</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>256.3021352210126</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2366657765234,17.59426743312364,155.7226062881225</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0706E0C20329F321CE44">
+		<name>LT53 - SG - 2132 - 0200 - 39+420</name>
+		<LookAt>
+			<longitude>104.2367161483184</longitude>
+			<latitude>17.59410574345004</latitude>
+			<altitude>156.2835707903</altitude>
+			<heading>241.1128578789933</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>268.4958702441872</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2367404278959,17.59446963552054,155.7976309010811</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0550CA2F5729F321FE76">
+		<name>LT54 - SG - 2132 - 0200 - 39+460</name>
+		<LookAt>
+			<longitude>104.2369093831076</longitude>
+			<latitude>17.5944626419392</latitude>
+			<altitude>155.756902562987</altitude>
+			<heading>241.1129158080858</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>269.0225348344393</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2368612315791,17.5948395555614,155.9490873549286</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05B0869AB229F323386D">
+		<name>LT55 - SG - 2132 - 0200 - 39+500</name>
+		<LookAt>
+			<longitude>104.236909383102</longitude>
+			<latitude>17.59446264189694</latitude>
+			<altitude>155.756902562987</altitude>
+			<heading>241.1129158080858</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>269.0225348344393</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2369438067631,17.59507768531392,155.9199681150506</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08E446829D29F342759D">
+		<name>LT56 - SG - 2132 - 0200 - 40+800</name>
+		<LookAt>
+			<longitude>104.240892813274</longitude>
+			<latitude>17.60665304429419</latitude>
+			<altitude>146.0001708191237</altitude>
+			<heading>280.3944354517388</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>58.68041446948155</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2408158188462,17.60661364077781,146.2172657353895</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0502B9335E29F34342D8">
+		<name>LT57 - SG - 2132 - 0200 - 40+840</name>
+		<LookAt>
+			<longitude>104.2409995045675</longitude>
+			<latitude>17.60703856506808</latitude>
+			<altitude>143.2432282743423</altitude>
+			<heading>292.9459167145463</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>60.85222506229003</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2409769357265,17.6070542238506,143.496904196738</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F3C9166CF29F344B429">
+		<name>LT58 - SG - 2132 - 0200 - 40+880</name>
+		<LookAt>
+			<longitude>104.2411354064863</longitude>
+			<latitude>17.60736956589693</latitude>
+			<altitude>142.0525363962503</altitude>
+			<heading>-65.48005513336784</heading>
+			<tilt>0.4108033756653138</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>104.7822414672191</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2411090800652,17.60737432121213,142.4542036097745</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03BD61B56529F3457F30">
+		<name>LT59 - SG - 2132 - 0200 - 40+920</name>
+		<LookAt>
+			<longitude>104.2412753990029</longitude>
+			<latitude>17.60763763007938</latitude>
+			<altitude>142.474913925652</altitude>
+			<heading>-71.70090507036581</heading>
+			<tilt>0.06146683620781311</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>138.297687525428</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.241230120458,17.60767063649836,142.7901249568568</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="085652B45B29F345DC67">
+		<name>LT60 - SG - 2132 - 0200 - 40+980</name>
+		<LookAt>
+			<longitude>104.2412747919718</longitude>
+			<latitude>17.60772784060198</latitude>
+			<altitude>142.9393845034677</altitude>
+			<heading>288.2990567790501</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>93.82749978421998</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2413610745248,17.60798573767318,143.8646555318022</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="073CFD1E2529F3468357">
+		<name>LT61 - SG - 2132 - 0200 - 41+020</name>
+		<LookAt>
+			<longitude>104.2414660682597</longitude>
+			<latitude>17.60813734197147</latitude>
+			<altitude>143.4466169033132</altitude>
+			<heading>-86.55488648827604</heading>
+			<tilt>0.05890004938155622</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>117.8583129316212</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.241522213451,17.60830893180141,143.6101951366316</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02101F3D8B29F346C71F">
+		<name>LT62 - SG - 2132 - 0200 - 41+060</name>
+		<LookAt>
+			<longitude>104.2416722407181</longitude>
+			<latitude>17.60871259800255</latitude>
+			<altitude>143.8055267076415</altitude>
+			<heading>273.4451303540199</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>176.9825494568431</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2416225065302,17.6085268590228,143.8280790246809</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04D44F4D9829F34765EE">
+		<name>LT63 - SG - 2132 - 0200 - 41+100</name>
+		<LookAt>
+			<longitude>104.2417313859059</longitude>
+			<latitude>17.60875931566606</latitude>
+			<altitude>143.8786259291146</altitude>
+			<heading>278.2729973336143</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>116.4495784425344</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.241772276843,17.60886398095228,144.1678402892692</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04B6E8AB5029F347B826">
+		<name>LT64 - SG - 2132 - 0200 - 41+140</name>
+		<LookAt>
+			<longitude>104.241831800427</longitude>
+			<latitude>17.60903315980804</latitude>
+			<altitude>144.0233689365199</altitude>
+			<heading>-81.72696638523358</heading>
+			<tilt>0.4735693927297487</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>108.0721046867439</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2418839466998,17.60912851047043,144.337478454334</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B516CF94229F34818C4">
+		<name>LT65 - SG - 2132 - 0200 - 41+140</name>
+		<LookAt>
+			<longitude>104.2419803765433</longitude>
+			<latitude>17.60922202397117</latitude>
+			<altitude>144.2227885515532</altitude>
+			<heading>-81.76924488830747</heading>
+			<tilt>2.215527871462809</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>152.6090323253084</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2420564744413,17.60949028462582,145.0424537290226</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0EAC1F9ED129F348ACC7">
+		<name>LT66 - SG - 2132 - 0200 - 41+180</name>
+		<LookAt>
+			<longitude>104.2421807759299</longitude>
+			<latitude>17.60968662142082</latitude>
+			<altitude>144.9950690367863</altitude>
+			<heading>-69.639715623776</heading>
+			<tilt>0.5764351525386614</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>165.1858119443023</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2422374442223,17.60988187599994,144.5614957155553</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04A57E166A29F3499F41">
+		<name>LT67 - SG - 2132 - 0200 - 41+300</name>
+		<LookAt>
+			<longitude>104.2428725602542</longitude>
+			<latitude>17.61102057933926</latitude>
+			<altitude>143.8731373352337</altitude>
+			<heading>355.9986084031158</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>115.9284764761287</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.242746176531,17.61097535342091,143.9537945895079</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08A5A70AC229F34B066B">
+		<name>LT68 - SG - 2132 - 0200 - 41+340</name>
+		<LookAt>
+			<longitude>104.2428667840342</longitude>
+			<latitude>17.61120083704506</latitude>
+			<altitude>143.8687798446993</altitude>
+			<heading>14.59741213563493</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>185.3402063651811</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2429419447501,17.61142153697021,144.1627759948219</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A5B98D29B29F34BD620">
+		<name>LT69 - SG - 2132 - 0200 - 41+380</name>
+		<LookAt>
+			<longitude>104.2433375466904</longitude>
+			<latitude>17.61168229214116</latitude>
+			<altitude>145.0336067653817</altitude>
+			<heading>331.8311183502209</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>229.8480345277494</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2431724853544,17.6119020880809,145.4766711996305</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0EB412D8F029F34C3E80">
+		<name>LT70 - SG - 2132 - 0200 - 41+420</name>
+		<LookAt>
+			<longitude>104.2432328933078</longitude>
+			<latitude>17.61186664061312</latitude>
+			<altitude>145.3998440989957</altitude>
+			<heading>290.0941245059373</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.00001408027598</gx:fovy>
+			<range>499.9997356477979</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2433746075277,17.61235175043001,148.39254106026</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05E3F656AE29F34CD8B7">
+		<name>LT71 - SG - 2132 - 0200 - 41+480</name>
+		<LookAt>
+			<longitude>104.2435196528995</longitude>
+			<latitude>17.6125615714968</latitude>
+			<altitude>149.8097184792609</altitude>
+			<heading>290.7195505036214</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>287.8147469745455</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2435753965798,17.6127835997955,149.7395550345088</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DB1573CC229F34D6CBC">
+		<name>LT72 - SG - 2132 - 0200 - 41+530</name>
+		<LookAt>
+			<longitude>104.2438096105763</longitude>
+			<latitude>17.61323283810794</latitude>
+			<altitude>149.4727127158519</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>159.9146695875061</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2437430893499,17.6132707584875,149.6960301657273</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="015994B99329F34E2390">
+		<name>LT73 - SG - 2132 - 0200 - 41+580</name>
+		<LookAt>
+			<longitude>104.2438719831039</longitude>
+			<latitude>17.61355464453431</latitude>
+			<altitude>150.5450816434918</altitude>
+			<heading>3.449767288887765</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>149.4015191163089</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2439186113895,17.6137960372314,151.1038671533372</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="034AC27BB829F34F256F">
+		<name>LT74 - SG - 2132 - 0200 - 41+620</name>
+		<LookAt>
+			<longitude>104.2440003293178</longitude>
+			<latitude>17.61413249884158</latitude>
+			<altitude>153.7322023237754</altitude>
+			<heading>-21.52387706712559</heading>
+			<tilt>3.228657883267043</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>120.7923652345744</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2440132796227,17.61406343335085,154.738102811394</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E697D42B729F34FC56C">
+		<name>LT75 - SG - 2132 - 0200 - 41+660</name>
+		<LookAt>
+			<longitude>104.2440870116706</longitude>
+			<latitude>17.61413239718893</latitude>
+			<altitude>154.3619025457823</altitude>
+			<heading>275.9803630865688</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>127.3587181987932</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2440971192825,17.61434994976633,154.7415118123209</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="010E81D56029F3508BFC">
+		<name>LT76 - SG - 2132 - 0200 - 41+700</name>
+		<LookAt>
+			<longitude>104.2441315735727</longitude>
+			<latitude>17.61432726627933</latitude>
+			<altitude>155.5039438110049</altitude>
+			<heading>285.6378955494089</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>142.8724473206603</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2441668133716,17.61460446572761,156.0877409071504</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BAA5DD28629F351913A">
+		<name>LT77 - SG - 2132 - 0200 - 41+740</name>
+		<LookAt>
+			<longitude>104.2442847404142</longitude>
+			<latitude>17.61487120431037</latitude>
+			<altitude>154.1711967291716</altitude>
+			<heading>295.7784626418096</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>131.2444543202583</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2442373798379,17.61483680405933,154.5671978051202</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0752DB94A629F351C010">
+		<name>LT78 - SG - 2132 - 0200 - 41+790</name>
+		<LookAt>
+			<longitude>104.2442847404586</longitude>
+			<latitude>17.61487120431037</latitude>
+			<altitude>154.1711967291716</altitude>
+			<heading>295.7784626418096</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>131.2444543202582</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.244339973642,17.61521065190341,151.2752782738028</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="066A580FF529F3524475">
+		<name>LT79 - SG - 2132 - 0200 - 41+830</name>
+		<LookAt>
+			<longitude>104.2444534344095</longitude>
+			<latitude>17.615415559573</latitude>
+			<altitude>151.1201827112852</altitude>
+			<heading>277.9471505544697</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>221.6467105270931</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2444084647035,17.6154471337533,151.466959430018</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04B93E8BF829F352C071">
+		<name>LT80 - SG - 2132 - 0200 - 41+870</name>
+		<LookAt>
+			<longitude>104.2444859276336</longitude>
+			<latitude>17.61556361090832</latitude>
+			<altitude>151.3574995007044</altitude>
+			<heading>294.4523027839696</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>140.0066646366213</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2444812735983,17.61569797282593,151.9155855630961</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0691F0CFF229F353C86F">
+		<name>LT81 - SG - 2132 - 0200 - 41+920</name>
+		<LookAt>
+			<longitude>104.2444859276336</longitude>
+			<latitude>17.61556361086606</latitude>
+			<altitude>151.3574995007044</altitude>
+			<heading>294.4523027725104</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>140.0066646366213</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.244575715511,17.61602825556853,153.1763450955793</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="093A0F30F029F354733A">
+		<name>LT82 - SG - 2132 - 0200 - 41+960</name>
+		<LookAt>
+			<longitude>104.2447017302205</longitude>
+			<latitude>17.61629726442484</latitude>
+			<altitude>153.6883717461979</altitude>
+			<heading>-33.77261173037711</heading>
+			<tilt>0.1680343838620176</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>100.0852198353641</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.244642104408,17.61623080295556,153.2640263800734</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="06E4E170F429F354F2F6">
+		<name>LT83 - SG - 2132 - 0200 - 42+000</name>
+		<LookAt>
+			<longitude>104.2447246959491</longitude>
+			<latitude>17.61668482881405</latitude>
+			<altitude>153.7105174529178</altitude>
+			<heading>271.9723436738969</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>148.8110929502182</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2447393682402,17.61655931663031,153.9808771616519</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B3033318229F355070F">
+		<name>LT84 - SG - 2132 - 0200 - 42+040</name>
+		<LookAt>
+			<longitude>104.2447246959713</longitude>
+			<latitude>17.61668482884575</latitude>
+			<altitude>153.7105174529178</altitude>
+			<heading>271.9723436738969</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>148.8110929502182</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2448093389072,17.61681032150079,153.6815067289821</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05097BD53929F35603B6">
+		<name>LT85 - SG - 2132 - 0200 - 42+080</name>
+		<LookAt>
+			<longitude>104.244640913153</longitude>
+			<latitude>17.61705421036837</latitude>
+			<altitude>151.993888671222</altitude>
+			<heading>2.276731677522968</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35.00000533303839</gx:fovy>
+			<range>227.3142361881401</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2448845340575,17.61709154365337,152.5548400192495</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="06C158F47B29F35FA1F7">
+		<name>LT86 - SG - 2132 - 0200 - 42+200</name>
+		<LookAt>
+			<longitude>104.2450442825259</longitude>
+			<latitude>17.61777600065502</latitude>
+			<altitude>156.0406808831726</altitude>
+			<heading>329.1651317743057</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>145.8192009480626</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2450611728928,17.6176707278934,155.644572855773</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DD26CE54929F36231E3">
+		<name>LT87 - SG - 2132 - 0200 - 42+250</name>
+		<LookAt>
+			<longitude>104.245142191446</longitude>
+			<latitude>17.61794420338004</latitude>
+			<altitude>156.4194115256766</altitude>
+			<heading>270.2007694405315</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>154.9714323176522</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2451516806058,17.6179408223222,156.5729147284669</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E7F4A1C1529F363716A">
+		<name>LT88 - SG - 2132 - 0200 - 42+320</name>
+		<LookAt>
+			<longitude>104.2452274458456</longitude>
+			<latitude>17.61837977364587</latitude>
+			<altitude>156.5290782892622</altitude>
+			<heading>336.1269290920329</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>190.5706256799022</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2452928181384,17.61842623828892,156.854436182042</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0CBE0A81D929F363EF4D">
+		<name>LT89 - SG - 2132 - 0200 - 42+370</name>
+		<LookAt>
+			<longitude>104.2453908811691</longitude>
+			<latitude>17.61896726536591</latitude>
+			<altitude>156.4780285034414</altitude>
+			<heading>338.5220122904539</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>123.6276577866556</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2454282938189,17.6189191004379,156.7065801256477</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BBB2DE49D29F3640EEE">
+		<name>LT90 - SG - 2132 - 0200 - 42+420</name>
+		<LookAt>
+			<longitude>104.2453641543134</longitude>
+			<latitude>17.61916634871873</latitude>
+			<altitude>156.6461863340111</altitude>
+			<heading>338.5220036669301</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>123.4595043033005</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2455071126755,17.61937619630793,156.5492440829586</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01D19B8A5429F365536C">
+		<name>LT91 - SG - 2132 - 0200 - 42+470</name>
+		<LookAt>
+			<longitude>104.2457150260551</longitude>
+			<latitude>17.6198155207029</latitude>
+			<altitude>158.6615503818467</altitude>
+			<heading>18.26446145270677</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>69.22202123829267</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2456887582617,17.61978754436368,158.4862985062218</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0CEF6C3AEC29F365D46F">
+		<name>LT92 - SG - 2132 - 0200 - 42+530</name>
+		<LookAt>
+			<longitude>104.2459080435958</longitude>
+			<latitude>17.62078162194085</latitude>
+			<altitude>158.4963735464803</altitude>
+			<heading>355.0116783461306</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>193.3323757092148</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2458044423554,17.62020495590233,160.2798480329605</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DD93808A229F366B3D8">
+		<name>LT93 - SG - 2132 - 0200 - 42+600</name>
+		<LookAt>
+			<longitude>104.2459197123032</longitude>
+			<latitude>17.62075983955239</latitude>
+			<altitude>158.6306183929496</altitude>
+			<heading>355.0116783230243</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>121.9135584260039</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2459496788351,17.62074013295777,159.0665694176994</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="033688CCEB29F367AD46">
+		<name>LT94 - SG - 2132 - 0200 - 42+650</name>
+		<LookAt>
+			<longitude>104.2460673366854</longitude>
+			<latitude>17.6210831117156</latitude>
+			<altitude>158.2207005038061</altitude>
+			<heading>-0.06788278654836569</heading>
+			<tilt>0.4815841411782381</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>59.30364852746608</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2460381022317,17.62111470188216,158.3061566351811</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="06ACC9D95929F3684746">
+		<name>LT95 - SG - 2132 - 0200 - 42+700</name>
+		<LookAt>
+			<longitude>104.2461908025448</longitude>
+			<latitude>17.62122181504686</latitude>
+			<altitude>158.687061575302</altitude>
+			<heading>16.21832898540926</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>154.4265501343034</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2461378738706,17.62147667892863,158.4446897992782</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0504727F6029F369062F">
+		<name>LT96 - SG - 2132 - 0200 - 42+750</name>
+		<LookAt>
+			<longitude>104.246338031212</longitude>
+			<latitude>17.62200230134217</latitude>
+			<altitude>158.903376849675</altitude>
+			<heading>295.6432494423347</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.5063071955956</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2463242222228,17.62198856821395,159.0811249574772</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FB034F30B29F36958E9">
+		<name>LT97 - SG - 2132 - 0200 - 42+800</name>
+		<LookAt>
+			<longitude>104.246419580032</longitude>
+			<latitude>17.6220833305173</latitude>
+			<altitude>159.3058813757413</altitude>
+			<heading>295.6432490873862</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>149.9401085814316</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2464923169936,17.62250049319604,159.3905494838796</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0027B28A2229F369DDE7">
+		<name>LT98 - SG - 2132 - 0200 - 42+850</name>
+		<LookAt>
+			<longitude>104.2466595027478</longitude>
+			<latitude>17.62304517749805</latitude>
+			<altitude>158.8758550631345</altitude>
+			<heading>-49.04212136521078</heading>
+			<tilt>0.2093283018890238</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>116.7026546499438</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.246629177487,17.6229871737846,159.1651716227144</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="014EC5272B29F36A6BBD">
+		<name>LT99 - SG - 2132 - 0200 - 42+900</name>
+		<LookAt>
+			<longitude>104.2466393055415</longitude>
+			<latitude>17.62297135654136</latitude>
+			<altitude>159.1636897079422</altitude>
+			<heading>284.8392101771302</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>190.2445284457099</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.246742851247,17.62336763345136,155.9184640410018</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02ABAB21A029F36B1F3A">
+		<name>LT100 - SG - 2132 - 0200 - 42+950</name>
+		<LookAt>
+			<longitude>104.2466813819832</longitude>
+			<latitude>17.62363596854101</latitude>
+			<altitude>154.8687919782701</altitude>
+			<heading>284.8393378107891</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>194.539488261471</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2468928373945,17.62387250437815,155.0731285312162</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="067B5DFE0129F38C1081">
+		<name>RT39 - SG - 2132 - 0200 - 41+320</name>
+		<LookAt>
+			<longitude>104.2430101145928</longitude>
+			<latitude>17.61105520391077</latitude>
+			<altitude>143.8108771596917</altitude>
+			<heading>29.95574238773062</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>135.2753981017122</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2429257791916,17.6111549406773,144.082911503366</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="066918963329F38CDF1E">
+		<name>RT40 - SG - 2132 - 0200 - 41+360</name>
+		<LookAt>
+			<longitude>104.2430732678499</longitude>
+			<latitude>17.6115213034325</latitude>
+			<altitude>144.0414482392479</altitude>
+			<heading>73.16897718571992</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>84.913093761661</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2431318331692,17.61161848742639,144.3882752751279</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E169E997029F38CFE62">
+		<name>RT41 - SG - 2132 - 0200 - 41+400</name>
+		<LookAt>
+			<longitude>104.2432646020169</longitude>
+			<latitude>17.61190797653263</latitude>
+			<altitude>145.6584462866139</altitude>
+			<heading>73.16903507719604</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>83.29609115912717</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.243344970612,17.61206222657626,146.6651635533109</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="063A578B4D29F38D1F62">
+		<name>RT42 - SG - 2132 - 0200 - 41+450</name>
+		<LookAt>
+			<longitude>104.243504953226</longitude>
+			<latitude>17.61238494971552</latitude>
+			<altitude>149.0266244513778</altitude>
+			<heading>73.16910780137646</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>79.92791662576565</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2435567045315,17.61252099238401,150.1999069547937</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A8FB50A5B29F38D4822">
+		<name>RT43 - SG - 2132 - 0200 - 41+500</name>
+		<LookAt>
+			<longitude>104.2437247832526</longitude>
+			<latitude>17.61279417433786</latitude>
+			<altitude>150.1561865725847</altitude>
+			<heading>73.16917431769754</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>78.79835052656745</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2437699754904,17.61296683360569,149.782504541072</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F549D6C7229F3966F47">
+		<name>RT44 - SG - 2132 - 0200 - 41+560</name>
+		<LookAt>
+			<longitude>104.2438204836227</longitude>
+			<latitude>17.61352299000152</latitude>
+			<altitude>150.4142033461588</altitude>
+			<heading>267.119372153831</heading>
+			<tilt>0</tilt>
+			<gx:fovy>34.99999999999999</gx:fovy>
+			<range>207.932293209924</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2440247526792,17.61356735754888,150.5111445881593</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A486A226329F397E0ED">
+		<name>RT45 - SG - 2132 - 0200 - 42+340</name>
+		<LookAt>
+			<longitude>104.2454236381776</longitude>
+			<latitude>17.6185965263867</latitude>
+			<altitude>156.6388368267479</altitude>
+			<heading>5.707574002505858e-09</heading>
+			<tilt>0.1340026271805586</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>109.6253746854381</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2455169771286,17.61857252065444,157.0753922417396</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01857CA87129F3980416">
+		<name>RT46 - SG - 2132 - 0200 - 42+390</name>
+		<LookAt>
+			<longitude>104.2455629939452</longitude>
+			<latitude>17.61885588806421</latitude>
+			<altitude>156.815296500224</altitude>
+			<heading>2.218025608757255e-09</heading>
+			<tilt>0.1340026231225646</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>109.4489120327125</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2456428447135,17.61904340597884,156.9827458400326</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B042A0A5129F398235B">
+		<name>RT47 - SG - 2132 - 0200 - 42+440</name>
+		<LookAt>
+			<longitude>104.2457467360909</longitude>
+			<latitude>17.61942536711819</latitude>
+			<altitude>157.4966867071843</altitude>
+			<heading>-4.049155151728451e-09</heading>
+			<tilt>0.1340026068416301</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>108.7675137891347</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2457773733253,17.61948598235512,157.9906665362454</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0EE46A638C29F3984851">
+		<name>RT48 - SG - 2132 - 0200 - 42+500</name>
+		<LookAt>
+			<longitude>104.2459165976457</longitude>
+			<latitude>17.61989946934409</latitude>
+			<altitude>159.632001392846</altitude>
+			<heading>2.996579814943512e-09</heading>
+			<tilt>0.1340025614557268</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.6321963265182</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.245916925092,17.61996379118077,159.866471860332</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="062EAC022129F398AD1D">
+		<name>RT49 - SG - 2132 - 0200 - 42+560</name>
+		<LookAt>
+			<longitude>104.2460379169111</longitude>
+			<latitude>17.62029762738501</latitude>
+			<altitude>159.329211552004</altitude>
+			<heading>-7.073614328606279e-09</heading>
+			<tilt>0.1340025677630274</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.9349884845542</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2460293769902,17.62038309015143,159.4832168344741</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F949C471029F398CF7F">
+		<name>RT50 - SG - 2132 - 0200 - 42+620</name>
+		<LookAt>
+			<longitude>104.2461804624982</longitude>
+			<latitude>17.62078386105377</latitude>
+			<altitude>158.9131451199405</altitude>
+			<heading>-2.930623501436237e-10</heading>
+			<tilt>0.1340025742280782</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>107.3510495706614</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2461817810396,17.62085015017627,159.0955793217188</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F9E91EC0129F398F42C">
+		<name>RT51 - SG - 2132 - 0200 - 42+680</name>
+		<LookAt>
+			<longitude>104.2463409853926</longitude>
+			<latitude>17.62110479928534</latitude>
+			<altitude>160.1915850380629</altitude>
+			<heading>9.193728162515383e-09</heading>
+			<tilt>0.1340025471140284</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.0726079563756</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2463154961198,17.6213013329318,160.0578514655807</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E07E5349829F3992D3B">
+		<name>RT52 - SG - 2132 - 0200 - 42+730</name>
+		<LookAt>
+			<longitude>104.2465280920031</longitude>
+			<latitude>17.62170594051027</latitude>
+			<altitude>159.5726431633694</altitude>
+			<heading>1.442533291256871e-08</heading>
+			<tilt>0.1340025585645406</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>106.6915541584785</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2464447245658,17.62176882091554,159.5562909334978</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09B242F13D29F39A8D20">
+		<name>RT53 - SG - 2132 - 0200 - 42+780</name>
+		<LookAt>
+			<longitude>104.2466758469753</longitude>
+			<latitude>17.6219569855143</latitude>
+			<altitude>160.1394719812862</altitude>
+			<heading>0.006086467595742504</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>170.0445552756901</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2465663382955,17.62223489764581,160.4700450556582</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0917B9CB1E29F39AAF37">
+		<name>RT54 - SG - 2132 - 0200 - 42+830</name>
+		<LookAt>
+			<longitude>104.2468403071892</longitude>
+			<latitude>17.62238639813468</latitude>
+			<altitude>159.7117730468099</altitude>
+			<heading>0.00608646310465409</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>170.4722746942753</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2467167318142,17.6226934120748,159.7688514871365</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08E58D462A29F39ACE43">
+		<name>RT55 - SG - 2132 - 0200 - 42+880</name>
+		<LookAt>
+			<longitude>104.2469641938953</longitude>
+			<latitude>17.62288546953675</latitude>
+			<altitude>158.9660220444129</altitude>
+			<heading>0.006086460769286805</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>171.2180371312752</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.246859688923,17.62316977947832,158.4019235968979</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09CCFD9DE229F39AEA7E">
+		<name>RT56 - SG - 2132 - 0200 - 42+930</name>
+		<LookAt>
+			<longitude>104.2471105455151</longitude>
+			<latitude>17.62334821374973</latitude>
+			<altitude>156.9101474629846</altitude>
+			<heading>0.00608645891296858</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>173.2739017832864</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B7B82359029FE03CE94</styleUrl>
+		<Point>
+			<coordinates>104.2469615856487,17.62354180404445,155.8128447474729</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

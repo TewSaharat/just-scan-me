@@ -1,0 +1,319 @@
+/* General Styles */
+.sidebar {
+    width: 60px;
+    height: 100vh;
+    background-color: #fcfcfc; /* สีของ Sidebar */
+    position: fixed; /* Fixed position to keep sidebar in place */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); 
+    z-index: 1023;
+}
+
+.sidebar.hidden {
+    width: 60px; /* ความกว้างเมื่อหด */
+}
+
+.sidebar.expanded {
+    width: 200px; /* ขยาย Sidebar */
+}
+
+.sidebar.expanded .nav li a span {
+    opacity: 1; /* แสดงข้อความเมื่อขยาย */
+    visibility: visible; /* แสดงข้อความเมื่อขยาย */
+}
+
+.main-content {
+    margin-left: 60px; /* ความกว้างเมื่อ Sidebar หด */
+    padding: 10px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar.expanded ~ .main-content {
+    margin-left: 200px; /* ปรับความกว้างเมื่อ Sidebar ขยาย */
+}
+
+.sidebar .nav li a span {
+    opacity: 0; /* ซ่อนข้อความ */
+    visibility: hidden; /* ซ่อนข้อความ */
+    margin-left: 10px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar:hover .nav li a span,
+.sidebar:not(.hidden):hover .nav li a span {
+    opacity: 1; /* แสดงข้อความเมื่อ Hover */
+    visibility: visible; /* แสดงข้อความเมื่อ Hover */
+}
+
+.sidebar:hover {
+    width: 200px; /* ขยาย Sidebar เมื่อ Hover */
+}
+
+.sidebar .logo {
+    width: 100%;
+    background-color: #157be8;
+    box-sizing: border-box;
+    margin: -14px;
+}
+
+.sidebar .logo_just {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+}
+
+.sidebar .logo_just:hover {
+    background-color: #ff8d41;
+}
+
+.sidebar .logo img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.nav {
+    margin: 20px;
+}
+
+.sidebar .nav {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar .nav li {
+    width: 100%;
+}
+
+.sidebar .nav li a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 20px;
+    color: rgb(0, 0, 0); /* สีของข้อความใน Sidebar */
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+}
+
+.sidebar .nav li a.active, 
+.sidebar .nav li a:hover {
+    background-color: #ff8d41; /* สีฟ้าเข้มขึ้นเมื่อ Hover */
+}
+
+.sidebar .nav li a img {
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: 60px; /* ความกว้างเมื่อ Sidebar หด */
+    padding: 10px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 200px; /* ปรับความกว้างเมื่อ Sidebar ถูกขยาย */
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0; /* Fixed position at the top */
+    display: flex;
+    align-items: center;
+    background-color: #157be8; /* สีฟ้าของ Header */
+    color: rgb(255, 255, 255);
+    padding: 8px 5rem;
+    margin: -5px -14px;     
+    z-index: 1010;
+}
+
+.menu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px; 
+}
+
+.Home_header {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    color: white; 
+    font-size: 20px; 
+    margin: 15px ;
+    text-decoration: none;
+}
+
+.Home_header img, .login_header img, .menu_bar img {
+    width: 25px; 
+    height: 25px; 
+}
+
+.login_header {
+    display: flex;
+    padding-left: 69%;
+    gap: 5px; 
+    color: white; 
+    font-size: 20px; 
+    text-decoration: none;
+}
+
+.menu_bar {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.Home_header:hover, 
+.login_header:hover, 
+.menu_bar:hover {
+    color: #f0f0f0af; 
+}
+
+.header_body .title {
+    text-align: center;
+    font-size: 30px;
+    color: #007bff;
+    margin-top: 5rem;
+}
+
+body {
+    background-color: rgb(248, 248, 248);
+}
+
+/* User Header Styles */
+.user-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* เพิ่มระยะห่างระหว่างชื่อและไอคอน Logout */
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.logout_logo img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.logout_logo img:hover {
+    opacity: 0.8; /* เอฟเฟกต์จางลงเมื่อ Hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 200px; /* Default expanded for large screens */
+    }
+
+    .main-content {
+        margin-left: 200px; /* Adjust for expanded sidebar */
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 60px; /* Sidebar shrinks on medium screens */
+    }
+
+    .sidebar.expanded {
+        width: 180px;
+    }
+
+    .main-content {
+        margin-left: 60px; /* Adjust for shrinking sidebar */
+    }
+
+    .header {
+        padding: 8px 3rem;
+    }
+
+    .menu-bar {
+        display: none;
+    }
+
+    .login_header {
+        padding-left: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px; /* Sidebar shrinks more on smaller screens */
+    }
+
+    .sidebar.expanded {
+        width: 160px;
+    }
+
+    .main-content {
+        margin-left: 50px;
+    }
+
+    .header {
+        padding: 8px 2rem;
+    }
+
+    .Home_header, .login_header {
+        font-size: 16px; /* Smaller font size */
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .login_header {
+        padding-left: 40%;
+    }
+
+    .menu-bar img {
+        display: none; /* Hide menu icon on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 50px; /* Even smaller sidebar on very small screens */
+    }
+
+    .sidebar.expanded {
+        width: 150px;
+    }
+
+    .main-content {
+        margin-left: 50px; /* Adjust for even smaller sidebar */
+    }
+
+    .header {
+        padding: 8px 1rem;
+    }
+
+    .Home_header, .login_header {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .login_header {
+        padding-left: 30%;
+    }
+}

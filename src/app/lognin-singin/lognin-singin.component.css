@@ -1,0 +1,126 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+ /* ปรับตำแหน่งปุ่ม */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* ปุ่ม Login และ Close */
+.btn-login, .btn-close {
+  flex-grow: 1; /* Allow both buttons to expand equally */
+  min-width: 120px; /* Ensure a minimum width */
+  max-width: 150px; /* Prevent excessive expansion */
+  height: 45px; /* Fixed height to ensure consistency */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-sizing: border-box; /* Ensure dimensions include padding & border */
+}
+
+
+/* ปุ่ม Login (น้ำเงิน) */
+.btn-login {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+/* ปุ่ม Close (แดง) */
+.btn-close {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* ปรับปุ่ม Close ให้แสดงข้อความถูกต้อง */
+.btn-close::before {
+  content: none !important; /* ป้องกันไอคอน X แสดง */
+}
+
+.btn-close:hover {
+  background-color: #c82333;
+}
+
+/* ปรับขนาดเมื่อกดปุ่ม */
+.btn-close:active, .btn-login:active {
+  transform: scale(0.95);
+}
+
+
+  .popup {
+    position: absolute;
+    top: 240px; /* ระยะห่างจากไอคอน */
+    left: 85%; /* เลื่อนให้อยู่กลางไอคอน */
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    width: 350px;
+  }
+  

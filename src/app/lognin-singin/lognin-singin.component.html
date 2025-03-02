@@ -1,0 +1,30 @@
+<div class="popup-overlay" (click)="closePopup()"></div>
+<div class="popup">
+  
+  <div *ngIf="!isLoggedIn">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="email" required />
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" required />
+    </div>
+    
+    <div class="button-group">
+      <button type="submit" class="btn-login">Login</button>
+      <button type="button" (click)="closePopup()" class="btn-close"></button>
+    </div>
+    
+    
+  </form>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <p>สวัสดี, {{ user.name }}</p>
+    <button (click)="logout()" class="btn-logout">Logout</button>
+    
+  </div>
+
+</div>

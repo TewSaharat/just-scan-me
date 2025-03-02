@@ -1,0 +1,14 @@
+<div class="notifyContent" *ngIf="isNotifyVisible">
+    <img class="logo" src="/assets/11952backhandindexpointingdown_111472.png" alt="Logo" width="100">
+    <a class="notify" (click)="notifyContent()">แจ้งเสาไฟส่องสว่างขัดข้อง</a>
+    <!-- <h1 class="number">{{name_id}}</h1> -->
+</div>
+
+<div class="Received" *ngIf="isReceivedVisible">
+    <img src="./assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" class="imgDepartment" width="100" alt="Seal">
+    <h1>แขวงทางหลวงนครพนม</h1>
+    <h1>ได้รับเรื่องแจ้งเสาไฟส่องสว่างขัดข้อง</h1>
+    <h1 class="nameid_Received">{{name_id}}</h1>
+    <h1>เรียบร้อยแล้ว</h1>
+    <h1>จะเร่งดำเนินการแก้ไขต่อไป</h1>
+</div>

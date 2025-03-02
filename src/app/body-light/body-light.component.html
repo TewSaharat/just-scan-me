@@ -1,0 +1,40 @@
+<div id="total">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><img src="assets/image/street-lamp-32.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">เสีย/เสาไฟทั้งหมด</span>
+                    <span class="info-box-number"> {{totalFaulty}}/{{ totalMarkers }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+                <span class="info-box-icon bg-info"><img src="assets/image/db-32.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">เสีย/เสาไฟแบบ DB</span>
+                    <span class="info-box-number"> {{totalFaultyDB}}/{{ totalDB }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+                <span class="info-box-icon bg-info"><img src="assets/image/sg-32.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">เสีย/เสาไฟแบบ SG</span>
+                    <span class="info-box-number"> {{totalFaultySG}}/{{ totalSG }} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+                <span class="info-box-icon bg-warning"><img src="assets/image/bulb-1294335_640.png" width="20"> </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">เสีย/หลอดไฟ</span>
+                    <span class="info-box-number"> {{faultyBulbs}}/{{ (totalDB*2) + totalSG }}  </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

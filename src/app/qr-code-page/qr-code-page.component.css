@@ -1,0 +1,84 @@
+.qrcode{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px; /* เพิ่มความกว้างของพื้นหลัง */
+    height: auto; /* ใช้ความสูงอัตโนมัติ */
+    max-height: 800px; /* ลดความสูงสูงสุด */
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
+    margin: auto; /* จัดให้อยู่กึ่งกลาง */
+}
+
+.qrcode img {
+    margin-bottom: 20px; 
+    max-width: 150px; 
+}
+
+.download-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* เพิ่มความกว้างของพื้นหลัง */
+  height: auto; /* ใช้ความสูงอัตโนมัติ */
+  max-height: 800px; /* ลดความสูงสูงสุด */
+  padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
+  margin: auto; /* จัดให้อยู่กึ่งกลาง */
+    text-decoration: none; 
+    color: #007bff; 
+    font-weight: bold; 
+    padding: 5px 10px; 
+    border: 1px solid #007bff; 
+    border-radius: 5px; 
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+  }
+  
+  .download-link:hover {
+    background-color: #007bff;
+    color: #fff; 
+    border-color: #0056b3; 
+  }
+  
+  .closeDialog{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* เพิ่มความกว้างของพื้นหลัง */
+  height: auto; /* ใช้ความสูงอัตโนมัติ */
+  max-height: 800px; /* ลดความสูงสูงสุด */
+  padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
+  margin: auto; /* จัดให้อยู่กึ่งกลาง */
+    text-decoration: none; 
+    color: #007bff; 
+    font-weight: bold; 
+    padding: 5px 10px; 
+    border: 1px solid #007bff; 
+    border-radius: 5px; 
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+  }
+
+  .onCancel{
+   
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* เพิ่มความกว้างของพื้นหลัง */
+  height: auto; /* ใช้ความสูงอัตโนมัติ */
+  max-height: 800px; /* ลดความสูงสูงสุด */
+  padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
+  margin: auto; /* จัดให้อยู่กึ่งกลาง */
+    text-decoration: none; 
+    color: #ff0000; 
+    font-weight: bold; 
+    padding: 5px 10px; 
+    border: 1px solid #ff0000; 
+    border-radius: 5px; 
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+  }

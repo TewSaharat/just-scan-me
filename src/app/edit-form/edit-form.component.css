@@ -1,0 +1,203 @@
+
+
+/* Section Header */
+.form-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007bff;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+/* Column Layout */
+.form-column {
+  flex: 1;
+  margin: 0 10px;
+}
+
+/* Label Styles */
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Input and Select Fields */
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* Toggle Button Container */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Default State */
+.switch .slider {
+  background-color: #ff0000; /* สีแดงเป็นค่าเริ่มต้น */
+}
+
+/* When Checked */
+.switch input:checked + .slider {
+  background-color: #2e911a; /* สีเขียวเมื่อเปิด */
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+
+/* Repair Items Grid */
+.repair-item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* สร้าง 2 คอลัมน์ */
+  gap: 10px; /* ระยะห่างระหว่างไอเท็ม */
+  align-items: center; /* ทำให้กล่องเช็คบ็อกซ์ตรงกับข้อความ */
+}
+
+/* Repair Item Styling */
+.repair-item {
+  display: flex;
+  align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+  font-size: 14px; /* ลดขนาดตัวอักษร */
+  font-weight: bold; /* ทำตัวหนา */
+  color: #333; /* สีข้อความ */
+  padding: 3px 0; /* ลดระยะห่างแนวตั้ง */
+}
+
+/* Checkbox Styling */
+.repair-item input[type="checkbox"] {
+  width: 16px; /* กำหนดขนาดกล่องเช็ค */
+  height: 16px;
+  margin: 0 10px; /* เอาช่องว่างออก */
+}
+
+.select-control-type {
+  margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+/* Action Buttons */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  padding-right: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:first-of-type {
+  background-color: #45d84a;
+  color: #ffffff;
+  border: 1px solid #464343;
+  margin-right: 10px;
+}
+
+button:last-of-type {
+  background-color: #b63333;
+  color: #ffffff;
+  border: 1px solid #464343;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+
+mat-dialog-container {
+  z-index: 1000 !important;
+  display: block !important;
+}
+
+

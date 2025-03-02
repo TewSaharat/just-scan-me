@@ -1,0 +1,9 @@
+.leaflet-top, .leaflet-bottom {
+  position: absolute;
+  z-index: 800 !important;
+  pointer-events: none;
+}
+
+.leaflet-control {
+  pointer-events: auto;
+}

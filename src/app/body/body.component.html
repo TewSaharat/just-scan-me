@@ -1,0 +1,107 @@
+
+
+<div class="body">
+<div class="filters-container">
+    <div class="filters">
+        <select (change)="onSelectCategory($event)">
+            <option disabled="">เลือกสถานะ</option>
+            <option value="1">หมวดนครพนม</option>
+            <option value="2">หมวดศรีสงคราม</option>
+            <option value="3">หมวดปลาปาก</option>
+            <option value="4">หมวดท่าอุเทน</option>
+            <option value="5">หมวดนาแก</option>
+            <option value="all" selected="">แสดงทุกหมวด</option>
+        </select>
+        <select (change)="onSelectRoute($event)">
+
+            <option disabled="">เลือกสถานะ</option>
+                            <option value="22">22</option>
+                            <option value="212">212</option>
+                            <option value="240">240</option>
+                            <option value="2033">2033</option>
+                            <option value="2417">2417</option>
+                            <option value="2185">2185</option>
+                            <option value="2132">2132</option>
+                            <option value="2177">2177</option>
+                            <option value="2390">2390</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2425">2425</option>
+                            <option value="2104">2104</option>
+                            <option value="223">223</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2346">2346</option>
+                            <option value="2276">2276</option>
+                            <option value="295">295</option>
+                            <option value="all" selected="">แสดงทุกเส้นทาง</option>
+        </select>
+        <select (change)="onSelectDistrict($event)">
+            <option disabled="">เลือกสถานะ</option>
+            <option value="1">เขต 1</option>
+            <option value="2">เขต 2</option>
+            <option value="3">เขต 3</option>
+            <option value="4">เขต 4</option>
+            <option value="all" selected="">แสดงทุกเขต</option>
+        </select>
+        <label>
+       <input type="checkbox" checked (change)="toggleNormal()"> ปกติ
+        </label>
+        <label>
+         <input type="checkbox" checked (change)="toggleFaulty()"> เสีย
+        </label>
+    </div>
+</div>
+<div>
+    <!-- <app-body-light></app-body-light> -->
+    <app-body-light 
+    [totalMarkers]="totalMarkers" 
+    [totalDB]="totalDB" 
+    [totalSG]="totalSG"
+    [totalFaulty]="totalFaulty"
+    [totalFaultySG]="totalFaultySG"
+    [totalFaultyDB]="totalFaultyDB"
+    >
+  </app-body-light>
+  
+</div>
+<div class="map-container">
+    <app-osm-map
+    [selectedCategory]="selectedCategory"
+    [selectedRoute]="selectedRoute"
+    [showNormal]="showNormal"
+    [showFaulty]="showFaulty"
+    ></app-osm-map>
+</div>
+
+<div class="table-container">
+    <ul class ="downlaod_excel"><li><a><img src="assets/excel.png" width="30" alt="ดาวโหลดไฟล์" (click)="downloadNotifyExcel()" (click)="downloadRepairExcel()"></a></li></ul>
+    <table class="table_body" style="width:100%; border-collapse: collapse; text-align: center;">
+      <tr>
+        <th>ชื่อเสา</th>
+        <th>ชื่อหมวด</th>
+        
+        <th>สายทาง</th>
+        <th>ตอนควบคุม</th>
+        <th>กม.</th>
+        <th>latitude</th>
+        <th>longtude</th>
+        <th>สาเหตุ</th>
+        <th>วันเวลาแจ้ง</th>
+        <th>สถานะ</th>
+      </tr>
+      <tr *ngFor="let route of filteredRoutesData" (click)="onRowClick(route)">
+        <td><a>{{ route.name_id }}</a></td>
+        <td>{{ route.category_name }}</td>
+        <td>{{ route.routes }}</td>
+        <td>{{ route.control }}</td>
+        <td>{{ route.km }}</td>
+        <td>{{ route.lat }}</td>
+        <td>{{ route.longitude }}</td>
+        <td>{{ route.complaintReason }}</td>
+        <td>{{ route.report_time}}</td>
+        <td>{{ route.status === 0 ? 'เสีย' : 'ปกติ' }}</td>
+      </tr>
+    </table>
+</div>
+</div>
