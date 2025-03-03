@@ -1,5 +1,9 @@
 .QRCODE{
   z-index: 1900;
+  background-color: #fefefe;
+    border: 100%px solid #888;
+    top: 30%;
+  box-sizing: 100%;
 }
 .qrcode{
     display: flex;

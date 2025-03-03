@@ -39,7 +39,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loadMap();
-    this.fetchMarkers();
+    setTimeout(() => this.fetchMarkers(), 100);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -49,7 +49,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       changes['showNormal'] || 
       changes['showFaulty']
     ) {
-      this.filterMarkers();
+     this.fetchMarkers()
     }
   }
 
@@ -59,18 +59,21 @@ export class OsmMapComponent implements OnInit, OnChanges {
     this.markerGroup = L.layerGroup().addTo(this.map);
   }
 
-  fetchMarkers(): void {
-    this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes').subscribe(
-      (data: Marker[]) => {
-        this.markers = data.filter(marker => marker.name_id !== null && marker.name_id !== undefined);
-        this.filterMarkers();
-      },
-      (error) => {
-        console.error('Error fetching markers:', error);
+  async fetchMarkers(): Promise<void> {
+    try {
+      const data = await this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes').toPromise();
+      if (data) {
+        this.markers = data.filter(marker => marker.name_id);
+        this.filterMarkers(); // โหลด marker ทีหลัง
       }
-    );
+    } catch (error) {
+      console.error('Error fetching markers:', error);
+    }
   }
 
+  private filterTimeout: any;
+
+  
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
     this.markerGroup.clearLayers();
@@ -160,23 +163,24 @@ export class OsmMapComponent implements OnInit, OnChanges {
   
   private setupPopupEventListeners(marker: Marker): void {
     const editButton = document.querySelector(`.edit-button[data-id="${marker.name_id}"]`);
-    if (editButton && !editButton.classList.contains('listener-added')) {
-      editButton.classList.add('listener-added');
+    if (editButton && !editButton.getAttribute('data-listener')) {
+      editButton.setAttribute('data-listener', 'true');
       editButton.addEventListener('click', () => this.openEditForm(marker));
     }
-
+  
     const qrButton = document.querySelector(`.qrcode[data-id="${marker.name_id}"]`);
-    if (qrButton && !qrButton.classList.contains('listener-added')) {
-      qrButton.classList.add('listener-added');
+    if (qrButton && !qrButton.getAttribute('data-listener')) {
+      qrButton.setAttribute('data-listener', 'true');
       qrButton.addEventListener('click', () => this.generateQRCode(marker.name_id!));
     }
   }
+  
 
   openEditForm(marker: Marker): void {
     const dialogRef = this.dialog.open(EditFormComponent, {
       width: '2000px',   // กำหนดขนาดของ dialog
-      height: '700px',  // กำหนดความสูงของ dialog
-      position: { top: '-35%', left: '250px' },  // การจัดตำแหน่งกลาง
+      height: '500px',  // กำหนดความสูงของ dialog
+      position: { top: '-25%', left: '250px' },  // การจัดตำแหน่งกลาง
       data: marker,
     });
   

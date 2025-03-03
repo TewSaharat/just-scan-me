@@ -1,5 +1,7 @@
 .ediform{
   z-index: 1900;
+  background-color: #fefefe;
+  border: 100%px solid #888;
 }
 
 /* Section Header */

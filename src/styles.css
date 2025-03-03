@@ -12,4 +12,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: 2px solid white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
-  
+/* เพิ่มในไฟล์ CSS ของคุณ */
+.custom-dialog-container .mat-dialog-container {
+  z-index: 100; /* กำหนดค่า z-index ให้ต่ำกว่า Leaflet popup */
+}
+
