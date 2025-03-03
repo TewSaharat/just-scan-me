@@ -14,16 +14,16 @@ import { Router } from '@angular/router';
 })
 export class QrCodePageComponent {
   name_id!: string;
-  qrCodeUrl: string = '';
+  qrCodeUrl:
+  
+  string = '';
 
   constructor(@Inject(MAT_DIALOG_DATA) public incomingData: any,
-  private router: Router,
-  private dialogRef: MatDialogRef<QrCodePageComponent>,
-  ) 
-  {
-    this.name_id = incomingData.name_id;
-    this.generateQRCode(this.name_id);
-  }
+  private dialogRef: MatDialogRef<QrCodePageComponent>) {
+console.log('Incoming Data:', incomingData); // ตรวจสอบว่าได้ข้อมูล name_id หรือไม่
+this.name_id = incomingData.name_id;
+this.generateQRCode(this.name_id);
+}
 
   generateQRCode(name_id: string): void {
     const url = `https://just-scan-me.vercel.app/notify?name_id=${encodeURIComponent(name_id)}`;
@@ -36,10 +36,12 @@ export class QrCodePageComponent {
     });
   }
 
+  
+
   printContent(): void {
     const printContent = document.getElementById('qrcode-content'); // ดึงเฉพาะเนื้อหาใน <div id="qrcode-content">
     if (printContent) {
-      const printWindow = window.open('', '', 'width=800,height=800');
+      const printWindow = window.open('', '', 'width=600,height=600');
       if (printWindow) {
         printWindow.document.write(`
           <html>

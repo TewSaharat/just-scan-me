@@ -1,11 +1,13 @@
-<div id="qrcode-content" class="qrcode" style="text-align: center;">
+<div class="QRCODE">
+  <div id="qrcode-content" class="qrcode" style="text-align: center;">
   <h2>ไฟฟ้าส่องสว่างขัดข้อง</h2>
   <h3>แสกนที่นี่</h3>
-  <img src="./assets/11952backhandindexpointingdown_111472.png" width="60" >
-  <img [src]="qrCodeUrl"  width="100%" alt="QR Code" />
+  <img [src]="qrCodeUrl"  width="70%" alt="QR Code" />
   <h2>{{name_id }}</h2>
   <a (click)="printContent()" class="download-link" download="marker-qr-code {{ name_id }} .png" >Print QR Code</a>
-</div>
-<div class="onCancel">
+  </div>
+  
+  <div class="onCancel">
   <a type="button" (click)="onCancel()">ยกเลิก </a>
+  </div>
 </div>

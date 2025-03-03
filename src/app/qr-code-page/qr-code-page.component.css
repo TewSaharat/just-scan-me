@@ -1,13 +1,11 @@
+.QRCODE{
+  z-index: 1900;
+}
 .qrcode{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 500px; /* เพิ่มความกว้างของพื้นหลัง */
-    height: auto; /* ใช้ความสูงอัตโนมัติ */
-    max-height: 800px; /* ลดความสูงสูงสุด */
-    background-color: #ffffff; /* สีพื้นหลัง */
-    padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
     margin: auto; /* จัดให้อยู่กึ่งกลาง */
     justify-content: center;
 }
@@ -63,23 +61,28 @@
     transition: all 0.3s ease;
   }
 
-  .onCancel{
-   
+  .onCancel a {
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 200px; /* เพิ่มความกว้างของพื้นหลัง */
-  height: auto; /* ใช้ความสูงอัตโนมัติ */
-  max-height: 800px; /* ลดความสูงสูงสุด */
-  padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
-  margin: auto; /* จัดให้อยู่กึ่งกลาง */
-    text-decoration: none; 
-    color: #ff0000; 
-    font-weight: bold; 
-    padding: 5px 10px; 
-    border: 1px solid #ff0000; 
-    border-radius: 5px; 
-    background-color: #f8f9fa;
-    transition: all 0.3s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px; /* เพิ่มความกว้างของพื้นหลัง */
+    height: auto; /* ใช้ความสูงอัตโนมัติ */
+    max-height: 800px; /* ลดความสูงสูงสุด */
+    padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
+    margin: auto; /* จัดให้อยู่กึ่งกลาง */
+      text-decoration: none; 
+      color: #ff0000; 
+      font-weight: bold; 
+      padding: 5px 10px; 
+      border: 1px solid #ff0000; 
+      border-radius: 5px; 
+      background-color: #f8f9fa;
+      transition: all 0.3s ease;
   }
+  
+  .onCancel a:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+  }
+  

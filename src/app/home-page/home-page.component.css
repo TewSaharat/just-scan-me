@@ -13,7 +13,7 @@
     transition: width 0.3s;
     overflow: hidden;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); 
-    z-index: 1023;
+    z-index: 3000;
 }
 
 .sidebar.hidden {
@@ -139,7 +139,7 @@
     color: rgb(255, 255, 255);
     padding: 8px 5rem;
     margin: -5px -14px;     
-    z-index: 1010;
+    z-index: 2900;
 }
 
 .menu-toggle {
