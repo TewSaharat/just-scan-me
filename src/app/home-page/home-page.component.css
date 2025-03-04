@@ -1,43 +1,39 @@
-/* General Styles */
+/* Sidebar Styles */
 .sidebar {
     width: 60px;
     height: 100vh;
-    background-color: #fcfcfc; /* สีของ Sidebar */
-    position: fixed; /* Fixed position to keep sidebar in place */
+    background-color: #fcfcfc;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
-    transition: all 0.3s ease-in-out;
-    will-change: width;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
     overflow: hidden;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     z-index: 3000;
+    transform: translateX(0);
 }
 
 .sidebar.hidden {
-    width: 50px; /* ความกว้างเมื่อหด */
+    transform: translateX(-100%);
 }
 
 .sidebar.expanded {
-    width: 300px; /* ขยาย Sidebar */
+    width: 250px;
 }
 
-.sidebar.expanded .nav li a span {
-    opacity: 1; /* แสดงข้อความเมื่อขยาย */
-    visibility: visible; /* แสดงข้อความเมื่อขยาย */
-}
-
+/* Main Content */
 .main-content {
-    margin-left: 50px; /* ความกว้างเมื่อ Sidebar หด */
+    margin-left: 60px;
     padding: 20px;
-    transition: margin-left 0.4s;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 .sidebar.expanded ~ .main-content {
-    margin-left: 150px; /* ปรับความกว้างเมื่อ Sidebar ขยาย */
+    margin-left: 250px;
 }
 
 .sidebar .nav li a span {
@@ -76,7 +72,7 @@
 }
 
 .sidebar .logo_just:hover {
-    background-color: #ff8d41;
+    background-color: #132e7a;
 }
 
 .sidebar .logo img {
@@ -85,38 +81,33 @@
     height: 40px;
 }
 
+
+
+/* Sidebar Navigation */
 .nav {
     margin: 20px;
-}
-
-.sidebar .nav {
     list-style-type: none;
     padding: 0;
     width: 100%;
 }
 
-.sidebar .nav li {
-    width: 100%;
-}
-
-.sidebar .nav li a {
+.nav li a {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     padding: 15px 20px;
-    color: rgb(0, 0, 0); /* สีของข้อความใน Sidebar */
+    color: black;
     text-decoration: none;
     font-size: 18px;
     white-space: nowrap;
     transition: background-color 0.3s;
 }
 
-.sidebar .nav li a.active, 
-.sidebar .nav li a:hover {
-    background-color: #ff8d41; /* สีฟ้าเข้มขึ้นเมื่อ Hover */
+.nav li a:hover {
+    background-color: #ff8d41;
 }
 
-.sidebar .nav li a img {
+
+.nav li a img {
     margin-right: 10px;
 }
 
@@ -143,12 +134,6 @@
     z-index: 2900;
 }
 
-.menu-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px; 
-}
 
 .Home_header {
     display: flex;
@@ -178,6 +163,7 @@
     display: flex;
     align-items: center;
     padding-right: 30px;
+    cursor: pointer;
 }
 
 .Home_header:hover, 
@@ -258,44 +244,28 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 992px) {
     .sidebar {
-        width: 50px; /* Sidebar shrinks more on smaller screens */
+        width: 60px;
     }
 
     .sidebar.expanded {
-        width: 160px;
+        width: 180px;
     }
 
     .main-content {
-        margin-left: 50px;
+        margin-left: 60px;
     }
 
     .header {
-        padding: 8px 2rem;
-    }
-
-    .Home_header, .login_header {
-        font-size: 16px; /* Smaller font size */
-    }
-
-    .menu-toggle {
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    .login_header {
-        padding-left: 40%;
-    }
-
-    .menu-bar img {
-        display: none; /* Hide menu icon on smaller screens */
+        padding: 8px 3rem;
     }
 }
 
 @media (max-width: 576px) {
     .sidebar {
-        width: 50px; /* Even smaller sidebar on very small screens */
+        width: 50px;
     }
 
     .sidebar.expanded {
@@ -303,20 +273,10 @@ body {
     }
 
     .main-content {
-        margin-left: 50px; /* Adjust for even smaller sidebar */
+        margin-left: 50px;
     }
 
     .header {
         padding: 8px 1rem;
     }
-
-    .Home_header, .login_header {
-        font-size: 14px; /* Smaller font size for mobile */
-    }
-
-    .login_header {
-        padding-left: 30%;
-    }
 }
-
-

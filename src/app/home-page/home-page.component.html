@@ -1,55 +1,43 @@
-<!-- sidebar -->
 <body>
-    <div class="sidebar" [class.expanded]="isSidebarVisible">
-        <div class="logo" >
+  <!-- Sidebar -->
+  <div class="sidebar" [class.expanded]="isSidebarVisible">
+      <div class="logo">
           <a class="logo_just">
-            <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png"  alt="Just Scan Me"> Just Scan Me
+              <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" alt="Just Scan Me"> Just Scan Me
           </a>
-        </div>
-        <ul class="nav">
-          <li><a routerLink="/home" class="Home_sidebar"><img src="assets/home.png" width="30" alt=""> Home</a></li>
-          <li><a href="/upload" class="upload_sidebar"><img src="assets/file.png" width="30" alt=""> นำเข้าไฟล์ KML</a></li>
-        </ul>
       </div>
-      
-      <!-- main content -->
-      <div class="main-content">
-        
-        <div class="header">
+      <ul class="nav">
+          <li><a routerLink="/home"><img src="assets/home.png" width="30" alt=""> Home</a></li>
+          <li><a href="/upload"><img src="assets/file.png" width="30" alt=""> นำเข้าไฟล์ KML</a></li>
+      </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="header">
           <a href="javascript:void(0);" class="menu_bar" (click)="toggleSidebar()">
-            <img src="assets/menu.png" width="20" alt="Menu Icon">
+              <img src="assets/menu.png" width="20" alt="Menu Icon">
           </a>
           <a routerLink="/home" class="Home_header"><img src="assets/home.png" width="20" alt=""> Home</a>
-          
-            <a href="javascript:void(0)" class="login_header" (click)="openPopup()" >
-              <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="login_header" (click)="openPopup()">
-                <img src="assets/login.png" width="20"> Login
-              </a>
-              
-              <div *ngIf="isLoggedIn" class="user-header">
-                <span class="username">{{ user.name }}</span>
-                <a class="logout_logo" (click)="logout()"> 
+
+          <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="login_header" (click)="openPopup()">
+              <img src="assets/login.png" width="20"> Login
+          </a>
+
+          <div *ngIf="isLoggedIn" class="user-header">
+              <span class="username">{{ user.name }}</span>
+              <a class="logout_logo" (click)="logout()">
                   <img src="assets/logout_16584961.png" width="20" alt="Logout">
-                </a>
-              </div>
-              
-              
-            </a>
-
-        </div>
-
-       
-        <!-- Main body content -->
-        <div class="header_body">
-          <ul class="title">แผนแจ้งซ่อม</ul>
-        </div>
-        
-        <app-body></app-body> 
-        
-        <app-lognin-singin *ngIf="isPopupVisible" (close)="closePopup()"></app-lognin-singin>
-        
+              </a>
+          </div>
       </div>
 
+      <div class="header_body">
+          <ul class="title">แผนแจ้งซ่อม</ul>
+      </div>
 
-    </body>
-    
+      <app-body></app-body>
+
+      <app-lognin-singin *ngIf="isPopupVisible" (close)="closePopup()"></app-lognin-singin>
+  </div>
+</body>
