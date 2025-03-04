@@ -48,7 +48,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
     // ✅ โหลด MarkerCluster ตอน runtime
     const markerClusterModule = await import('leaflet.markercluster');
     MarkerCluster = markerClusterModule.default ?? markerClusterModule;
-    console.log("✅ MarkerCluster Loaded:", MarkerCluster);
     this.loadMap();
     setTimeout(() => this.fetchMarkers(), 100);
 
@@ -87,11 +86,10 @@ export class OsmMapComponent implements OnInit, OnChanges {
   
     // ✅ ใช้ `MarkerCluster.MarkerClusterGroup()` แทน `L.markerClusterGroup()`
     this.markerGroup = new MarkerCluster.MarkerClusterGroup({
-      disableClusteringAtZoom: 14,
+      disableClusteringAtZoom: 13,
     });
   
     this.map.addLayer(this.markerGroup);
-    console.log("✅ markerGroup Loaded:", this.markerGroup);
 
   }
   
@@ -227,8 +225,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
     if (editButton && !editButton.getAttribute('data-listener')) {
       editButton.setAttribute('data-listener', 'true');
       editButton.addEventListener('click', () => this.openEditForm(marker));
-      console.log("คลิกปุ่มแก้ไข:", marker.name_id); // ตรวจสอบว่าปุ่มถูกกดจริงไหม
-      // this.openEditForm(marker);
       
     }
 
