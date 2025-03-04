@@ -187,7 +187,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       editButton.setAttribute('data-listener', 'true');
       editButton.addEventListener('click', () => this.openEditForm(marker));
       console.log("คลิกปุ่มแก้ไข:", marker.name_id); // ตรวจสอบว่าปุ่มถูกกดจริงไหม
-      this.openEditForm(marker);
+      // this.openEditForm(marker);
       
     }
 
