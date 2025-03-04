@@ -180,25 +180,37 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   onRowClick(route: any): void {
-    if (!this.osmMapComponent) {
-      console.error("osmMapComponent is not initialized yet.");
+    if (!this.osmMapComponent || !this.osmMapComponent.getMarkerGroup()) {
+      console.error("osmMapComponent or markerGroup is not initialized.");
       return;
     }
+
+    const markerGroup = this.osmMapComponent.getMarkerGroup();
+    let foundMarker: L.Marker | undefined;
+
+    //  ตรวจสอบค่าก่อนใช้งาน
+    const routeLat = parseFloat(route.lat);
+    const routeLng = parseFloat(route.longitude);
   
-    const marker = this.osmMapComponent.markerGroup?.getLayers()?.find((layer: L.Layer) => {
+    markerGroup.getLayers().forEach((layer: L.Layer) => {
       if (layer instanceof L.Marker) {
         const latLng = layer.getLatLng();
-        return latLng.lat === route.lat && latLng.lng === route.longitude;
+        //  ใช้ parseFloat เพื่อป้องกันปัญหา string / number และตัดจุดทศนิยมเกิน 6 ตำแหน่ง
+        if (parseFloat(latLng.lat.toFixed(6)) === parseFloat(routeLat.toFixed(6)) &&
+            parseFloat(latLng.lng.toFixed(6)) === parseFloat(routeLng.toFixed(6))) {
+          foundMarker = layer as L.Marker;
+        }
       }
-      return false;
     });
-    
-    if (marker) {
-      marker.openPopup(); // เปิด Popup ของ Marker ที่พบ
+
+    if (foundMarker) {
+      foundMarker.openPopup();
+      this.osmMapComponent.map.setView(foundMarker.getLatLng(), 20, { animate: true });
     } else {
-      console.log('Marker not found'); // หากไม่พบ Marker
     }
-  
   }
+
+  
+  
   
 }

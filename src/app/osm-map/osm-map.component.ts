@@ -268,5 +268,11 @@ export class OsmMapComponent implements OnInit, OnChanges {
       }
     });
   }
+
+ // ✅ เพิ่มฟังก์ชันให้ BodyComponent ใช้ดึง markerGroup
+ getMarkerGroup(): L.LayerGroup {
+  return this.markerGroup;
+}
+
 }
 
