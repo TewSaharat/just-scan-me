@@ -10,18 +10,19 @@
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
-    transition: width 0.3s;
+    transition: all 0.3s ease-in-out;
+    will-change: width;
     overflow: hidden;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); 
     z-index: 3000;
 }
 
 .sidebar.hidden {
-    width: 60px; /* ความกว้างเมื่อหด */
+    width: 50px; /* ความกว้างเมื่อหด */
 }
 
 .sidebar.expanded {
-    width: 200px; /* ขยาย Sidebar */
+    width: 300px; /* ขยาย Sidebar */
 }
 
 .sidebar.expanded .nav li a span {
@@ -30,13 +31,13 @@
 }
 
 .main-content {
-    margin-left: 60px; /* ความกว้างเมื่อ Sidebar หด */
-    padding: 10px;
-    transition: margin-left 0.3s;
+    margin-left: 50px; /* ความกว้างเมื่อ Sidebar หด */
+    padding: 20px;
+    transition: margin-left 0.4s;
 }
 
 .sidebar.expanded ~ .main-content {
-    margin-left: 200px; /* ปรับความกว้างเมื่อ Sidebar ขยาย */
+    margin-left: 150px; /* ปรับความกว้างเมื่อ Sidebar ขยาย */
 }
 
 .sidebar .nav li a span {
@@ -166,7 +167,7 @@
 
 .login_header {
     display: flex;
-    padding-left: 69%;
+    padding-left: 70%;
     gap: 5px; 
     color: white; 
     font-size: 20px; 
