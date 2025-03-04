@@ -7,7 +7,11 @@
     justify-content:flex-start; /* กระจายกล่องให้เท่ากัน */
     overflow-x: auto; /* เพิ่ม Scroll แนวนอนหากแคบเกินไป */
     white-space: nowrap;
+    flex-wrap: wrap;
+    gap: 10px;
+    
 }
+
 
 
 .info-box {
@@ -20,6 +24,7 @@
     min-height: 80px;
     padding: .5rem;
     position: relative;
+    width: 300px;
 }
 
 .info-box .info-box-icon {
@@ -33,6 +38,7 @@
     justify-content: center;
     text-align: center;
     width: 70px;
+    
 }
 .bg-info, .bg-info>a {
     color: #fff !important;
@@ -88,6 +94,15 @@
    
 }
 
+
+.info-box .info-box-text, 
+.info-box .info-box-number {
+    white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
+    word-wrap: break-word; /* ป้องกันคำหลุดออกจากกล่อง */
+    text-align: center; /* จัดข้อความตรงกลาง */
+}
+
+
 .badge-success {
     color: #fff;
     background-color: #28a745;
@@ -115,3 +130,19 @@
     
 }
 
+@media (max-width: 992px) {
+    .info-box {
+        flex: 1 1 180px; /* ปรับขนาดให้เล็กลงในแท็บเล็ต */
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .row {
+        justify-content: center; /* จัดตรงกลางในหน้าจอเล็ก */
+    }
+    .info-box {
+        flex: 1 1 100%; /* ทำให้กินพื้นที่เต็มจอในมือถือ */
+        max-width: 90%;
+    }
+}
