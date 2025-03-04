@@ -4,12 +4,15 @@ import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
+import 'leaflet.fullscreen';
+
 import { firstValueFrom, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import 'leaflet.fullscreen';
+
 
 interface Marker {
   id: string;
