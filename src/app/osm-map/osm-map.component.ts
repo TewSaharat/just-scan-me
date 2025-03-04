@@ -57,20 +57,38 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
 
   loadMap(): void {
-    this.map = L.map('map', {
-    }).setView([17.5656463201181, 104.6081251946405], 13);
+    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 13);
   
-    L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    // 🗺 Tile Layer: ถนน (Street View)
+    const streetLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
       attribution: 'Google Maps',
       maxZoom: 20
-    }).addTo(this.map);
-
-    this.markerGroup = L.markerClusterGroup({
-      disableClusteringAtZoom: 15
     });
+  
+    // 🛰 Tile Layer: ภาพถ่ายดาวเทียม (Satellite View)
+    const satelliteLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+      attribution: 'Google Satellite',
+      maxZoom: 20
+    });
+  
+    // ⚙️ Default Layer: เริ่มต้นด้วยแผนที่ถนน
+    streetLayer.addTo(this.map);
+  
+    // 🔘 Layer Control (เลือกแสดง Street หรือ Satellite)
+    const baseMaps = {
+      "แผนที่ถนน": streetLayer,
+      "แผนที่ดาวเทียม": satelliteLayer
+    };
+    L.control.layers(baseMaps).addTo(this.map);
+  
+    // 📌 Cluster Markers
+    this.markerGroup = L.markerClusterGroup({ disableClusteringAtZoom: 14 });
     this.map.addLayer(this.markerGroup);
+  
+    // 🔲 Fullscreen Mode
     (L.control as any).fullscreen({ position: 'topright' }).addTo(this.map);
   }
+  
 
   async fetchMarkers(): Promise<void> {
     try {
