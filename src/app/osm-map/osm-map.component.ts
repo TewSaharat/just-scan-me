@@ -91,6 +91,8 @@ export class OsmMapComponent implements OnInit, OnChanges {
     });
   
     this.map.addLayer(this.markerGroup);
+    console.log("✅ markerGroup Loaded:", this.markerGroup);
+
   }
   
   
