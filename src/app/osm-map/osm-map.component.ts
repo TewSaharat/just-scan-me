@@ -6,8 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import * as L from 'leaflet';
-import 'leaflet.markercluster';
-import 'leaflet.fullscreen';
+import 'leaflet.markercluster'; // ✅ โหลด MarkerCluster
+import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js'; // ✅ โหลด Fullscreen ให้รองรับ CommonJS
+
 
 import { firstValueFrom, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -73,26 +74,24 @@ export class OsmMapComponent implements OnInit, OnChanges {
       maxZoom: 20
     });
   
-    // 🔘 Default: Street View
     streetLayer.addTo(this.map);
   
-    // 🔘 Layer Control
-    const baseMaps = {
+    L.control.layers({
       "แผนที่ถนน": streetLayer,
       "แผนที่ดาวเทียม": satelliteLayer
-    };
-    L.control.layers(baseMaps).addTo(this.map);
+    }).addTo(this.map);
   
-    // ✅ ใช้ `(L as any).markerClusterGroup()` เพื่อให้ใช้งานได้
+    // ✅ ใช้ (L as any) เพื่อให้ Angular รู้จัก markerClusterGroup
     this.markerGroup = (L as any).markerClusterGroup({
       disableClusteringAtZoom: 14
     });
   
     this.map.addLayer(this.markerGroup);
   
-    // 🔲 Fullscreen Mode
+    // ✅ ใช้ (L.control as any) เพื่อให้ Fullscreen ทำงาน
     (L.control as any).fullscreen({ position: 'topright' }).addTo(this.map);
   }
+  
   
   
 
