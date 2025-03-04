@@ -80,7 +80,8 @@ export class OsmMapComponent implements OnInit, OnChanges {
       "แผนที่ถนน": streetLayer,
       "แผนที่ดาวเทียม": satelliteLayer
     }).addTo(this.map);
-  
+    console.log("map Data",L.markerClusterGroup);
+
     // ✅ ใช้ (L as any) เพื่อให้ Angular รู้จัก markerClusterGroup
     this.markerGroup = (L as any).markerClusterGroup({
       disableClusteringAtZoom: 14
