@@ -48,7 +48,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
     // ✅ โหลด MarkerCluster ตอน runtime
     const markerClusterModule = await import('leaflet.markercluster');
     MarkerCluster = markerClusterModule.default ?? markerClusterModule;
-
+    console.log("✅ MarkerCluster Loaded:", MarkerCluster);
     this.loadMap();
     setTimeout(() => this.fetchMarkers(), 100);
 
