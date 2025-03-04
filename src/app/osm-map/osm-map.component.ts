@@ -206,7 +206,10 @@ export class OsmMapComponent implements OnInit, OnChanges {
             cursor: pointer;">
           พิมพ์ QRCode
         </button>
-
+<button onclick="window.open('https://www.google.com/maps?q=&layer=c&cbll=${marker.lat},${marker.longitude}')" 
+          style="background-color:#ff9800; color: white; border: none; padding: 5px 10px; margin-top: 5px; border-radius: 5px; cursor: pointer;">
+          เปิด Street View
+        </button>
       </div>
     </div>
   `;
