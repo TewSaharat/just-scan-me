@@ -92,7 +92,8 @@ export class BodyComponent implements OnInit, OnDestroy {
       routes: this.selectedRoute,
     };
   
-    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', { params }).subscribe(
+    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes'
+    , { params }).subscribe(
       (data) => {
   
         if (!Array.isArray(data)) {

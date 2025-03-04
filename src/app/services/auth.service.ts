@@ -41,7 +41,11 @@ export class AuthService {
 
   logout() {
     console.log("Logging out..."); // ตรวจสอบว่า Logout ถูกเรียกหรือไม่
-    this.http.post('https://just-scan-me-backend.onrender.com/api/logout', {}, {
+    // this.http.post('https://just-scan-me-backend.onrender.com/api/logout'
+    this.http.post('https://just-scan-me-backend.onrender.com/api/logout'
+    , {},
+    
+     {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }).subscribe(() => {
       localStorage.removeItem('token');
