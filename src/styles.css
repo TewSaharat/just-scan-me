@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -12,8 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: 2px solid white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
-/* เพิ่มในไฟล์ CSS ของคุณ */
-.custom-dialog-container .mat-dialog-container {
-  z-index: 100; /* กำหนดค่า z-index ให้ต่ำกว่า Leaflet popup */
-}
-
+  .mat-dialog-container {
+    z-index: 1000 !important;
+    position: relative !important;
+  }

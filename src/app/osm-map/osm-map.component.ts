@@ -1,11 +1,14 @@
+
+
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog,MatDialogModule } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
 import * as L from 'leaflet';
+import { firstValueFrom } from 'rxjs';
+
 
 interface Marker {
   id: string;
@@ -22,8 +25,7 @@ interface Marker {
   templateUrl: './osm-map.component.html',
   styleUrls: ['./osm-map.component.css'],
   standalone: true,
-
-  providers: [HttpClient],
+  imports:[MatDialogModule,CommonModule],
 })
 export class OsmMapComponent implements OnInit, OnChanges {
   @Input() selectedCategory: string = 'all';
@@ -43,37 +45,35 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (
-      changes['selectedCategory'] || 
-      changes['selectedRoute'] || 
-      changes['showNormal'] || 
-      changes['showFaulty']
-    ) {
-     this.fetchMarkers()
+    if (changes['selectedCategory'] || changes['selectedRoute'] || changes['showNormal'] || changes['showFaulty']) {
+      this.fetchMarkers();
     }
   }
 
   loadMap(): void {
     this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+
+    // ใช้ Google Maps Tile Layer (ไม่ต้องใช้ API Key)
+    L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+      attribution: 'Google Maps',
+      maxZoom: 20,
+    }).addTo(this.map);
+
     this.markerGroup = L.layerGroup().addTo(this.map);
   }
 
   async fetchMarkers(): Promise<void> {
     try {
-      const data = await this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes').toPromise();
+      const data = await firstValueFrom(this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes'));
       if (data) {
         this.markers = data.filter(marker => marker.name_id);
-        this.filterMarkers(); // โหลด marker ทีหลัง
+        this.filterMarkers();
       }
     } catch (error) {
       console.error('Error fetching markers:', error);
     }
   }
 
-  private filterTimeout: any;
-
-  
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
     this.markerGroup.clearLayers();
@@ -102,7 +102,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
         .on('popupopen', () => {
           setTimeout(() => {
             this.setupPopupEventListeners(marker);
-          }, 100); // ล่าช้าเพื่อให้ popup เปิดก่อน
+          }, 500);
         });
 
       this.markerGroup.addLayer(markerInstance);
@@ -120,85 +120,106 @@ export class OsmMapComponent implements OnInit, OnChanges {
     }
   }
 
-  private getDynamicIconUrl(marker: Marker): string {
-    return marker.status === 1 ? 'assets/sg-on-32.png' : 'assets/sg-off-32.png';
-  }
 
+  private getDynamicIconUrl(marker: Marker): string {
+
+
+    if (marker.status === 1) {
+      return marker.name_id.toLowerCase().includes('db') ? 'assets/db-on-32.png' : 'assets/sg-on-32.png' ;
+    } else {
+      return marker.name_id.toLowerCase().includes('db') ? 'assets/db-off-32.png' : 'assets/sg-off-32.png';
+    }
+  }
   private generatePopupContent(marker: Marker): string {
     const statusText = marker.status === 1 ? 'ปกติ' : 'เสีย';
     const statusColor = marker.status === 1 ? 'green' : 'red';
     const categoryName = this.getCategoryName(marker.cat_id);
 
     return `
-      <div style="font-family: Arial, sans-serif; font-size: 14px;">
-        <div style="font-weight: bold; font-size: 16px; color: #003366;">
-          ${marker.name_id}
-        </div>
-        <div>สถานะ: <span style="color: ${statusColor};">${statusText}</span></div>
-        <div>ผู้ดูแล: ${categoryName}</div>
-        <div>ชนิดของหมวดไฟ: HPS</div>
-        <div>วันที่ก่อสร้าง: </div>
-        <div>สัญญาที่:</div>
-        <hr>
-        <div>
-          สถานะอุปกรณ์:<br>
-          หมอเล: <span style="color: ${statusColor};">${statusText}</span><br>
-          บัลลาสต์: <span style="color: ${statusColor};">${statusText}</span><br>
-          คาปาซิเตอร์: <span style="color: ${statusColor};">${statusText}</span><br>
-          ฟิวส์/กล่อง: <span style="color: ${statusColor};">${statusText}</span>
-        </div>
-        <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center;">
-          <button class="edit-button" data-id="${marker.name_id}" 
-            style="background-color: rgb(0, 204, 44); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
-            แก้ไข
-          </button>
-          <button class="qrcode" data-id="${marker.name_id}" 
-            style="background-color: rgb(0, 105, 204); color: white; border: none; padding: 5px 10px; margin: 15px; border-radius: 5px; cursor: pointer;">
-            พิมพ์ QRCode
-          </button>
-        </div>
+    <div style="font-family: Arial, sans-serif; font-size: 14px;">
+      <div style="font-weight: bold; font-size: 16px; color: #003366;">
+        ${marker.name_id}
       </div>
-    `;
-  }
-  
+      <div>สถานะ: <span style="color: ${statusColor};">${statusText}</span></div>
+      <div>ผู้ดูแล: ${categoryName}</div>
+      <div>ชนิดของหมวดไฟ:HPS</div>
+      <div>วันที่ก่อสร้าง: </div>
+      <div>สัญญาที่:</div>
+      <hr>
+      <div>
+        สถานะอุปกรณ์:<br>
+        หมอเล: <span style="color: ${statusColor};">${statusText}</span><br>
+        บัลลาสต์: <span style="color: ${statusColor};">${statusText}</span><br>
+        คาปาซิเตอร์: <span style="color: ${statusColor};">${statusText}</span><br>
+        ฟิวส์/กล่อง: <span style="color: ${statusColor};">${statusText}</span>
+      </div>
+      <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center;">
+        <button class="edit-button" data-id="${marker.name_id}" 
+          style="
+            background-color:rgb(0, 204, 44); 
+            color: white; 
+            border: none; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            cursor: pointer;">
+          แก้ไข
+        </button>
+            <button class="qrcode" data-id="${marker.name_id}" 
+          style="
+            background-color:rgb(0, 105, 204); 
+            color: white; 
+            border: none; 
+            padding: 5px 10px; 
+            margin: 15px;
+            border-radius: 5px; 
+            cursor: pointer;">
+          พิมพ์ QRCode
+        </button>
+
+      </div>
+    </div>
+  `;
+} 
+
   private setupPopupEventListeners(marker: Marker): void {
     const editButton = document.querySelector(`.edit-button[data-id="${marker.name_id}"]`);
     if (editButton && !editButton.getAttribute('data-listener')) {
       editButton.setAttribute('data-listener', 'true');
       editButton.addEventListener('click', () => this.openEditForm(marker));
+      console.log("คลิกปุ่มแก้ไข:", marker.name_id); // ตรวจสอบว่าปุ่มถูกกดจริงไหม
+      this.openEditForm(marker);
+      
     }
-  
+
     const qrButton = document.querySelector(`.qrcode[data-id="${marker.name_id}"]`);
     if (qrButton && !qrButton.getAttribute('data-listener')) {
       qrButton.setAttribute('data-listener', 'true');
       qrButton.addEventListener('click', () => this.generateQRCode(marker.name_id!));
     }
   }
-  
 
   openEditForm(marker: Marker): void {
     const dialogRef = this.dialog.open(EditFormComponent, {
-      width: '2000px',   // กำหนดขนาดของ dialog
-      height: '500px',  // กำหนดความสูงของ dialog
-      position: { top: '-25%', left: '250px' },  // การจัดตำแหน่งกลาง
+      width: '2000px',
+      height: '600px',
       data: marker,
+      panelClass: 'custom-dialog'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
+      console.log("ปิด Dialog", result);
       if (result) {
-        this.fetchMarkers(); // Reload markers after editing
+        this.fetchMarkers();
       }
     });
   }
-  
 
   generateQRCode(name_id: string): void {
     const dialogRef = this.dialog.open(QrCodePageComponent, {
       data: { name_id },
-      width: '700px',
+      width: '500px',
       height: '500px',
-      position: { top: '-25%', left: '450px' },
-      
+      panelClass: 'custom-dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -210,28 +231,5 @@ export class OsmMapComponent implements OnInit, OnChanges {
       }
     });
   }
-
-
-  showPopupFromRow(latitude: number, longitude: number, marker: Marker, zoom:number): void {
-    this.map.setView([latitude, longitude],5  ); 
-  
-    // สร้าง popup content
-    const popupContent = this.generatePopupContent(marker);
-  
-    // ตรวจสอบว่ามีมาร์กเกอร์อยู่แล้วหรือไม่
-    const existingMarker = L.marker([latitude, longitude], {
-      icon: L.icon({
-        iconUrl: this.getDynamicIconUrl(marker),
-        iconSize: [30, 40],
-        iconAnchor: [15, 40],
-        popupAnchor: [0, -40], 
-      }),
-    });
-  
-    // ผูกป๊อปอัพกับมาร์กเกอร์และเปิด
-    existingMarker.bindPopup(popupContent).openPopup();
-  
-    // เพิ่มมาร์กเกอร์ลงในแผนที่
-    existingMarker.addTo(this.map);
-  }
 }
+

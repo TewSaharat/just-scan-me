@@ -74,7 +74,8 @@
     height: auto; /* ใช้ความสูงอัตโนมัติ */
     max-height: 800px; /* ลดความสูงสูงสุด */
     padding: 20px; /* เพิ่มระยะห่างในคอนเทนเนอร์ */
-    margin: auto; /* จัดให้อยู่กึ่งกลาง */
+    margin: auto;
+    margin-top: 30px; /* จัดให้อยู่กึ่งกลาง */
       text-decoration: none; 
       color: #ff0000; 
       font-weight: bold; 
@@ -90,3 +91,8 @@
     color: #ffffff;
   }
   
+.textqtcode{
+  display: flex;
+  margin-top: 30px;
+
+}
