@@ -61,40 +61,37 @@ export class OsmMapComponent implements OnInit, OnChanges {
     this.filterChange$.next();
   }
 
+
   loadMap(): void {
     this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 13);
   
-    // 🗺 Street View & Satellite Layer
     const streetLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
       attribution: 'Google Maps',
-      maxZoom: 20
+      maxZoom: 20,
     });
   
     const satelliteLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
       attribution: 'Google Satellite',
-      maxZoom: 20
+      maxZoom: 20,
     });
   
     streetLayer.addTo(this.map);
   
-    L.control.layers({
-      "แผนที่ถนน": streetLayer,
-      "แผนที่ดาวเทียม": satelliteLayer
-    }).addTo(this.map);
-    console.log("map Data",L.markerClusterGroup);
-
-    // ✅ ใช้ (L as any) เพื่อให้ Angular รู้จัก markerClusterGroup
-    // ✅ สร้าง markerClusterGroup จากโมดูลที่โหลดมา
-    this.markerGroup = new MarkerCluster({
+    L.control.layers(
+      {
+        'แผนที่ถนน': streetLayer,
+        'แผนที่ดาวเทียม': satelliteLayer,
+      },
+      {}
+    ).addTo(this.map);
+  
+    // ✅ ใช้ `MarkerCluster.MarkerClusterGroup()` แทน `L.markerClusterGroup()`
+    this.markerGroup = new MarkerCluster.MarkerClusterGroup({
       disableClusteringAtZoom: 14,
     });
   
     this.map.addLayer(this.markerGroup);
-  
-    // ✅ ใช้ (L.control as any) เพื่อให้ Fullscreen ทำงาน
-    (L.control as any).fullscreen({ position: 'topright' }).addTo(this.map);
   }
-  
   
   
 
