@@ -1,14 +1,15 @@
-
-
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MatDialog,MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
-import { firstValueFrom } from 'rxjs';
-
+import 'leaflet.markercluster';
+import { firstValueFrom, Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import 'leaflet.fullscreen';
 
 interface Marker {
   id: string;
@@ -25,7 +26,7 @@ interface Marker {
   templateUrl: './osm-map.component.html',
   styleUrls: ['./osm-map.component.css'],
   standalone: true,
-  imports:[MatDialogModule,CommonModule],
+  imports:[MatDialogModule,CommonModule, ScrollingModule],
 })
 export class OsmMapComponent implements OnInit, OnChanges {
   @Input() selectedCategory: string = 'all';
@@ -36,30 +37,39 @@ export class OsmMapComponent implements OnInit, OnChanges {
   map!: L.Map;
   markers: Marker[] = [];
   markerGroup!: L.LayerGroup;
+  private filterChange$ = new Subject<void>();
 
   constructor(private http: HttpClient, private dialog: MatDialog) {}
 
   ngOnInit(): void {
+    
     this.loadMap();
     setTimeout(() => this.fetchMarkers(), 100);
+
+    // ใช้ debounceTime เพื่อลดการเรียก API ซ้ำซ้อน
+    this.filterChange$.pipe(debounceTime(500)).subscribe(() => {
+      this.fetchMarkers();
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selectedCategory'] || changes['selectedRoute'] || changes['showNormal'] || changes['showFaulty']) {
-      this.fetchMarkers();
-    }
+    this.filterChange$.next();
   }
 
   loadMap(): void {
-    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 13);
-
-    // ใช้ Google Maps Tile Layer (ไม่ต้องใช้ API Key)
+    this.map = L.map('map', {
+    }).setView([17.5656463201181, 104.6081251946405], 13);
+  
     L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
       attribution: 'Google Maps',
-      maxZoom: 20,
+      maxZoom: 20
     }).addTo(this.map);
 
-    this.markerGroup = L.layerGroup().addTo(this.map);
+    this.markerGroup = L.markerClusterGroup({
+      disableClusteringAtZoom: 15
+    });
+    this.map.addLayer(this.markerGroup);
+    (L.control as any).fullscreen({ position: 'topright' }).addTo(this.map);
   }
 
   async fetchMarkers(): Promise<void> {
@@ -67,13 +77,16 @@ export class OsmMapComponent implements OnInit, OnChanges {
       const data = await firstValueFrom(this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes'));
       if (data) {
         this.markers = data.filter(marker => marker.name_id);
-        this.filterMarkers();
+        
+        requestIdleCallback(() => {
+          this.filterMarkers();
+        });
       }
     } catch (error) {
       console.error('Error fetching markers:', error);
     }
   }
-
+  
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
     this.markerGroup.clearLayers();

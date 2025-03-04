@@ -41,6 +41,7 @@ export class BodyComponent implements OnInit, OnDestroy {
  
 
   ngOnInit() {
+    
     // ฟังการอัพเดทข้อมูลเมื่อได้รับจาก WebSocket
     this.wsService.onUpdate((message) => {
       if (message.type === 'update') {
