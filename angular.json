@@ -43,6 +43,7 @@
             "allowedCommonJsDependencies": [
               "leaflet",
               "leaflet.markercluster",
+              "leaflet-fullscreen",
               "qrcode"
             ]
           },
