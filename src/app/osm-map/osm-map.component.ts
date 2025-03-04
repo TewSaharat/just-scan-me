@@ -6,9 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import * as L from 'leaflet';
-import 'leaflet.markercluster'; // ✅ โหลด MarkerCluster
-import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js'; // ✅ โหลด Fullscreen ให้รองรับ CommonJS
 
+let MarkerCluster: any;
 
 import { firstValueFrom, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -45,12 +44,14 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
   constructor(private http: HttpClient, private dialog: MatDialog) {}
 
-  ngOnInit(): void {
-    
+  async ngOnInit(): Promise<void> {
+    // ✅ โหลด MarkerCluster ตอน runtime
+    const markerClusterModule = await import('leaflet.markercluster');
+    MarkerCluster = markerClusterModule.default ?? markerClusterModule;
+
     this.loadMap();
     setTimeout(() => this.fetchMarkers(), 100);
 
-    // ใช้ debounceTime เพื่อลดการเรียก API ซ้ำซ้อน
     this.filterChange$.pipe(debounceTime(500)).subscribe(() => {
       this.fetchMarkers();
     });
@@ -83,8 +84,9 @@ export class OsmMapComponent implements OnInit, OnChanges {
     console.log("map Data",L.markerClusterGroup);
 
     // ✅ ใช้ (L as any) เพื่อให้ Angular รู้จัก markerClusterGroup
-    this.markerGroup = (L as any).markerClusterGroup({
-      disableClusteringAtZoom: 14
+    // ✅ สร้าง markerClusterGroup จากโมดูลที่โหลดมา
+    this.markerGroup = new MarkerCluster({
+      disableClusteringAtZoom: 14,
     });
   
     this.map.addLayer(this.markerGroup);
