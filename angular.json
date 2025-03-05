@@ -27,7 +27,8 @@
               "src/assets",
               "src/assets/image",
               "src/assets/img",
-              "src/assets/KML"
+              "src/assets/KML",
+               "src/static.json"
             ],
             "styles": [
               "src/styles.css",
