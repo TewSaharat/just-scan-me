@@ -3,6 +3,7 @@ import { NotifyComponent } from './notify/notify.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { QrCodePageComponent } from './qr-code-page/qr-code-page.component';
 import { provideRouter, withHashLocation } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
 
 
 export const routes: Routes = [
@@ -13,4 +14,7 @@ export const routes: Routes = [
   ];
   
   export const APP_ROUTER = provideRouter(routes, withHashLocation());
+  export const appConfig: ApplicationConfig = {
+    providers: [provideRouter(routes, withHashLocation())] // ✅ ใช้ Hash Location
+  };
   
