@@ -25,7 +25,7 @@
           </a>
 
           <div *ngIf="isLoggedIn" class="user-header">
-              <span class="username">{{ user.name }}</span>
+              <span class="username">{{ user?.name }}</span>
               <a class="logout_logo" (click)="logout()">
                   <img src="assets/logout_16584961.png" width="20" alt="Logout">
               </a>
