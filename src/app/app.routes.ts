@@ -7,8 +7,9 @@ import { ApplicationConfig } from '@angular/core';
 
 
 export const routes: Routes = [
-    { path: 'home', component: HomePageComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomePageComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // ✅ Redirect ไปหน้า Home
+  { path: '**', redirectTo: 'home' }, // ✅ ถ้าไม่พบเส้นทาง ให้กลับไปที่ Home
     { path: 'notify', component: NotifyComponent },
     { path: 'QrCode', component: QrCodePageComponent }
   ];
