@@ -6,7 +6,7 @@ import { QrCodePageComponent } from './qr-code-page/qr-code-page.component';
 
 export const routes: Routes = [
     {path:'home',component:HomePageComponent},
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'notify',component:NotifyComponent},
     {path: 'QrCode',component:QrCodePageComponent}
 ];
