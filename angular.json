@@ -15,8 +15,9 @@
           "options": {
             "outputPath": "dist/just-scan-me",
             "index": "src/index.html",
-             "outputHashing": "all",
+            "outputHashing": "all",
             "browser": "src/main.ts",
+            "baseHref": "/",
             "polyfills": [
               "zone.js"
             ],
