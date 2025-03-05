@@ -7,7 +7,7 @@
           </a>
       </div>
       <ul class="nav">
-          <li><a routerLink="/home" routerLinkActive="active"><img src="assets/home.png" width="30" alt=""> Home</a></li>
+          <li><a routerLink="/" routerLinkActive="active"><img src="assets/home.png" width="30" alt=""> Home</a></li>
           <li><a routerLink="/upload"><img src="assets/file.png" width="30" alt=""> นำเข้าไฟล์ KML</a></li>
       </ul>
   </div>
@@ -18,7 +18,7 @@
           <a href="javascript:void(0);" class="menu_bar" (click)="toggleSidebar()">
               <img src="assets/menu.png" width="20" alt="Menu Icon">
           </a>
-          <a routerLink="/home" routerLinkActive="active" class="Home_header"><img src="assets/home.png" width="20" alt=""> Home</a>
+          <a routerLink="/" routerLinkActive="active" class="Home_header"><img src="assets/home.png" width="20" alt=""> Home</a>
 
           <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="login_header" (click)="openPopup()">
               <img src="assets/login.png" width="20"> Login
