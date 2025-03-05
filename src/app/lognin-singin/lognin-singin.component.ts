@@ -53,6 +53,7 @@ export class LogninSinginComponent {
       this.user = null;
     });
     this.close.emit();
+    this.closePopup();
   }
   
 
