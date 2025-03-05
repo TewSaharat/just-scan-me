@@ -1,14 +1,11 @@
-import { ApplicationConfig, NgModule } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withHashLocation } from '@angular/router';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { bootstrapApplication } from '@angular/platform-browser';
 
-
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [provideRouter(routes, withHashLocation())] 
 };
-bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
-}).catch((err) => console.error(err));
 
+bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
