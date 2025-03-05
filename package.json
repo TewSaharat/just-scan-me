@@ -4,11 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build": "ng build --configuration=production",
-  "postbuild": "cp static.json dist/just-scan-me/browser/static.json"
-
+    "postbuild": "copy src\\static.json dist\\just-scan-me\\browser\\static.json"
   },
   "private": true,
   "dependencies": {
