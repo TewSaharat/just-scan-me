@@ -9,10 +9,9 @@ import { UploadKMLComponent } from './upload-kml/upload-kml.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomePageComponent },
-    { path: 'home', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'notify', component: NotifyComponent },
     { path: 'QrCode', component: QrCodePageComponent },
-    {path:'root' ,component:AppComponent},
     {path:'upload' ,component:UploadKMLComponent}
 
   ];
