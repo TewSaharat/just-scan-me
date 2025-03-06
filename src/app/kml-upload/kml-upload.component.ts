@@ -59,7 +59,7 @@ export class KmlUploadComponent {
     console.log('Uploading file:', this.selectedFile.name);
     console.log('Uploading cat_id:', this.selectedcat_id);
   
-    this.http.post('http://127.0.0.1:8000/api/upload-kml', formData).subscribe({
+    this.http.post('https://just-scan-me-backend.onrender.com/api/upload-kml', formData).subscribe({
       next: () => {
         this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
         this.isLoading = false;
