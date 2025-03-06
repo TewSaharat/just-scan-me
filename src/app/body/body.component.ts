@@ -92,25 +92,22 @@ export class BodyComponent implements OnInit, OnDestroy {
       routes: this.selectedRoute,
     };
   
-    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', { params }).subscribe(
+    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes'
+    , { params }).subscribe(
       (data) => {
+  
         if (!Array.isArray(data)) {
           return;
         }
   
-        this.routesData = data
-          .filter(marker => {
-            if (this.showNormal && marker.status === 1) return true;
-            if (this.showFaulty && marker.status === 0) return true;
-            return false;
-          })
-          .map(route => ({
-            ...route,
-            report_time: route.report_time.replace(/"/g, '') // ลบเครื่องหมายคำพูดออก
-          }))
-          .sort((a, b) => new Date(b.report_time).getTime() - new Date(a.report_time).getTime());
-  
+        this.routesData = data.filter(marker => {
+          if (this.showNormal && marker.status === 1) return true;
+          if (this.showFaulty && marker.status === 0) return true;
+          return false;
+        });
+        
         this.calculateStatistics();
+        
       },
       (error) => {
         console.error("Error fetching data:", error);
@@ -161,7 +158,7 @@ export class BodyComponent implements OnInit, OnDestroy {
         this.filteredRoutesData = this.mapCategoryName(data.filter(route => route.status === 0))
           .map(route => ({
             ...route,
-            report_time: route.report_time.replace(/"/g, '') // ลบเครื่องหมายคำพูดออก
+
           }))
           .sort((a, b) => new Date(b.report_time).getTime() - new Date(a.report_time).getTime());
       },
