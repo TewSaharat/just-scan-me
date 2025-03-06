@@ -1,0 +1,47 @@
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.expanded]="isSidebarVisible">
+      <div class="logo"  routerLink="/home" routerLinkActive="active">
+          <a class="logo_just">
+              <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" alt="Just Scan Me"> Just Scan Me
+          </a>
+      </div>
+      <ul class="nav">
+          <li><a routerLink="/home" routerLinkActive="active"><img src="assets/home.png" width="30" alt=""> Home</a></li>
+      </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="header">
+          <a routerLink="/home" routerLinkActive="active" class="Home_header"><img src="assets/home.png" width="20" alt=""> Home</a>
+  </div>
+<div class="upload-container">
+    <h2>นำเข้า KML</h2>
+  
+    <div class="form-container">
+      <!-- Dropdown สำหรับเลือกผู้รับผิดชอบ -->
+      <div class="form-group">
+        <label for="category">ผู้รับผิดชอบ:</label>
+        <select id="category" [(ngModel)]="selectedcat_id">
+          <option *ngFor="let cat of cat_id" [value]="cat.id">{{ cat.name }}</option>
+        </select>
+      </div>
+  
+      <!-- ช่องอัปโหลดไฟล์ -->
+      <div class="form-group">
+        <label for="file">เลือกไฟล์:</label>
+        <input type="file" id="file" (change)="onFileSelected($event)" accept=".kml">
+      </div>
+  
+      <!-- ปุ่มอัปโหลด -->
+      <button (click)="uploadFile()" [disabled]="isLoading">
+        {{ isLoading ? 'กำลังอัปโหลด...' : 'Upload' }}
+      </button>
+    </div>
+  
+    <!-- แสดงข้อความแจ้งเตือน -->
+    <p class="status-message">{{ uploadStatus }}</p>
+  </div>
+
+  <router-outlet></router-outlet>
