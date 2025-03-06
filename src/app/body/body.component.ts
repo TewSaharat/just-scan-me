@@ -105,9 +105,7 @@ export class BodyComponent implements OnInit, OnDestroy {
           if (this.showFaulty && marker.status === 0) return true;
           return false;
         });
-        
         this.calculateStatistics();
-        
       },
       (error) => {
         console.error("Error fetching data:", error);
@@ -155,17 +153,11 @@ export class BodyComponent implements OnInit, OnDestroy {
     const apiUrl = 'https://just-scan-me-backend.onrender.com/api/get-routes';
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
-        this.filteredRoutesData = this.mapCategoryName(data.filter(route => route.status === 0))
-          .map(route => ({
-            ...route,
-
-          }))
-          .sort((a, b) => new Date(b.report_time).getTime() - new Date(a.report_time).getTime());
+        this.filteredRoutesData = this.mapCategoryName(data.filter(route => route.status === 0));
       },
       error: (err) => console.error('Error fetching data:', err),
     });
   }
-  
 
   downloadNotifyExcel() {
     const url = 'https://just-scan-me-backend.onrender.com/api/export-notify-to-excel';
