@@ -92,19 +92,20 @@ export class BodyComponent implements OnInit, OnDestroy {
       routes: this.selectedRoute,
     };
   
-    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes'
-    , { params }).subscribe(
+    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', { params }).subscribe(
       (data) => {
-  
         if (!Array.isArray(data)) {
           return;
         }
   
-        this.routesData = data.filter(marker => {
-          if (this.showNormal && marker.status === 1) return true;
-          if (this.showFaulty && marker.status === 0) return true;
-          return false;
-        });
+        this.routesData = data
+          .filter(marker => {
+            if (this.showNormal && marker.status === 1) return true;
+            if (this.showFaulty && marker.status === 0) return true;
+            return false;
+          })
+          .sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
+  
         this.calculateStatistics();
       },
       (error) => {
@@ -112,6 +113,7 @@ export class BodyComponent implements OnInit, OnDestroy {
       }
     );
   }
+  
   
 
   calculateStatistics() {
@@ -153,12 +155,13 @@ export class BodyComponent implements OnInit, OnDestroy {
     const apiUrl = 'https://just-scan-me-backend.onrender.com/api/get-routes';
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
-        this.filteredRoutesData = this.mapCategoryName(data.filter(route => route.status === 0));
+        this.filteredRoutesData = this.mapCategoryName(data.filter(route => route.status === 0))
+          .sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
       },
       error: (err) => console.error('Error fetching data:', err),
     });
   }
-
+  
   downloadNotifyExcel() {
     const url = 'https://just-scan-me-backend.onrender.com/api/export-notify-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
