@@ -184,7 +184,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       <hr>
       <div>
         สถานะอุปกรณ์:<br>
-        หมอเล: <span style="color: ${statusColor};">${statusText}</span><br>
+        หลอด: <span style="color: ${statusColor};">${statusText}</span><br>
         บัลลาสต์: <span style="color: ${statusColor};">${statusText}</span><br>
         คาปาซิเตอร์: <span style="color: ${statusColor};">${statusText}</span><br>
         ฟิวส์/กล่อง: <span style="color: ${statusColor};">${statusText}</span>

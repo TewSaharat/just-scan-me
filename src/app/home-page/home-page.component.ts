@@ -35,6 +35,7 @@ export class HomePageComponent implements OnInit {
         this.authService.isLoggedIn().subscribe((status: boolean) => {
             console.log("isLoggedIn status:", status);
             this.isLoggedIn = status;
+            
         });
 
         this.authService.getUser().subscribe((user: any) => {
@@ -48,6 +49,7 @@ export class HomePageComponent implements OnInit {
         });
 
         this.checkLoginStatus();
+        
     }
 
     checkLoginStatus() {
@@ -65,6 +67,7 @@ export class HomePageComponent implements OnInit {
         this.isLoggedIn = false;
         this.user = null;
     }
+    
 
     toggleSidebar() {
         this.isSidebarVisible = !this.isSidebarVisible;
