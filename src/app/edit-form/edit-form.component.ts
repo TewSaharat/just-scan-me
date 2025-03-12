@@ -76,14 +76,14 @@ export class EditFormComponent {
 
   ngOnInit() {
 
-    // this.authService.getUser().subscribe(user => {
-    //   this.isLoggedIn = true;
-    //   this.isAdmin = user.role === 'admin';
-    //   console.log('User Role:', user.role); // Debug
-    // }, error => {
-    //   console.error('Auth Error:', error);
-    //   this.isLoggedIn = false;
-    // });
+    this.authService.getUser().subscribe(user => {
+      this.isLoggedIn = true;
+      this.isAdmin = user.role === 'admin';
+      console.log('User Role:', user.role); // Debug
+    }, error => {
+      console.error('Auth Error:', error);
+      this.isLoggedIn = false;
+    });
 
     // ตรวจสอบว่ามีข้อมูลส่งเข้ามาหรือไม่
     if (this.incomingData) {

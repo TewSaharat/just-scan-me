@@ -44,7 +44,7 @@ select, input[type="checkbox"] {
 
 }
 .map-container{
-    height: 650px;
+    height: 350px;
     width: 100;
     background-color: #fff;
     border-radius: 8px;
