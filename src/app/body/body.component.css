@@ -10,26 +10,68 @@
     background-color: #ffffff;
     margin-top: 30px;
    
+    overflow-y: auto;
 }
-
 
 
 .filters-container {
     display: flex;
-    gap: 10px;
-    justify-content: flex-start;
+    flex-wrap: wrap; /* ให้ปรับอัตโนมัติเมื่อจอเล็ก */
+    gap: 15px;
+    align-items: center;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;
-    
-    
+    justify-content: flex-start; /* ให้ทุกอย่างชิดซ้าย */
 }
 
-.filters select,
-.filters label {
-    margin-right: 15px; /* เพิ่มช่องว่างระหว่าง select และ label */
-    padding: 0px 40px;
+/* ปรับขนาด dropdown ให้เท่ากัน */
+.filters-container select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 200px;
+    font-size: 14px;
 }
+
+/* ปรับ checkbox ให้ดูสมดุล */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* ลดระยะห่างของ Checkbox */
+}
+
+/* จัดการ label และ checkbox */
+.filters-container label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.filters-container input[type="checkbox"] {
+    transform: scale(1.2); /* ปรับขนาด checkbox */
+    margin-right: 5px; /* ปรับระยะห่างระหว่าง checkbox กับข้อความ */
+}
+
+/* 📱 ทำให้ Filters เรียงแนวตั้งเมื่อจอเล็ก */
+@media (max-width: 768px) {
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch; /* ให้ขนาดเต็มแนวกว้าง */
+        gap: 10px;
+    }
+
+    .checkbox-group {
+        flex-direction: column; /* Checkbox แสดงเป็นแนวตั้ง */
+        align-items: flex-start; /* ให้ชิดซ้าย */
+    }
+
+    .filters-container select {
+        width: 100%; /* ให้ dropdown กว้างเต็ม */
+    }
+}
+
 
 select, input[type="checkbox"] {
     padding: 5px;
@@ -55,6 +97,7 @@ select, input[type="checkbox"] {
 .table-container {
     height: 30%;
     overflow-y: auto; /* เพิ่มแถบเลื่อนในส่วนนี้ */
+    white-space: nowrap; /* ป้องกันการตัดคำในเซลล์ */
     background-color: #fff;
     padding: 10px;
     border-top: 1px solid #ddd;

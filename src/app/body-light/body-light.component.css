@@ -24,8 +24,10 @@
     min-height: 80px;
     padding: .5rem;
     position: relative;
-    width: 300px;
+    width: auto;
+    gap: 0.5rem;
 }
+
 
 .info-box .info-box-icon {
     border-radius: .25rem;
@@ -40,6 +42,13 @@
     width: 70px;
     
 }
+
+.info-box .info-box-content {
+    -ms-flex: 1;
+    flex: 1;
+    padding: 5px 10px;
+}
+
 .bg-info, .bg-info>a {
     color: #fff !important;
 }

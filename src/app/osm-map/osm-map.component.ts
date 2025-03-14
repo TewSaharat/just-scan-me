@@ -51,7 +51,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
     this.loadMap();
     setTimeout(() => this.fetchMarkers(), 100);
 
-    this.filterChange$.pipe(debounceTime(500)).subscribe(() => {
+    this.filterChange$.pipe(debounceTime(100)).subscribe(() => {
       this.fetchMarkers();
     });
   }
@@ -62,7 +62,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
 
   loadMap(): void {
-    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 13);
+    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 12);
   
     const streetLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
       attribution: 'Google Maps',
@@ -86,7 +86,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
   
     // ✅ ใช้ `MarkerCluster.MarkerClusterGroup()` แทน `L.markerClusterGroup()`
     this.markerGroup = new MarkerCluster.MarkerClusterGroup({
-      disableClusteringAtZoom: 13,
+      disableClusteringAtZoom: 8,
     });
   
     this.map.addLayer(this.markerGroup);
@@ -211,7 +211,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
             cursor: pointer;">
           พิมพ์ QRCode
         </button>
-<button onclick="window.open('https://www.google.com/maps?q=&layer=c&cbll=${marker.lat},${marker.longitude}')" 
+        <button onclick="window.open('https://www.google.com/maps?q=&layer=c&cbll=${marker.lat},${marker.longitude}')" 
           style="background-color:#ff9800; color: white; border: none; padding: 5px 10px; margin-top: 5px; border-radius: 5px; cursor: pointer;">
           เปิด Street View
         </button>
@@ -267,7 +267,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
         }
       }
     });
-  }
+  } 
 
  // ✅ เพิ่มฟังก์ชันให้ BodyComponent ใช้ดึง markerGroup
  getMarkerGroup(): L.LayerGroup {

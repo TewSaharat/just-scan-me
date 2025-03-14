@@ -1,45 +1,50 @@
-<body>
-  <!-- Sidebar -->
-  <div class="sidebar" [class.expanded]="isSidebarVisible">
-      <div class="logo">
-          <a class="logo_just"  routerLink="/home" routerLinkActive="active">
-              <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" alt="Just Scan Me"> Just Scan Me
-          </a>
-      </div>
-      <ul class="nav">
-          <li><a routerLink="/home" routerLinkActive="active"><img src="assets/home.png" width="30" alt=""> Home</a></li>
-          <li><a routerLink="/upload"><img src="assets/file.png" width="30" alt=""> นำเข้าไฟล์ KML</a></li>
-      </ul>
-  </div>
+<!-- Sidebar -->
+<div class="sidebar" [class.expanded]="isSidebarVisible">
+    <div class="logo">
+        <a class="logo_just" routerLink="/home">
+            <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" alt="Just Scan Me">
+            <span *ngIf="isSidebarVisible">Just Scan Me</span>
+        </a>
+    </div>
+    <ul class="nav">
+        <li><a routerLink="/home"><img src="assets/home.png" width="30" alt=""> <span *ngIf="isSidebarVisible">Home</span></a></li>
+        <li><a routerLink="/upload"><img src="assets/file.png" width="30" alt=""> <span *ngIf="isSidebarVisible">นำเข้าไฟล์ KML</span></a></li>
+    </ul>
+</div>
 
-  <!-- Main Content -->
-  <div class="main-content">
-      <div class="header">
-          <a href="javascript:void(0);" class="menu_bar" (click)="toggleSidebar()">
-              <img src="assets/menu.png" width="20" alt="Menu Icon">
-          </a>
-          <a routerLink="/home" routerLinkActive="active" class="Home_header"><img src="assets/home.png" width="20" alt=""> Home</a>
+<!-- Main Content -->
+<div class="main-content">
+    <div class="header">
+        <!-- ปุ่มเปิด/ปิด Sidebar -->
+        <a href="javascript:void(0);" class="menu_bar" (click)="toggleSidebar()">
+            <img src="assets/menu.png" width="25" alt="Menu Icon">
+        </a>
 
-          <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="login_header" (click)="openPopup()">
-              <img src="assets/login.png" width="20"> Login
-          </a>
+        <!-- Home -->
+        <a routerLink="/home" class="Home_header">
+            <img src="assets/home.png" width="25" alt=""> Home
+        </a>
 
-          <div *ngIf="isLoggedIn" class="user-header">
-              <span class="username">{{ user?.name }}</span>
-              <a class="logout_logo" (click)="logout()">
-                  <img src="assets/logout_16584961.png" width="20" alt="Logout">
-              </a>
-          </div>
-      </div>
+        <!-- Login / Logout -->
+        <div class="login_header">
+            <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="Login" (click)="openPopup()">
+                <img src="assets/login.png" width="25"> Login
+            </a>
 
-      <div class="header_body">
-          <ul class="title">แผนแจ้งซ่อม</ul>
-      </div>
+            <div *ngIf="isLoggedIn" class="user-header">
+                <span class="username">{{ user?.name }}</span>
+                <a class="logout_logo" (click)="logout()">
+                    <img src="assets/logout_16584961.png" width="25" alt="Logout">
+                </a>
+            </div>
+        </div>
+    </div>
 
-      <app-body></app-body>
+    <div class="header_body">
+        <ul class="title">แผนแจ้งซ่อม</ul>
+    </div>
 
-      <app-lognin-singin *ngIf="isPopupVisible" (close)="closePopup()"></app-lognin-singin>
-  </div>
-</body>
+    <app-body></app-body>
 
-
+    <app-lognin-singin *ngIf="isPopupVisible" (close)="closePopup()"></app-lognin-singin>
+</div>

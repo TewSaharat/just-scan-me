@@ -1,7 +1,7 @@
 /* Sidebar Styles */
 .sidebar {
     width: 60px;
-    height: 100vh;
+    height: 100%;
     background-color: #fcfcfc;
     position: fixed;
     top: 0;
@@ -22,7 +22,7 @@
 }
 
 .sidebar.expanded {
-    width: 250px;
+    width: 220px;
 }
 
 /* Main Content */
@@ -30,27 +30,23 @@
     margin-left: 60px;
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
+    
 }
 
 .sidebar.expanded ~ .main-content {
-    margin-left: 250px;
+    margin-left: 220px;
 }
 
 .sidebar .nav li a span {
-    opacity: 0; /* ซ่อนข้อความ */
-    visibility: hidden; /* ซ่อนข้อความ */
+    opacity: 0;
+    visibility: hidden;
     margin-left: 10px;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.sidebar:hover .nav li a span,
-.sidebar:not(.hidden):hover .nav li a span {
-    opacity: 1; /* แสดงข้อความเมื่อ Hover */
-    visibility: visible; /* แสดงข้อความเมื่อ Hover */
-}
-
-.sidebar:hover {
-    width: 200px; /* ขยาย Sidebar เมื่อ Hover */
+.sidebar.expanded .nav li a span {
+    opacity: 1;
+    visibility: visible;
 }
 
 .sidebar .logo {
@@ -81,8 +77,6 @@
     height: 40px;
 }
 
-
-
 /* Sidebar Navigation */
 .nav {
     margin: 20px;
@@ -106,59 +100,54 @@
     background-color: #ff8d41;
 }
 
-
 .nav li a img {
     margin-right: 10px;
 }
 
-.main-content {
-    margin-left: 60px; /* ความกว้างเมื่อ Sidebar หด */
-    padding: 10px;
-    transition: margin-left 0.3s;
-}
-
-.sidebar:hover ~ .main-content {
-    margin-left: 200px; /* ปรับความกว้างเมื่อ Sidebar ถูกขยาย */
-}
-
+/* Header Styles */
 .header {
     position: fixed;
-    width: 100%;
-    top: 0; /* Fixed position at the top */
+  width: 100%;
+    top: 0;
     display: flex;
     align-items: center;
-    background-color: #157be8; /* สีฟ้าของ Header */
+    background-color: #157be8;
     color: rgb(255, 255, 255);
-    padding: 8px 5rem;
-    margin: -5px -14px;     
+    padding-top: 15px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin: -5px -20px;
     z-index: 2900;
 }
-
 
 .Home_header {
     display: flex;
     align-items: center;
-    gap: 5px; 
-    color: white; 
-    font-size: 20px; 
-    margin: 15px ;
+    gap: 5px;
+    color: white;
+    font-size: 20px;
+    margin: 15px;
     text-decoration: none;
 }
 
 .Home_header img, .login_header img, .menu_bar img {
-    width: 25px; 
-    height: 25px; 
+    width: 25px;
+    height: 25px;
 }
 
 .login_header {
     display: flex;
-    padding-left: 70%;
-    gap: 5px; 
-    color: white; 
-    font-size: 20px; 
-    text-decoration: none;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* ดันไปฝั่งขวา */
+    padding-right: 20rem; /* เพิ่มระยะห่างจากขอบขวา */
 }
 
+.Login {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
 .menu_bar {
     display: flex;
     align-items: center;
@@ -166,10 +155,10 @@
     cursor: pointer;
 }
 
-.Home_header:hover, 
+.Home_header:hover, .Login:hover,
 .login_header:hover, 
 .menu_bar:hover {
-    color: #f0f0f0af; 
+    color: #ffa200af;
 }
 
 .header_body .title {
@@ -187,7 +176,7 @@ body {
 .user-header {
     display: flex;
     align-items: center;
-    gap: 10px; /* เพิ่มระยะห่างระหว่างชื่อและไอคอน Logout */
+    gap: 10px;
 }
 
 .username {
@@ -204,44 +193,7 @@ body {
 }
 
 .logout_logo img:hover {
-    opacity: 0.8; /* เอฟเฟกต์จางลงเมื่อ Hover */
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .sidebar {
-        width: 200px; /* Default expanded for large screens */
-    }
-
-    .main-content {
-        margin-left: 200px; /* Adjust for expanded sidebar */
-    }
-}
-
-@media (max-width: 992px) {
-    .sidebar {
-        width: 60px; /* Sidebar shrinks on medium screens */
-    }
-
-    .sidebar.expanded {
-        width: 180px;
-    }
-
-    .main-content {
-        margin-left: 60px; /* Adjust for shrinking sidebar */
-    }
-
-    .header {
-        padding: 8px 3rem;
-    }
-
-    .menu-bar {
-        display: none;
-    }
-
-    .login_header {
-        padding-left: 50%;
-    }
+    opacity: 0.8;
 }
 
 /* Responsive Styles */
@@ -251,32 +203,36 @@ body {
     }
 
     .sidebar.expanded {
-        width: 180px;
-    }
-
-    .main-content {
-        margin-left: 60px;
-    }
-
-    .header {
-        padding: 8px 3rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .sidebar {
-        width: 50px;
-    }
-
-    .sidebar.expanded {
-        width: 150px;
+        width: 250px;
     }
 
     .main-content {
         margin-left: 50px;
     }
 
-    .header {
-        padding: 8px 1rem;
+  .logo img {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 60px;
     }
+
+    .sidebar.expanded {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 40px;
+    }
+    .logo img {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+    }
+
 }

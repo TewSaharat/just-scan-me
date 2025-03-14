@@ -10,11 +10,11 @@ import { AuthService } from '../services/auth.service';
     selector: 'app-home-page',
     standalone: true,
     imports: [
-        CommonModule,
-        LogninSinginComponent,
-        RouterModule,
-        BodyComponent
-    ],
+    CommonModule,
+    LogninSinginComponent,
+    RouterModule,
+    BodyComponent
+],
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.css']
 })
@@ -72,7 +72,6 @@ export class HomePageComponent implements OnInit {
     toggleSidebar() {
         this.isSidebarVisible = !this.isSidebarVisible;
     }
-
     openPopup() {
         this.isPopupVisible = true;
     }
