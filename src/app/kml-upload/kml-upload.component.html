@@ -1,15 +1,6 @@
 
   <!-- Sidebar -->
-  <div class="sidebar" [class.expanded]="isSidebarVisible">
-      <div class="logo"  routerLink="/home" routerLinkActive="active">
-          <a class="logo_just">
-              <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" alt="Just Scan Me"> Just Scan Me
-          </a>
-      </div>
-      <ul class="nav">
-          <li><a routerLink="/home" routerLinkActive="active"><img src="assets/home.png" width="30" alt=""> Home</a></li>
-      </ul>
-  </div>
+   <div class="Kml-uploas">
 
   <!-- Main Content -->
   <div class="main-content">
@@ -43,5 +34,5 @@
     <!-- แสดงข้อความแจ้งเตือน -->
     <p class="status-message">{{ uploadStatus }}</p>
   </div>
-
+</div>
   <router-outlet></router-outlet>
