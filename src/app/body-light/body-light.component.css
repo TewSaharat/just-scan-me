@@ -4,9 +4,12 @@
 }
 .row {
     display: flex;
-    justify-content:flex-start; /* กระจายกล่องให้เท่ากัน */
+    width: 100%;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    justify-content:flex-start; /* จัดให้อยู่ออกทางซ้าย */
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1rem;
+    min-height: 80px; /* ลดความสูงของกล่อง */
     
 }
 
@@ -19,35 +22,22 @@
     display: -ms-flexbox;
     display: flex;
     margin-bottom: 1rem;
-    min-height: 80px;
-    padding: .5rem;
     position: relative;
+    padding: .5rem;
     width: auto;
-    gap: 0.5rem;
-    flex-basis: 300px; /* ปรับขนาดกล่องให้กว้างขึ้น */
-    max-width: 350px; 
-    
+    gap: 1rem;
+    min-height: 80px; 
+    align-items: stretch;
 }
 
 
-.info-box .info-box-icon {
-    border-radius: .25rem;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -ms-flexbox;
-    display: flex;
-    font-size: 1.875rem;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-align: center;
-    width: 70px;
-    
-}
 
 .info-box .info-box-content {
-    -ms-flex: 1;
-    flex: 1;
-    padding: 5px 10px;
+    flex-grow: 1;
+    text-align: left; /* จัดข้อความให้อยู่ทางซ้าย */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ให้เนื้อหาตรงกลาง */
 }
 
 .bg-info, .bg-info>a {
@@ -102,6 +92,19 @@
     white-space: nowrap;
     padding: 5px;
    
+}
+
+.info-box-text {
+    font-size: 14px; /* ปรับขนาดตัวอักษร */
+    font-weight: 600;
+    margin: 2px 3px; /* ลดระยะห่างระหว่างบรรทัด */
+    line-height: 1.5; /* ลดความสูงของบรรทัด */
+}
+
+.info-box-number {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 0.8;
 }
 
 
