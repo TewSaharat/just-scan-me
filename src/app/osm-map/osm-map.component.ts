@@ -121,7 +121,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
         return marker.lat !== null && marker.longitude !== null;
     });
 
-    console.log("Markers after filtering:", filteredMarkers.length); // Debugging
+    console.log("Markers after filtering:", filteredMarkers.length);
 
     setTimeout(() => {
         filteredMarkers.forEach(marker => {
@@ -137,7 +137,10 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
             const popupContent = this.generatePopupContent(marker);
             const markerInstance = L.marker([marker.lat, marker.longitude], { icon: dynamicIcon })
-                .bindPopup(popupContent);
+                .bindPopup(popupContent)
+                .on("popupopen", () => {
+                    setTimeout(() => this.setupPopupEventListeners(marker), 500);
+                });
 
             this.markerGroup.addLayer(markerInstance);
         });
