@@ -102,9 +102,11 @@ export class OsmMapComponent implements OnInit, OnChanges {
         this.markers = data.filter(marker => marker && marker.name_id && marker.lat !== null && marker.longitude !== null);
         // this.markers = data.filter(marker => marker.name_id);
 
-        requestIdleCallback(() => {
+     
+        setTimeout(() => {
           this.filterMarkers();
-        });
+      }, 100); 
+
       }
     } catch (error) {
       console.error('Error fetching markers:', error);
@@ -114,49 +116,36 @@ export class OsmMapComponent implements OnInit, OnChanges {
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
     this.markerGroup.clearLayers();
+
     const filteredMarkers = this.markers.filter(marker => {
-        if (!marker || marker.lat == null || marker.longitude == null) {
-            return false;
-        }
-
-        const categoryMatch = this.selectedCategory === 'all' || marker.cat_id === Number(this.selectedCategory);
-        const routeMatch = this.selectedRoute === 'all' || (marker.routes && marker.routes.toString() === this.selectedRoute);
-        const statusMatch = (this.showNormal && marker.status === 1) || (this.showFaulty && marker.status === 0);
-
-        return categoryMatch && routeMatch && statusMatch;
+        return marker.lat !== null && marker.longitude !== null;
     });
 
-
-
-    filteredMarkers.forEach(marker => {
-      if (!marker.name_id) return;
-
-      const iconUrl = this.getDynamicIconUrl(marker);
-      const dynamicIcon = L.icon({
-        iconUrl,
-        iconSize: [30, 40],
-        iconAnchor: [15, 40],
-        popupAnchor: [0, -40],
-      });
-
-      const popupContent = this.generatePopupContent(marker);
-      const markerInstance = L.marker([marker.lat, marker.longitude], { icon: dynamicIcon })
-        .bindPopup(popupContent)
-        .on('popupopen', () => {
-          setTimeout(() => {
-            this.setupPopupEventListeners(marker);
-          }, 500);
-        });
-
-      this.markerGroup.addLayer(markerInstance);
-    });
+    console.log("Markers after filtering:", filteredMarkers.length); // Debugging
 
     setTimeout(() => {
-      this.map.invalidateSize();
-      console.log("Map size invalidated!"); // ✅ ตรวจสอบว่าทำงานหรือไม่
-  }, 500);
+        filteredMarkers.forEach(marker => {
+            if (!marker.name_id) return;
 
-  }
+            const iconUrl = this.getDynamicIconUrl(marker);
+            const dynamicIcon = L.icon({
+                iconUrl,
+                iconSize: [30, 40],
+                iconAnchor: [15, 40],
+                popupAnchor: [0, -40],
+            });
+
+            const popupContent = this.generatePopupContent(marker);
+            const markerInstance = L.marker([marker.lat, marker.longitude], { icon: dynamicIcon })
+                .bindPopup(popupContent);
+
+            this.markerGroup.addLayer(markerInstance);
+        });
+
+        console.log(`Added ${filteredMarkers.length} markers to the map.`);
+    }, 100);
+}
+
 
   getCategoryName(category: number | string): string {
     switch (category.toString()) {
