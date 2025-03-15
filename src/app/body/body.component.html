@@ -2,7 +2,7 @@
 
 <div class="body">
   <div class="filters-container">
-    <select>
+    <select (change)="onSelectCategory($event)">
         <option disabled>เลือกสถานะ</option>
         <option value="1">หมวดนครพนม</option>
         <option value="2">หมวดศรีสงคราม</option>
@@ -12,7 +12,7 @@
         <option value="all" selected>แสดงทุกหมวด</option>
     </select>
 
-    <select>
+    <select  (change)="onSelectRoute($event)">
         <option disabled>เลือกสถานะ</option>
         <option value="22">22</option>
         <option value="212">212</option>
@@ -36,7 +36,7 @@
         <option value="all" selected>แสดงทุกเส้นทาง</option>
     </select>
 
-    <select>
+    <select (change)="onSelectDistrict($event)" >
         <option disabled>เลือกสถานะ</option>
         <option value="1">เขต 1</option>
         <option value="2">เขต 2</option>
@@ -46,62 +46,60 @@
     </select>
 
     <div class="checkbox-group">
-        <label><input type="checkbox" checked> ปกติ</label>
-        <label><input type="checkbox" checked> เสีย</label>
+        <label><input type="checkbox" checked  (change)="toggleNormal()"> ปกติ</label>
+        <label><input type="checkbox" checked  (change)="toggleFaulty()"> เสีย</label>
     </div>
 </div>
-
-<div>
-    <!-- <app-body-light></app-body-light> -->
-    <app-body-light 
-    [totalMarkers]="totalMarkers" 
-    [totalDB]="totalDB" 
-    [totalSG]="totalSG"
-    [totalFaulty]="totalFaulty"
-    [totalFaultySG]="totalFaultySG"
-    [totalFaultyDB]="totalFaultyDB"
-    >
-  </app-body-light>
+      <!-- <app-body-light></app-body-light> -->
+      <app-body-light 
+      [totalMarkers]="totalMarkers" 
+      [totalDB]="totalDB" 
+      [totalSG]="totalSG"
+      [totalFaulty]="totalFaulty"
+      [totalFaultySG]="totalFaultySG"
+      [totalFaultyDB]="totalFaultyDB"
+      >
+    </app-body-light>
+    
+  </div>
+  <div class="map-container">
   
-</div>
-<div class="map-container">
     <app-osm-map
     [selectedCategory]="selectedCategory"
     [selectedRoute]="selectedRoute"
     [showNormal]="showNormal"
     [showFaulty]="showFaulty"
     ></app-osm-map>
-</div>
-
-<div class="table-container">
-    <ul class ="downlaod_excel"><li><a><img src="assets/excel.png" width="30" alt="ดาวโหลดไฟล์" (click)="downloadNotifyExcel()" (click)="downloadRepairExcel()"></a></li></ul>
-    <table class="table_body" style="width:100%; border-collapse: collapse; text-align: center;">
-      <tr>
-        <th>ชื่อเสา</th>
-        <th>ชื่อหมวด</th>
-        
-        <th>สายทาง</th>
-        <th>ตอนควบคุม</th>
-        <th>กม.</th>
-        <th>latitude</th>
-        <th>longtude</th>
-        <th>สาเหตุ</th>
-        <th>วันเวลาแจ้ง</th>
-        <th>สถานะ</th>
-      </tr>
-      <tr *ngFor="let route of filteredRoutesData" (click)="onRowClick(route)">
-        <td>{{ route.name_id}}<a href="https://www.google.co.th/maps/place/{{ route.lat }},{{ route.longitude }}" target="_blank" >
-        <img src="assets/placeholder.png" alt="navigator" width="32" height="32"></a></td>
-        <td>{{ route.category_name }}</td>
-        <td>{{ route.routes }}</td>
-        <td>{{ route.control }}</td>
-        <td>{{ route.km }}</td>
-        <td>{{ route.lat }}</td>
-        <td>{{ route.longitude }}</td>
-        <td>{{ route.complaintReason }}</td>
-        <td>{{ route.report_time}}</td>
-        <td>{{ route.status === 0 ? 'เสีย' : 'ปกติ' }}</td>
-      </tr>
-    </table>
-</div>
-</div>
+  
+  </div>
+  
+  <div class="table-container">
+      <ul class ="downlaod_excel"><li><a><img src="assets/excel.png" width="30" alt="ดาวโหลดไฟล์" (click)="downloadNotifyExcel()" (click)="downloadRepairExcel()"></a></li></ul>
+      <table class="table_body" style="width:100%; border-collapse: collapse; text-align: center;">
+        <tr>
+          <th>ชื่อเสา</th>
+          <th>ชื่อหมวด</th>
+          <th>สายทาง</th>
+          <th>ตอนควบคุม</th>
+          <th>กม.</th>
+          <th>latitude</th>
+          <th>longtude</th>
+          <th>สาเหตุ</th>
+          <th>วันเวลาแจ้ง</th>
+          <th>สถานะ</th>
+        </tr>
+        <tr *ngFor="let route of filteredRoutesData" (click)="onRowClick(route)">
+          <td><a>{{ route.name_id }}</a></td>
+          <td>{{ route.category_name }}</td>
+          <td>{{ route.routes }}</td>
+          <td>{{ route.control }}</td>
+          <td>{{ route.km }}</td>
+          <td>{{ route.lat }}</td>
+          <td>{{ route.longitude }}</td>
+          <td>{{ route.complaintReason }}</td>
+          <td>{{ route.report_time}}</td>
+          <td>{{ route.status === 0 ? 'เสีย' : 'ปกติ' }}</td>
+        </tr>
+      </table>
+  </div>
+  

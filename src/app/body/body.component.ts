@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import L from 'leaflet';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-body',
     standalone: true,
-    imports: [OsmMapComponent, BodyLightComponent, CommonModule,],
+    imports: [OsmMapComponent, BodyLightComponent, CommonModule,FormsModule],
     templateUrl: './body.component.html',
     styleUrls: ['./body.component.css']
 })
@@ -52,6 +53,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     // ดึงข้อมูลเริ่มต้นทันทีที่โหลดคอมโพเนนต์
     this.fetchFilteredRoutes();
     this.fetchRoutes();
+    
   }
 
   ngOnDestroy() {
@@ -88,16 +90,16 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   fetchFilteredRoutes() {
     const params: any = {
-      category: this.selectedCategory,
+      cat_id: this.selectedCategory,
       routes: this.selectedRoute,
+      
     };
-  
+
     this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', { params }).subscribe(
       (data) => {
         if (!Array.isArray(data)) {
           return;
         }
-  
         this.routesData = data
           .filter(marker => {
             if (this.showNormal && marker.status === 1) return true;
@@ -106,7 +108,7 @@ export class BodyComponent implements OnInit, OnDestroy {
           })
           .sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
   
-        this.calculateStatistics();
+        this.calculateStatistics();        
       },
       (error) => {
         console.error("Error fetching data:", error);
@@ -214,8 +216,4 @@ export class BodyComponent implements OnInit, OnDestroy {
     }
   }
 
-  
-  
-  
-  
 }

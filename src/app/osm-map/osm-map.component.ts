@@ -57,7 +57,14 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.filterChange$.next();
+    if (
+      changes['selectedCategory'] ||
+      changes['selectedRoute'] ||
+      changes['showNormal'] ||
+      changes['showFaulty']
+    ) {
+      this.filterMarkers();
+    }
   }
 
 
@@ -101,12 +108,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       if (data) {
         this.markers = data.filter(marker => marker && marker.name_id && marker.lat !== null && marker.longitude !== null);
         // this.markers = data.filter(marker => marker.name_id);
-
-     
-        setTimeout(() => {
-          this.filterMarkers();
-      }, 100); 
-
+        this.filterMarkers();
       }
     } catch (error) {
       console.error('Error fetching markers:', error);
@@ -114,19 +116,22 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
   
   filterMarkers(): void {
+
     if (!this.map || !this.markerGroup) return;
+    if (this.markerGroup) {
     this.markerGroup.clearLayers();
+    }
 
     const filteredMarkers = this.markers.filter(marker => {
-        return marker.lat !== null && marker.longitude !== null;
+    const categoryMatch = this.selectedCategory === 'all' || marker.cat_id === Number(this.selectedCategory);
+    const routeMatch = this.selectedRoute === 'all' || (marker.routes && marker.routes.toString() === this.selectedRoute);
+    const statusMatch =(this.showNormal && marker.status === 1) || (this.showFaulty && marker.status === 0);
+      return marker.lat !== null && marker.longitude !== null , categoryMatch && routeMatch && statusMatch ;  
     });
-
-    console.log("Markers after filtering:", filteredMarkers.length);
 
     setTimeout(() => {
         filteredMarkers.forEach(marker => {
             if (!marker.name_id) return;
-
             const iconUrl = this.getDynamicIconUrl(marker);
             const dynamicIcon = L.icon({
                 iconUrl,
@@ -280,4 +285,3 @@ export class OsmMapComponent implements OnInit, OnChanges {
 }
 
 }
-
