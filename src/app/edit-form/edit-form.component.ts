@@ -79,7 +79,6 @@ export class EditFormComponent {
     this.authService.getUser().subscribe(user => {
       this.isLoggedIn = true;
       this.isAdmin = user.role === 'admin';
-      console.log('User Role:', user.role); // Debug
     }, error => {
       console.error('Auth Error:', error);
       this.isLoggedIn = false;
@@ -176,12 +175,10 @@ export class EditFormComponent {
   }
 
   loadMarkerData(name_id: string) {
-    console.log('Loading data for marker:', name_id);
   
     const apiUrl = `https://just-scan-me-backend.onrender.com/api/marker/${name_id}`;
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
-        console.log('Marker Data:', response);
   
         // กำหนดค่า response ให้กับ `data`
         this.data = {

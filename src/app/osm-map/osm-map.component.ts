@@ -99,8 +99,9 @@ export class OsmMapComponent implements OnInit, OnChanges {
     try {
       const data = await firstValueFrom(this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes'));
       if (data) {
-        this.markers = data.filter(marker => marker.name_id);
-        
+        this.markers = data.filter(marker => marker && marker.name_id && marker.lat !== null && marker.longitude !== null);
+        // this.markers = data.filter(marker => marker.name_id);
+
         requestIdleCallback(() => {
           this.filterMarkers();
         });
@@ -113,13 +114,19 @@ export class OsmMapComponent implements OnInit, OnChanges {
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
     this.markerGroup.clearLayers();
-
     const filteredMarkers = this.markers.filter(marker => {
-      const categoryMatch = this.selectedCategory === 'all' || marker.cat_id === Number(this.selectedCategory);
-      const routeMatch = this.selectedRoute === 'all' || (marker.routes && marker.routes.toString() === this.selectedRoute);
-      const statusMatch = (this.showNormal && marker.status === 1) || (this.showFaulty && marker.status === 0);
-      return categoryMatch && routeMatch && statusMatch;
+        if (!marker || marker.lat == null || marker.longitude == null) {
+            return false;
+        }
+
+        const categoryMatch = this.selectedCategory === 'all' || marker.cat_id === Number(this.selectedCategory);
+        const routeMatch = this.selectedRoute === 'all' || (marker.routes && marker.routes.toString() === this.selectedRoute);
+        const statusMatch = (this.showNormal && marker.status === 1) || (this.showFaulty && marker.status === 0);
+
+        return categoryMatch && routeMatch && statusMatch;
     });
+
+
 
     filteredMarkers.forEach(marker => {
       if (!marker.name_id) return;
@@ -143,6 +150,12 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
       this.markerGroup.addLayer(markerInstance);
     });
+
+    setTimeout(() => {
+      this.map.invalidateSize();
+      console.log("Map size invalidated!"); // ✅ ตรวจสอบว่าทำงานหรือไม่
+  }, 500);
+
   }
 
   getCategoryName(category: number | string): string {

@@ -24,39 +24,70 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+
   login(email: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
-      tap(response => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-          this.isAuthenticated.next(true);
-          this.getUser().subscribe();
-          this.isLoggedInSubject.next(false);
-          this.userSubject.next(null);
-        }
-      })
+        tap(response => {
+            if (response.token) {
+                localStorage.setItem('token', response.token);
+                localStorage.setItem('user', JSON.stringify(response.user));
+                
+                this.isLoggedInSubject.next(true); // ✅ อัปเดตค่า isLoggedIn
+                this.userSubject.next(response.user); // ✅ อัปเดต user
+                console.log("User logged in successfully and status updated.");
+            }
+        })
     );
-  }
+}
 
 
-  logout() {
-    console.log("Logging out..."); // ตรวจสอบว่า Logout ถูกเรียกหรือไม่
-    // this.http.post('https://just-scan-me-backend.onrender.com/api/logout'
-    this.http.post('https://just-scan-me-backend.onrender.com/api/logout'
-    , {},
-    
-     {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-    }).subscribe(() => {
+
+  
+  isTokenExpired(): boolean {
+    const token = localStorage.getItem('token');
+    if (!token) return true; // ถ้าไม่มี Token ถือว่าหมดอายุ
+
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1])); // ถอดรหัส Payload ของ JWT
+        const exp = payload.exp * 1000; // แปลงวินาทีเป็นมิลลิวินาที
+        const now = Date.now();
+
+        return now >= exp; // ถ้าถึงหรือเกินเวลา exp ให้ถือว่าหมดอายุ
+    } catch (error) {
+        console.error("Invalid Token Format", error);
+        return true; // ถ้า Token ผิดพลาด ให้ถือว่าหมดอายุ
+    }
+}
+
+
+
+logout() {
+  
+  const token = localStorage.getItem('token');
+
+  if (!token || this.isTokenExpired()) {
+      console.warn("No valid token found. Clearing session locally.");
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       this.isLoggedInSubject.next(false);
       this.userSubject.next(null);
-      console.log("Logout successful!"); // ตรวจสอบว่าถึงจุดนี้หรือไม่
-    }, error => {
-      console.error("Logout error:", error);
-    });
+      return;
   }
+
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  this.isLoggedInSubject.next(false);
+  this.userSubject.next(null);
+  console.log("Token removed from LocalStorage!");
+
+  this.http.post('https://just-scan-me-backend.onrender.com/api/logout', {}, {
+      headers: { Authorization: `Bearer ${token}` }
+  }).subscribe({
+      next: () => console.log("Logout successful!"),
+      error: (err) => console.warn("Logout API failed (Token might be expired):", err)
+  });
+}
+
 
 
   getUser(): Observable<any> {

@@ -25,22 +25,23 @@ export class LogninSinginComponent {
 
   onSubmit() {
     if (this.isLoginMode) {
-      this.authService.login(this.email, this.password).subscribe({
-        next: (response) => {
-          if (response.token) {
-            this.authService.saveToken(response.token, response.user);
-            alert('Login Successful');
-            this.close.emit(); // ปิด popup
-          } else {
-            alert('Login Failed: Token not received');
-          }
-        },
-        error: (err) => {
-          alert('Login Failed: ' + (err.error?.message || 'Unknown error'));
-        }
-      });
+        this.authService.login(this.email, this.password).subscribe({
+            next: (response) => {
+                if (response.token) {
+                    this.authService.saveToken(response.token, response.user);
+                    alert('Login Successful');
+                    location.reload(); // ✅ รีเฟรชหน้าเพื่ออัปเดต UI
+                } else {
+                    alert('Login Failed: Token not received');
+                }
+            },
+            error: (err) => {
+                alert('Login Failed: ' + (err.error?.message || 'Unknown error'));
+            }
+        });
     }
-  }
+}
+
   
   logout() {
     const token = localStorage.getItem('token');

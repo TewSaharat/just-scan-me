@@ -32,36 +32,58 @@ export class HomePageComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.authService.isLoggedIn().subscribe((status: boolean) => {
-            console.log("isLoggedIn status:", status);
-            this.isLoggedIn = status;
-            
-        });
 
+        this.authService.isLoggedIn().subscribe((status: boolean) => {
+            this.isLoggedIn = status;
+        });
+    
         this.authService.getUser().subscribe((user: any) => {
+
             this.user = user;
         });
 
-        this.wsService.onUpdate((message) => {
-            if (message.type === 'update') {
-                this.message = message.message;
+        const token = localStorage.getItem('token');
+        if (!token || this.authService.isTokenExpired()) {
+            this.logout(); // ✅ ลบ Token และเปลี่ยน UI
+            return;
+        }
+    
+        // ✅ Subscribe เพื่อตรวจสอบสถานะการล็อกอินแบบ Reactive
+        this.authService.isLoggedIn().subscribe((status: boolean) => {
+            this.isLoggedIn = status;
+        });
+        // ✅ ดึงข้อมูลผู้ใช้ ถ้าพบ error 401 ให้ logout
+        this.authService.getUser().subscribe({
+            next: (user: any) => {
+                this.user = user;
+            },
+            error: (err) => {
+                console.error("Error fetching user:", err);
+                if (err.status === 401) { // ✅ เช็คว่าเป็น Unauthorized ก่อน Logout
+                    this.logout();
+                }
             }
         });
 
-        this.checkLoginStatus();
-        
     }
+    
 
     checkLoginStatus() {
         const token = localStorage.getItem('token');
-        if (token) {
-            this.isLoggedIn = true;
-            this.user = JSON.parse(localStorage.getItem('user') || '{}');
+        
+        if (!token || this.authService.isTokenExpired()) {
+           
+            this.logout();
+            return;
         }
+    
+        this.isLoggedIn = true;
+        this.user = JSON.parse(localStorage.getItem('user') || '{}');
     }
+    
+    
 
     logout() {
-        console.log("Calling logout()...");
         this.authService.logout();
         this.isPopupVisible = false;
         this.isLoggedIn = false;

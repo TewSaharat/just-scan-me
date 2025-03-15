@@ -27,16 +27,18 @@
 
         <!-- Login / Logout -->
         <div class="login_header">
-            <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="Login" (click)="openPopup()">
-                <img src="assets/login.png" width="25"> Login
-            </a>
+        <!-- แสดงปุ่ม Login ถ้ายังไม่ได้ล็อกอิน -->
+        <a *ngIf="!isLoggedIn" href="javascript:void(0)" class="Login" (click)="openPopup()">
+            <img src="assets/login.png" width="25"> Login
+        </a>
 
-            <div *ngIf="isLoggedIn" class="user-header">
-                <span class="username">{{ user?.name }}</span>
-                <a class="logout_logo" (click)="logout()">
-                    <img src="assets/logout_16584961.png" width="25" alt="Logout">
-                </a>
-            </div>
+        <!-- แสดงปุ่ม Logout ถ้าล็อกอินแล้ว -->
+        <div *ngIf="isLoggedIn" class="user-header">
+            <span class="username">{{ user?.name }}</span>
+            <a class="logout_logo" (click)="logout()">
+                <img src="assets/logout_16584961.png" width="25" alt="Logout">
+            </a>
+        </div>
         </div>
     </div>
 
