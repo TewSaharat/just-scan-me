@@ -1,85 +1,76 @@
 <div class="ediform">
-<h1 class="form-header">แก้ไขข้อมูลเสาไฟฟ้า</h1>
-<div class="form-container">
-  <!-- Left Column -->
-  <div class="form-column">
-    <label>ชนิดของหลอดไฟ</label>
-    <select [(ngModel)]="data.lampType_edit">
-      <option *ngFor="let type of lampType_edit" [value]="type">{{ type }}</option>
-    </select>
+  <h1 class="form-header">แก้ไขข้อมูลเสาไฟฟ้า</h1>
+  <div class="form-container">
+      <!-- Left Column -->
+      <div class="form-column">
+          <label>ชนิดของหลอดไฟ</label>
+          <select [(ngModel)]="data.lampType_edit">
+              <option *ngFor="let type of lampType_edit" [value]="type">{{ type }}</option>
+          </select>
 
-    <label>ตู้คอนโทรล</label>
-    <input type="text" [(ngModel)]="data.controller_edit" />
+          <label>ตู้คอนโทรล</label>
+          <input type="text" [(ngModel)]="data.controller_edit" />
 
-    <label>วันที่ก่อสร้าง</label>
-    <input type="date" [(ngModel)]="data.constructionDate" />
+          <label>วันที่ก่อสร้าง</label>
+          <input type="date" [(ngModel)]="data.constructionDate" />
 
-    <label>สัญญาที่</label>
-    <input type="text" [(ngModel)]="data.contractNumber" />
+          <label>สัญญาที่</label>
+          <input type="text" [(ngModel)]="data.contractNumber" />
 
-    <label>หมายเหตุ</label>
-    <input type="text" [(ngModel)]="data.notes" />
-  </div>
-
-  <!-- Right Column -->
-<div class="form-column">
-    <div class="toggle-container">
-    <label class="switch">
-    <input type="checkbox" [(ngModel)]="toggleStatusTemp" (change)="toggleStatus()" />
-    <span class="slider"></span>
-    </label>
-    <span>สถานะเสาไฟฟ้า {{ data.status ? 'ใช้ได้' : 'เสีย' }}</span>
-    </div>
-
-
-    <div *ngIf="toggleStatusTemp; else complaintTemplate">
-      <label>วิธีซ่อม</label>
-      <input type="text" [(ngModel)]="data.repairMethod" />
-
-      <label>รายการที่ซ่อม</label>
-      <div class="repair-item-grid">
-        <div *ngFor="let item of repairItemList" class="repair-item">
-          <input type="checkbox" [(ngModel)]="data.repairItems[item.value]" />
-          <span>{{ item.label }}</span>
-          
-        </div>
+          <label>หมายเหตุ</label>
+          <input type="text" [(ngModel)]="data.notes" />
       </div>
-      
-            <!-- ชนิดตู้ควบคุม -->
-             <div class="select-control-type">
-            <label><b>ชนิดตู้ควบคุม</b></label>
-            <select [(ngModel)]="data.controlType">
-              <option value="switchboard">Switchboard (เบรกเกอร์)</option>
-              <option value="safetySwitch">Safety switch (ฟิวส์)</option>
-            </select>
-            </div>
 
-            <!-- วันที่ซ่อมครั้งล่าสุด -->
-             <div class="Date_of_last_repair">
-            <label><b>วันที่ซ่อมครั้งล่าสุด</b></label>
-            <input type="date" [(ngModel)]="data.lastRepairDate" />
-          </div>
+      <!-- Right Column -->
+      <div class="form-column">
+          <div class="toggle-container">
+              <label class="switch">
+                  <input type="checkbox" [(ngModel)]="toggleStatusTemp" (change)="toggleStatus()" />
+                  <span class="slider"></span>
+              </label>
+              <span>สถานะเสาไฟฟ้า {{ data.status ? 'ใช้ได้' : 'เสีย' }}</span>
           </div>
 
-    <ng-template #complaintTemplate>
-      <label>ช่องทางร้องเรียน</label>
-      <input type="text" [(ngModel)]="data.complaintChannel" />
+          <div *ngIf="toggleStatusTemp; else complaintTemplate">
+              <label>วิธีซ่อม</label>
+              <input type="text" [(ngModel)]="data.repairMethod" />
 
-      <label>รหัสเรื่อง</label>
-      <input type="text" [(ngModel)]="data.complaintCode" />
+              <label>รายการที่ซ่อม</label>
+              <div class="repair-item-grid">
+                  <div *ngFor="let item of repairItemList" class="repair-item">
+                      <input type="checkbox" [(ngModel)]="data.repairItems[item.value]" />
+                      <span>{{ item.label }}</span>
+                  </div>
+              </div>
 
-      <label>เรื่อง</label>
-      <input type="text" [(ngModel)]="data.complaintTopic" />
+              <label><b>ชนิดตู้ควบคุม</b></label>
+              <select [(ngModel)]="data.controlType">
+                  <option value="switchboard">Switchboard (เบรกเกอร์)</option>
+                  <option value="safetySwitch">Safety switch (ฟิวส์)</option>
+              </select>
 
-      <label>สาเหตุ</label>
-      <input type="text" [(ngModel)]="data.complaintReason" />
-    </ng-template>
+              <label><b>วันที่ซ่อมครั้งล่าสุด</b></label>
+              <input type="date" [(ngModel)]="data.lastRepairDate" />
+          </div>
+
+          <ng-template #complaintTemplate>
+              <label>ช่องทางร้องเรียน</label>
+              <input type="text" [(ngModel)]="data.complaintChannel" />
+
+              <label>รหัสเรื่อง</label>
+              <input type="text" [(ngModel)]="data.complaintCode" />
+
+              <label>เรื่อง</label>
+              <input type="text" [(ngModel)]="data.complaintTopic" />
+
+              <label>สาเหตุ</label>
+              <input type="text" [(ngModel)]="data.complaintReason" />
+          </ng-template>
+      </div>
   </div>
- 
-</div>
 
-<div class="form-actions">
-  <button type="button" (click)="onSave()">บันทึก</button>
-  <button type="button" (click)="onCancel()">ยกเลิก</button>
+  <div class="form-actions">
+      <button type="button" (click)="onSave()">บันทึก</button>
+      <button type="button" (click)="onCancel()">ยกเลิก</button>
   </div>
 </div>

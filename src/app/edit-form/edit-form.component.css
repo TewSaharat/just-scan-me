@@ -1,7 +1,11 @@
-.ediform{
-  z-index: 1900;
+.ediform {
+  max-width: 700px;
+  margin: auto;
   background-color: #fefefe;
-  border: 100%px solid #888;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
 }
 
 /* Section Header */
@@ -12,32 +16,31 @@
   background-color: #007bff;
   padding: 10px;
   border-radius: 8px 8px 0 0;
-  margin: 0;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
+/* Form Container */
 .form-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
+  gap: 20px;
+  padding: 10px;
 }
 
 /* Column Layout */
 .form-column {
   flex: 1;
-  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Label Styles */
 label {
-  display: block;
   font-size: 14px;
   font-weight: bold;
-  color: #333;
   margin-bottom: 5px;
+  color: #333;
 }
 
 /* Input and Select Fields */
@@ -48,21 +51,21 @@ select {
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   box-sizing: border-box;
 }
 
-/* Toggle Button Container */
+/* Toggle Switch */
 .toggle-container {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #333333;
+  color: #333;
 }
 
-/* Toggle Switch Styles */
+/* Switch Style */
 .switch {
   position: relative;
   display: inline-block;
@@ -95,82 +98,48 @@ select {
   width: 14px;
   left: 3px;
   bottom: 3px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border-radius: 50%;
   transition: 0.4s;
 }
 
-/* Default State */
-.switch .slider {
-  background-color: #ff0000; /* สีแดงเป็นค่าเริ่มต้น */
-}
-
-/* When Checked */
+/* Switch ON */
 .switch input:checked + .slider {
-  background-color: #2e911a; /* สีเขียวเมื่อเปิด */
+  background-color: #2e911a;
 }
 
 .switch input:checked + .slider:before {
   transform: translateX(14px);
 }
 
-
-/* Repair Items Grid */
+/* Repair Items */
 .repair-item-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* สร้าง 2 คอลัมน์ */
-  gap: 10px; /* ระยะห่างระหว่างไอเท็ม */
-  align-items: center; /* ทำให้กล่องเช็คบ็อกซ์ตรงกับข้อความ */
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
 }
 
-/* Repair Item Styling */
 .repair-item {
   display: flex;
-  align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
-  font-size: 14px; /* ลดขนาดตัวอักษร */
-  font-weight: bold; /* ทำตัวหนา */
-  color: #333; /* สีข้อความ */
-  padding: 3px 0; /* ลดระยะห่างแนวตั้ง */
-}
-
-/* Checkbox Styling */
-.repair-item input[type="checkbox"] {
-  width: 16px; /* กำหนดขนาดกล่องเช็ค */
-  height: 16px;
-  margin: 0 10px; /* เอาช่องว่างออก */
-}
-
-.select-control-type {
-  margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-select,
-input[type="date"] {
-  width: 100%;
-  padding: 8px;
+  align-items: center;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
+  gap: 5px;
 }
 
+.repair-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
 
-
-/* Action Buttons */
+/* Buttons */
 .form-actions {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-  padding-right: 40px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 button {
@@ -183,25 +152,32 @@ button {
 
 button:first-of-type {
   background-color: #45d84a;
-  color: #ffffff;
-  border: 1px solid #464343;
-  margin-right: 10px;
+  color: white;
 }
 
 button:last-of-type {
   background-color: #b63333;
-  color: #ffffff;
-  border: 1px solid #464343;
+  color: white;
 }
 
 button:hover {
   opacity: 0.9;
 }
 
-
-mat-dialog-container {
-  z-index: 1000 !important;
-  display: block !important;
+/* Responsive */
+@media (max-width: 768px) {
+  .form-container {
+      flex-direction: column;
+  }
+}
+@media (max-width: 576px) {
+  .form-container {
+    flex-direction: column;
+}
 }
 
-
+@media (max-width:  414px) {
+  .form-container {
+    flex-direction: column;
+}
+}
