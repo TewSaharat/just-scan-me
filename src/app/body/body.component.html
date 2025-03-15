@@ -89,7 +89,8 @@
           <th>สถานะ</th>
         </tr>
         <tr *ngFor="let route of filteredRoutesData" (click)="onRowClick(route)">
-          <td><a>{{ route.name_id }}</a></td>
+          <td>{{ route.name_id }} <a href="https://www.google.co.th/maps/place/{{ route.lat }},{{ route.longitude }}" target="_blank" >
+            <img src="assets/placeholder.png" alt="navigator" width="32" height="32"></a></td>
           <td>{{ route.category_name }}</td>
           <td>{{ route.routes }}</td>
           <td>{{ route.control }}</td>
