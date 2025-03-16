@@ -164,12 +164,8 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .form-container {
-      flex-direction: column;
-  }
-}
+
+
 @media (max-width: 576px) {
   .form-container {
     flex-direction: column;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
@@ -36,7 +36,8 @@ export class OsmMapComponent implements OnInit, OnChanges {
   @Input() selectedRoute: string = 'all';
   @Input() showNormal: boolean = true;
   @Input() showFaulty: boolean = true;
-
+  @Output() dataUpdated = new EventEmitter<void>();
+  
   map!: L.Map;
   markers: Marker[] = [];
   markerGroup!: L.LayerGroup;
@@ -247,8 +248,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
   openEditForm(marker: Marker): void {
     const dialogRef = this.dialog.open(EditFormComponent, {
-      width: '1000px',
-      height: '800px',
       data: marker,
       panelClass: 'custom-dialog'
     });
@@ -257,6 +256,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       console.log("ปิด Dialog", result);
       if (result) {
         this.fetchMarkers();
+        this.dataUpdated.emit();
       }
     });
   }

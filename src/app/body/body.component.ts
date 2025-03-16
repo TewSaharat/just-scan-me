@@ -8,6 +8,7 @@ import L from 'leaflet';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { EditFormComponent } from '../edit-form/edit-form.component';
 
 @Component({
     selector: 'app-body',
@@ -47,13 +48,15 @@ export class BodyComponent implements OnInit, OnDestroy {
     this.wsService.onUpdate((message) => {
       if (message.type === 'update') {
         this.fetchRoutes(); // รีเฟรชข้อมูลเมื่อได้รับการอัพเดทจาก WebSocket
+        this.fetchFilteredRoutes();
       }
     });
-
-    // ดึงข้อมูลเริ่มต้นทันทีที่โหลดคอมโพเนนต์
     this.fetchFilteredRoutes();
-    this.fetchRoutes();
-    
+  this.fetchRoutes();
+  }
+  handleDataUpdated() {
+    this.fetchRoutes();            // ✅ โหลดข้อมูลตารางใหม่ (status = 0)
+    this.fetchFilteredRoutes();    // ✅ โหลดข้อมูลทั้งหมดใหม่
   }
 
   ngOnDestroy() {
@@ -94,6 +97,9 @@ export class BodyComponent implements OnInit, OnDestroy {
       routes: this.selectedRoute,
       
     };
+
+
+  
 
     this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', { params }).subscribe(
       (data) => {
@@ -215,5 +221,8 @@ export class BodyComponent implements OnInit, OnDestroy {
     } else {
     }
   }
+
+
+
 
 }

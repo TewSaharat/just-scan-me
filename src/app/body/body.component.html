@@ -65,6 +65,7 @@
   <div class="map-container">
   
     <app-osm-map
+    (dataUpdated)="handleDataUpdated()"
     [selectedCategory]="selectedCategory"
     [selectedRoute]="selectedRoute"
     [showNormal]="showNormal"
@@ -90,7 +91,7 @@
         </tr>
         <tr *ngFor="let route of filteredRoutesData" (click)="onRowClick(route)">
           <td>{{ route.name_id }} <a href="https://www.google.co.th/maps/place/{{ route.lat }},{{ route.longitude }}" target="_blank" >
-            <img src="assets/placeholder.png" alt="navigator" width="32" height="32"></a></td>
+          <img src="assets/placeholder.png" alt="navigator" width="32" height="32"></a></td>
           <td>{{ route.category_name }}</td>
           <td>{{ route.routes }}</td>
           <td>{{ route.control }}</td>
