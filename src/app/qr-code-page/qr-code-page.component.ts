@@ -20,7 +20,7 @@ export class QrCodePageComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public incomingData: any,
   private dialogRef: MatDialogRef<QrCodePageComponent>) {
-console.log('Incoming Data:', incomingData); // ตรวจสอบว่าได้ข้อมูล name_id หรือไม่
+    console.log('Incoming Data:', incomingData); // ตรวจสอบว่าได้ข้อมูล name_id หรือไม่
 this.name_id = incomingData.name_id;
 this.generateQRCode(this.name_id);
 }

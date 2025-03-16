@@ -93,7 +93,7 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   fetchFilteredRoutes() {
     const params: any = {
-      cat_id: this.selectedCategory,
+      category: this.selectedCategory,
       routes: this.selectedRoute,
       
     };
