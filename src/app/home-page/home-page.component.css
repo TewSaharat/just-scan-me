@@ -381,41 +381,7 @@ body {
     }
 }
 
-@media (max-width: 1605px) {
-    .sidebar {
-        position: fixed;
-        left: -250px; /* เริ่มต้นซ่อน Sidebar */
-        width: 250px;
-        height: 100vh;
-        transition: left 0.3s ease-in-out;
-    }
 
-    .sidebar.expanded {
-        left: 0; /* เปิด Sidebar เต็มจอ */
-    }
-
-    .main-content {
-        margin-left: 0; /* ให้เนื้อหาเต็มจอเมื่อ Sidebar ปิด */
-    }
-
-    .header {
-        padding: 10px; /* ลด padding */
-    }
-
-    .menu_bar {
-        margin-right: 10px;
-        margin-left: 30px; /* ปรับระยะห่างเมนูไอคอน */
-    }
-
-    .Home_header {
-        margin-left: 10px; /* ให้ Home ชิดซ้าย */
-    }
-
-    .login_header {
-        margin-left: 50%; /* ดันไปขวาสุด */
-        padding-right: 10px;
-    }
-}
 
 @media (max-width: 375px) {
     .sidebar {

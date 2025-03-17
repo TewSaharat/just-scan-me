@@ -249,7 +249,11 @@ export class OsmMapComponent implements OnInit, OnChanges {
   openEditForm(marker: Marker): void {
     const dialogRef = this.dialog.open(EditFormComponent, {
       data: marker,
-      panelClass: 'custom-dialog'
+      panelClass: 'custom-dialog',
+      width: '500px',
+      height: '500px',
+      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

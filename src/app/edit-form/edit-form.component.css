@@ -1,12 +1,16 @@
 .ediform {
-  max-width: 700px;
+  max-width: 500px;
   margin: auto;
   background-color: #fefefe;
   padding: 20px;
   border-radius: 8px;
   border: 1px solid #ddd;
   font-family: Arial, sans-serif;
+  
+  max-height: 400px; /* กำหนดความสูงสูงสุด */
+  overflow-y: auto;  /* แสดงแถบเลื่อนแนวตั้งเมื่อเนื้อหาเกิน */
 }
+
 
 /* Section Header */
 .form-header {
@@ -169,6 +173,7 @@ button:hover {
 @media (max-width: 576px) {
   .form-container {
     flex-direction: column;
+
 }
 }
 
