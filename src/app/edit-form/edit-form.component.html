@@ -9,7 +9,7 @@
           </select>
 
           <label>ตู้คอนโทรล</label>
-          <input type="text" [(ngModel)]="data.controller_edit" />
+          <input type="text" [(ngModel)]="data.control" />
 
           <label>วันที่ก่อสร้าง</label>
           <input type="date" [(ngModel)]="data.constructionDate" />
@@ -50,7 +50,7 @@
               </select>
 
               <label><b>วันที่ซ่อมครั้งล่าสุด</b></label>
-              <input type="date" [(ngModel)]="data.lastRepairDate" />
+              <input type="text" [(ngModel)]="data.lastRepairDate" />
           </div>
 
           <ng-template #complaintTemplate>

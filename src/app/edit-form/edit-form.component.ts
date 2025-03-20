@@ -28,7 +28,6 @@ export class EditFormComponent {
   name_id: string = '';
   lampType_edit = ['HPS', 'LED', 'อื่นๆ'];
   markerData: any = {};
-
   toggleStatusTemp: boolean = false;
   isLoggedIn = false;
   isAdmin = false;
@@ -48,6 +47,7 @@ export class EditFormComponent {
     lastRepairDate: '',
     controlType: '',
     repairItems: {} as Record<string, boolean>,
+    control: '',
     
   };
 
@@ -156,8 +156,7 @@ export class EditFormComponent {
     if (hasRepairItems || hasDataFilled) {
       this.data.status = true;
     }
-
-
+    const now = new Date();
 ;
     // const saveUrl = 'https://just-scan-me-backend.onrender.com/api/save-electric-pole';
     const saveUrl = 'https://just-scan-me-backend.onrender.com/api/save-electric-pole';
@@ -193,6 +192,22 @@ export class EditFormComponent {
       error: (err) => {
         console.error('Error loading marker data:', err);
       },
+    });
+  }
+  
+  loadStatusData() {
+    const apiUrl = 'https://just-scan-me-backend.onrender.com/api/routes';
+    
+    this.http.get(apiUrl).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.data.lastRepairDate = response.lastRepairDate ?? '';
+          this.data.control = response.control ?? '';
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching status data:', err);
+      }
     });
   }
   
