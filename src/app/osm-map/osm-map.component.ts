@@ -50,23 +50,24 @@ export class OsmMapComponent implements OnInit, OnChanges {
     const markerClusterModule = await import('leaflet.markercluster');
     MarkerCluster = markerClusterModule.default ?? markerClusterModule;
     this.loadMap();
-    setTimeout(() => this.fetchMarkers(), 10);
+    setTimeout(() => this.fetchMarkers(), 100);
 
-    this.filterChange$.pipe(debounceTime(10)).subscribe(() => {
+    this.filterChange$.pipe(debounceTime(100)).subscribe(() => {
       this.fetchMarkers();
     });
-    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selectedCategory']?.previousValue !== changes['selectedCategory']?.currentValue ||
-        changes['selectedRoute']?.previousValue !== changes['selectedRoute']?.currentValue ||
-        changes['showNormal']?.previousValue !== changes['showNormal']?.currentValue ||
-        changes['showFaulty']?.previousValue !== changes['showFaulty']?.currentValue) {
+    if (
+      changes['selectedCategory'] ||
+      changes['selectedRoute'] ||
+      changes['showNormal'] ||
+      changes['showFaulty']
+    ) {
       this.filterMarkers();
     }
   }
-  
+
 
   loadMap(): void {
     this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 12);
@@ -94,10 +95,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
     // ✅ ใช้ `MarkerCluster.MarkerClusterGroup()` แทน `L.markerClusterGroup()`
     this.markerGroup = new MarkerCluster.MarkerClusterGroup({
       disableClusteringAtZoom: 8,
-      chunkedLoading: true,
-      removeOutsideVisibleBounds: true,
     });
-    
   
     this.map.addLayer(this.markerGroup);
 
@@ -107,20 +105,16 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
   async fetchMarkers(): Promise<void> {
     try {
-      const bounds = this.map.getBounds();
-      const data = await firstValueFrom(this.http.get<Marker[]>(
-        `https://just-scan-me-backend.onrender.com/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
-      ));
-      
+      const data = await firstValueFrom(this.http.get<Marker[]>('https://just-scan-me-backend.onrender.com/api/routes'));
       if (data) {
-        this.markers = data.filter(marker => marker.lat !== null && marker.longitude !== null);
+        this.markers = data.filter(marker => marker && marker.name_id && marker.lat !== null && marker.longitude !== null);
+        // this.markers = data.filter(marker => marker.name_id);
         this.filterMarkers();
       }
     } catch (error) {
       console.error('Error fetching markers:', error);
     }
   }
-  
   
   filterMarkers(): void {
 
