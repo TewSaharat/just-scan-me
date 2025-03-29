@@ -37,7 +37,8 @@ export class OsmMapComponent implements OnInit, OnChanges {
   @Input() showNormal: boolean = true;
   @Input() showFaulty: boolean = true;
   @Output() dataUpdated = new EventEmitter<void>();
-  
+  isLoading: boolean = false;
+
   map!: L.Map;
   markers: Marker[] = [];
   markerGroup!: L.LayerGroup;
@@ -101,12 +102,14 @@ export class OsmMapComponent implements OnInit, OnChanges {
     
   
     this.map.addLayer(this.markerGroup);
+    
 
   }
   
   
 
   async fetchMarkers(): Promise<void> {
+    this.isLoading = true;
     try {
       const bounds = this.map.getBounds();
       const data = await firstValueFrom(this.http.get<Marker[]>(
@@ -119,6 +122,8 @@ export class OsmMapComponent implements OnInit, OnChanges {
       }
     } catch (error) {
       console.error('Error fetching markers:', error);
+    }finally {
+      this.isLoading = false; // โหลดเสร็จ
     }
   }
   

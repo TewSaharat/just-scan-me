@@ -1,2 +1,9 @@
-<div id="map" style="height:400px; width: 100; "></div>
-
+<div class="map-container">
+    <div id="map" style="height: 400px;"></div>
+  
+    <!-- Overlay โหลดแผนที่ -->
+    <div class="loading-overlay" *ngIf="isLoading">
+      <div class="loading-text">กำลังโหลดแผนที่...</div>
+    </div>
+  </div>
+  

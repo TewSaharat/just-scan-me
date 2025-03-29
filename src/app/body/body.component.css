@@ -104,6 +104,7 @@ select, input[type="checkbox"] {
 }
 
 .downlaod_excel{
+    padding-top: 5rem;
     text-decoration: none;
     list-style-type: none;
 }

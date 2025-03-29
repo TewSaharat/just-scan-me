@@ -47,6 +47,7 @@
     "ngx-qrcode": "^0.1.0-rc.1",
     "ol": "^10.1.0",
     "qrcode-generator": "^1.4.4",
+    "react": "^18.2.0",
     "rimraf": "^6.0.1",
     "rxjs": "~7.8.0",
     "static-eval": "^2.1.1",
