@@ -163,7 +163,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
             this.markerGroup.addLayer(markerInstance);
         });
 
-        console.log(`Added ${filteredMarkers.length} markers to the map.`);
+        
     }, 100);
 }
 

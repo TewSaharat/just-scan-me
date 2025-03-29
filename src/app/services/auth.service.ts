@@ -90,16 +90,25 @@ logout() {
 
 
 
-  getUser(): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.get<any>(`${this.apiUrl}/me`, { headers }).pipe(
-      tap(user => {
-        if (user && user.role) {
-          this.userRole.next(user.role);
-        }
-      })
-    );
+getUser(): Observable<any> {
+  const token = this.getToken();
+  if (!token || this.isTokenExpired()) {
+    console.warn('No valid token, ไม่เรียก API /me');
+    return new Observable(observer => {
+      observer.error('No valid token');
+    });
   }
+
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get<any>(`${this.apiUrl}/me`, { headers }).pipe(
+    tap(user => {
+      if (user && user.role) {
+        this.userRole.next(user.role);
+      }
+    })
+  );
+}
+
   
 
   updateProfile(name: string, email: string): Observable<any> {
