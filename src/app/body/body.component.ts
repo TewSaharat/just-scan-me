@@ -11,16 +11,21 @@ import { FormsModule } from '@angular/forms';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 
 @Component({
-    selector: 'app-body',
-    standalone: true,
-    imports: [OsmMapComponent, BodyLightComponent, CommonModule,FormsModule],
-    templateUrl: './body.component.html',
-    styleUrls: ['./body.component.css']
+  selector: 'app-body',
+  standalone: true,
+  imports: [OsmMapComponent, BodyLightComponent, CommonModule, FormsModule],
+  templateUrl: './body.component.html',
+  styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit, OnDestroy {
-  @ViewChild(OsmMapComponent, { static: false }) osmMapComponent!: OsmMapComponent;
-  
-  constructor(private http: HttpClient, private wsService: WebSocketService,private dialog: MatDialog) {}
+  @ViewChild(OsmMapComponent, { static: false })
+  osmMapComponent!: OsmMapComponent;
+
+  constructor(
+    private http: HttpClient,
+    private wsService: WebSocketService,
+    private dialog: MatDialog
+  ) {}
 
   selectedDistrict: string = 'all'; // ค่าเริ่มต้นแสดงทุกเขต
   showNormal: boolean = true; // ควบคุมการแสดงสถานะปกติ
@@ -28,7 +33,7 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   selectedCategory: string = 'all';
   selectedRoute: string = 'all';
-  filteredRoutesData: any[] = []; // สำหรับข้อมูลที่กรองเฉพาะ status = 0
+  filteredRoutesData: any[] = [];
 
   routesData: any[] = [];
   private ws: WebSocket | null = null;
@@ -40,10 +45,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   totalFaultyDB: number = 0; // จำนวน DB ที่เสีย
   totalFaultySG: number = 0; // จำนวน SG ที่เสีย
 
- 
-
   ngOnInit() {
-    
     // ฟังการอัพเดทข้อมูลเมื่อได้รับจาก WebSocket
     this.wsService.onUpdate((message) => {
       if (message.type === 'update') {
@@ -52,11 +54,11 @@ export class BodyComponent implements OnInit, OnDestroy {
       }
     });
     this.fetchFilteredRoutes();
-  this.fetchRoutes();
+    this.fetchRoutes();
   }
   handleDataUpdated() {
-    this.fetchRoutes();            // ✅ โหลดข้อมูลตารางใหม่ (status = 0)
-    this.fetchFilteredRoutes();    // ✅ โหลดข้อมูลทั้งหมดใหม่
+    this.fetchRoutes(); // ✅ โหลดข้อมูลตารางใหม่ (status = 0)
+    this.fetchFilteredRoutes(); // ✅ โหลดข้อมูลทั้งหมดใหม่
   }
 
   ngOnDestroy() {
@@ -89,91 +91,111 @@ export class BodyComponent implements OnInit, OnDestroy {
     this.fetchFilteredRoutes(); // รีเฟรชข้อมูลเมื่อเลือกเขต
   }
 
-
-
   fetchFilteredRoutes() {
     const params: any = {
       category: this.selectedCategory,
       routes: this.selectedRoute,
-      
     };
 
+    this.http
+      .get<any[]>(
+        'https://just-scan-me-backend-production.up.railway.app/api/routes',
+        { params }
+      )
+      .subscribe(
+        (data) => {
+          if (!Array.isArray(data)) {
+            return;
+          }
+          this.routesData = data
+            .filter((marker) => {
+              if (this.showNormal && marker.status === 1) return true;
+              if (this.showFaulty && marker.status === 0) return true;
+              return false;
+            })
+            .sort(
+              (a, b) => Date.parse(b.report_time) - Date.parse(a.report_time)
+            );
 
-  
-
-    this.http.get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', { params }).subscribe(
-      (data) => {
-        if (!Array.isArray(data)) {
-          return;
+          this.calculateStatistics();
+        },
+        (error) => {
+          console.error('Error fetching data:', error);
         }
-        this.routesData = data
-          .filter(marker => {
-            if (this.showNormal && marker.status === 1) return true;
-            if (this.showFaulty && marker.status === 0) return true;
-            return false;
-          })
-          .sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
-  
-        this.calculateStatistics();        
-      },
-      (error) => {
-        console.error("Error fetching data:", error);
-      }
-    );
+      );
   }
-  
-  
 
   calculateStatistics() {
     this.totalMarkers = this.routesData.length;
-    this.totalDB = this.routesData.filter(marker => marker.name_id?.toLowerCase().includes('db')).length;
-    this.totalSG = this.routesData.filter(marker => marker.name_id?.toLowerCase().includes('sg')).length;
+    this.totalDB = this.routesData.filter((marker) =>
+      marker.name_id?.toLowerCase().includes('db')
+    ).length;
+    this.totalSG = this.routesData.filter((marker) =>
+      marker.name_id?.toLowerCase().includes('sg')
+    ).length;
 
-    this.totalFaulty = this.routesData.filter(marker => marker.status === 0).length;
-    this.totalFaultyDB = this.routesData.filter(marker => marker.name_id?.toLowerCase().includes('db') && marker.status === 0).length;
-    this.totalFaultySG = this.routesData.filter(marker => marker.name_id?.toLowerCase().includes('sg') && marker.status === 0).length;
+    this.totalFaulty = this.routesData.filter(
+      (marker) => marker.status === 0
+    ).length;
+    this.totalFaultyDB = this.routesData.filter(
+      (marker) =>
+        marker.name_id?.toLowerCase().includes('db') && marker.status === 0
+    ).length;
+    this.totalFaultySG = this.routesData.filter(
+      (marker) =>
+        marker.name_id?.toLowerCase().includes('sg') && marker.status === 0
+    ).length;
   }
 
   getCategoryName(cat_id: any): string {
     if (cat_id == null || cat_id === undefined) {
-      console.error("Category ID is undefined or null:", cat_id);
-      return "ไม่ทราบหมวด";
+      console.error('Category ID is undefined or null:', cat_id);
+      return 'ไม่ทราบหมวด';
     }
-  
+
     switch (cat_id) {
-      case 1: return "หมวดนครพนม";
-      case 2: return "หมวดศรีสงคราม";
-      case 3: return "หมวดปลาปาก";
-      case 4: return "หมวดท่าอุเทน";
-      case 5: return "หมวดนาแก";
-      default: return "ไม่ทราบหมวด";
+      case 1:
+        return 'หมวดนครพนม';
+      case 2:
+        return 'หมวดศรีสงคราม';
+      case 3:
+        return 'หมวดปลาปาก';
+      case 4:
+        return 'หมวดท่าอุเทน';
+      case 5:
+        return 'หมวดนาแก';
+      default:
+        return 'ไม่ทราบหมวด';
     }
   }
-  
-  
 
   mapCategoryName(routes: any[]): any[] {
-    return routes.map(route => ({
+    return routes.map((route) => ({
       ...route,
       category_name: this.getCategoryName(route.cat_id),
     }));
   }
 
   fetchRoutes() {
-    const apiUrl = 'https://just-scan-me-backend.onrender.com/api/get-routes';
+    const apiUrl =
+      'https://just-scan-me-backend-production.up.railway.app/api/get-routes';
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
-        this.filteredRoutesData = this.mapCategoryName(data.filter(route => route.status === 0))
-          .sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
+        this.filteredRoutesData = this.mapCategoryName(
+          data.filter((route) => route.status === 0)
+        ).sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
       },
       error: (err) => console.error('Error fetching data:', err),
     });
   }
-  
+
   downloadNotifyExcel() {
-    const url = 'https://just-scan-me-backend.onrender.com/api/export-notify-to-excel';
+    const url =
+      'https://just-scan-me-backend-production.up.railway.app/api/export-notify-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
-      const blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const blob = new Blob([data], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
       link.download = 'notify_data.xlsx';
@@ -181,9 +203,12 @@ export class BodyComponent implements OnInit, OnDestroy {
     });
   }
   downloadRepairExcel() {
-    const url = 'https://just-scan-me-backend.onrender.com/api/export-repair-to-excel';
+    const url =
+      'https://just-scan-me-backend-production.up.railway.app/api/export-repair-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
-      const blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const blob = new Blob([data], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
       link.download = 'repair_completed.xlsx';
@@ -193,7 +218,7 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   onRowClick(route: any): void {
     if (!this.osmMapComponent || !this.osmMapComponent.getMarkerGroup()) {
-      console.error("osmMapComponent or markerGroup is not initialized.");
+      console.error('osmMapComponent or markerGroup is not initialized.');
       return;
     }
 
@@ -203,13 +228,16 @@ export class BodyComponent implements OnInit, OnDestroy {
     //  ตรวจสอบค่าก่อนใช้งาน
     const routeLat = parseFloat(route.lat);
     const routeLng = parseFloat(route.longitude);
-  
+
     markerGroup.getLayers().forEach((layer: L.Layer) => {
       if (layer instanceof L.Marker) {
         const latLng = layer.getLatLng();
         //  ใช้ parseFloat เพื่อป้องกันปัญหา string / number และตัดจุดทศนิยมเกิน 6 ตำแหน่ง
-        if (parseFloat(latLng.lat.toFixed(6)) === parseFloat(routeLat.toFixed(6)) &&
-            parseFloat(latLng.lng.toFixed(6)) === parseFloat(routeLng.toFixed(6))) {
+        if (
+          parseFloat(latLng.lat.toFixed(6)) ===
+            parseFloat(routeLat.toFixed(6)) &&
+          parseFloat(latLng.lng.toFixed(6)) === parseFloat(routeLng.toFixed(6))
+        ) {
           foundMarker = layer as L.Marker;
         }
       }
@@ -217,12 +245,10 @@ export class BodyComponent implements OnInit, OnDestroy {
 
     if (foundMarker) {
       foundMarker.openPopup();
-      this.osmMapComponent.map.setView(foundMarker.getLatLng(), 20, { animate: true });
+      this.osmMapComponent.map.setView(foundMarker.getLatLng(), 20, {
+        animate: true,
+      });
     } else {
     }
   }
-
-
-
-
 }

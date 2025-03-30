@@ -1,26 +1,27 @@
 import { Component, Inject, EventEmitter, Output } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 
-
 @Component({
-    selector: 'app-edit-form',
-    standalone: true,
-    templateUrl: './edit-form.component.html',
-    styleUrls: ['./edit-form.component.css'],
-    imports: [FormsModule, CommonModule, MatDialogModule]
+  selector: 'app-edit-form',
+  standalone: true,
+  templateUrl: './edit-form.component.html',
+  styleUrls: ['./edit-form.component.css'],
+  imports: [FormsModule, CommonModule, MatDialogModule],
 })
-
 export class EditFormComponent {
-  
   constructor(
     private dialogRef: MatDialogRef<EditFormComponent>,
     @Inject(MAT_DIALOG_DATA) public incomingData: any,
-    private http: HttpClient,private authService: AuthService
-   
+    private http: HttpClient,
+    private authService: AuthService
   ) {}
 
   @Output() dataSaved = new EventEmitter<void>(); // Emit เมื่อข้อมูลบันทึกเสร็จ
@@ -48,7 +49,6 @@ export class EditFormComponent {
     controlType: '',
     repairItems: {} as Record<string, boolean>,
     control: '',
-    
   };
 
   repairItemList = [
@@ -72,17 +72,17 @@ export class EditFormComponent {
     { label: 'อื่นๆ', value: 'other' },
   ];
 
-
-
   ngOnInit() {
-
-    this.authService.getUser().subscribe(user => {
-      this.isLoggedIn = true;
-      this.isAdmin = user.role === 'admin';
-    }, error => {
-      console.error('Auth Error:', error);
-      this.isLoggedIn = false;
-    });
+    this.authService.getUser().subscribe(
+      (user) => {
+        this.isLoggedIn = true;
+        this.isAdmin = user.role === 'admin';
+      },
+      (error) => {
+        console.error('Auth Error:', error);
+        this.isLoggedIn = false;
+      }
+    );
 
     // ตรวจสอบว่ามีข้อมูลส่งเข้ามาหรือไม่
     if (this.incomingData) {
@@ -92,11 +92,10 @@ export class EditFormComponent {
           ...this.data,
           ...this.incomingData,
           repairItems: this.incomingData.repairItems
-  ? typeof this.incomingData.repairItems === 'string'
-    ? JSON.parse(this.incomingData.repairItems)
-    : this.incomingData.repairItems
-  : {},
-
+            ? typeof this.incomingData.repairItems === 'string'
+              ? JSON.parse(this.incomingData.repairItems)
+              : this.incomingData.repairItems
+            : {},
         };
       } catch (error) {
         console.error('Error parsing repairItems:', error);
@@ -104,9 +103,8 @@ export class EditFormComponent {
         this.data.repairItems = {};
       }
     }
-
   }
-  
+
   initializeRepairItems() {
     this.repairItemList.forEach((item) => {
       this.data.repairItems[item.value] = false;
@@ -136,20 +134,23 @@ export class EditFormComponent {
   }
 
   onSave() {
-
     const token = localStorage.getItem('token');
     if (!token) {
-      alert("คุณต้องล็อกอินก่อนบันทึกข้อมูล");
+      alert('คุณต้องล็อกอินก่อนบันทึกข้อมูล');
       return;
     }
-    
-    const hasRepairItems = Object.values(this.data.repairItems).some((value) => value);
+
+    const hasRepairItems = Object.values(this.data.repairItems).some(
+      (value) => value
+    );
     const hasDataFilled =
       (this.data.controller_edit && this.data.controller_edit.trim() !== '') ||
-      (this.data.constructionDate && this.data.constructionDate.trim() !== '') ||
+      (this.data.constructionDate &&
+        this.data.constructionDate.trim() !== '') ||
       (this.data.contractNumber && this.data.contractNumber.trim() !== '') ||
       (this.data.notes && this.data.notes.trim() !== '') ||
-      (this.data.complaintChannel && this.data.complaintChannel.trim() !== '') ||
+      (this.data.complaintChannel &&
+        this.data.complaintChannel.trim() !== '') ||
       (this.data.complaintCode && this.data.complaintCode.trim() !== '') ||
       (this.data.complaintTopic && this.data.complaintTopic.trim() !== '') ||
       (this.data.complaintReason && this.data.complaintReason.trim() !== '');
@@ -157,9 +158,9 @@ export class EditFormComponent {
       this.data.status = true;
     }
     const now = new Date();
-;
-    // const saveUrl = 'https://just-scan-me-backend.onrender.com/api/save-electric-pole';
-    const saveUrl = 'https://just-scan-me-backend.onrender.com/api/save-electric-pole';
+    // const saveUrl = 'https://just-scan-me-backend-production.up.railway.app/api/save-electric-pole';
+    const saveUrl =
+      'https://just-scan-me-backend-production.up.railway.app/api/save-electric-pole';
     this.http.post(saveUrl, this.data).subscribe({
       next: () => {
         alert('บันทึกข้อมูลสำเร็จ!');
@@ -174,11 +175,9 @@ export class EditFormComponent {
   }
 
   loadMarkerData(name_id: string) {
-  
-    const apiUrl = `https://just-scan-me-backend.onrender.com/api/marker/${name_id}`;
+    const apiUrl = `https://just-scan-me-backend-production.up.railway.app/api/marker/${name_id}`;
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
-  
         // กำหนดค่า response ให้กับ `data`
         this.data = {
           ...this.data,
@@ -194,10 +193,11 @@ export class EditFormComponent {
       },
     });
   }
-  
+
   loadStatusData() {
-    const apiUrl = 'https://just-scan-me-backend.onrender.com/api/routes';
-    
+    const apiUrl =
+      'https://just-scan-me-backend-production.up.railway.app/api/routes';
+
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
         if (response) {
@@ -207,22 +207,19 @@ export class EditFormComponent {
       },
       error: (err) => {
         console.error('Error fetching status data:', err);
-      }
+      },
     });
   }
-  
 
   onCancel() {
     this.dialogRef.close(); // ปิด Dialog
   }
   getSelectedRepairItems() {
     return Object.keys(this.data.repairItems)
-      .filter(key => this.data.repairItems[key])
+      .filter((key) => this.data.repairItems[key])
       .join(', ');
   }
   onQrCodeScanned() {
     this.dialogRef.close({ openEditForm: true });
   }
-
- 
 }
