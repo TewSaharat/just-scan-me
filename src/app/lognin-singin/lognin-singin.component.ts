@@ -50,7 +50,7 @@ export class LogninSinginComponent {
     const token = localStorage.getItem('token');
     this.http
       .post(
-        'https://just-scan-me-backend-production.up.railway.app/api/logout',
+        'https://api.justscanme.net/api/logout',
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

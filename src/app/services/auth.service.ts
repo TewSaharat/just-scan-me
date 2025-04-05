@@ -14,7 +14,7 @@ export class AuthService {
     return this.isLoggedInSubject.asObservable();
   }
 
-  private apiUrl = 'https://just-scan-me-backend-production.up.railway.app/api';
+  private apiUrl = 'https://api.justscanme.net/api';
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private userRole = new BehaviorSubject<string>('user');
 
@@ -73,7 +73,7 @@ export class AuthService {
 
     this.http
       .post(
-        'https://just-scan-me-backend-production.up.railway.app/api/logout',
+        'https://api.justscanme.net/api/logout',
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

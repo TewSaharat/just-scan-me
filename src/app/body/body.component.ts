@@ -98,10 +98,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     };
 
     this.http
-      .get<any[]>(
-        'https://just-scan-me-backend-production.up.railway.app/api/routes',
-        { params }
-      )
+      .get<any[]>('https://api.justscanme.net/api/routes', { params })
       .subscribe(
         (data) => {
           if (!Array.isArray(data)) {
@@ -177,8 +174,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   fetchRoutes() {
-    const apiUrl =
-      'https://just-scan-me-backend-production.up.railway.app/api/get-routes';
+    const apiUrl = 'https://api.justscanme.net/api/get-routes';
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
         this.filteredRoutesData = this.mapCategoryName(
@@ -190,8 +186,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   downloadNotifyExcel() {
-    const url =
-      'https://just-scan-me-backend-production.up.railway.app/api/export-notify-to-excel';
+    const url = 'https://api.justscanme.net/api/export-notify-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -203,8 +198,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     });
   }
   downloadRepairExcel() {
-    const url =
-      'https://just-scan-me-backend-production.up.railway.app/api/export-repair-to-excel';
+    const url = 'https://api.justscanme.net/api/export-repair-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

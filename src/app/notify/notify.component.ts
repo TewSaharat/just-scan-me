@@ -31,7 +31,7 @@ export class NotifyComponent implements OnInit {
   loadMarkerData(name_id: string) {
     console.log('Loading data for marker:', name_id);
 
-    const apiUrl = `https://just-scan-me-backend-production.up.railway.app/api/marker/${encodeURIComponent(
+    const apiUrl = `https://api.justscanme.net/api/marker/${encodeURIComponent(
       name_id
     )}`;
     this.http.get(apiUrl).subscribe({
@@ -69,7 +69,7 @@ export class NotifyComponent implements OnInit {
       report_time: report_time, // วันที่และเวลา
     };
 
-    const apiUrl = `https://just-scan-me-backend-production.up.railway.app/api/save-electric-pole`;
+    const apiUrl = `https://api.justscanme.net/api/save-electric-pole`;
     this.http.post(apiUrl, updateData).subscribe({
       next: () => {
         console.log('Data saved successfully');

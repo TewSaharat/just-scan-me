@@ -58,10 +58,7 @@ export class KmlUploadComponent {
     console.log('Uploading cat_id:', this.selectedcat_id);
 
     this.http
-      .post(
-        'https://just-scan-me-backend-production.up.railway.app/api/upload-kml',
-        formData
-      )
+      .post('https://api.justscanme.net/api/upload-kml', formData)
       .subscribe({
         next: () => {
           this.uploadStatus = '✅ อัปโหลดสำเร็จ!';

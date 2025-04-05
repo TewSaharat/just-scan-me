@@ -1,13 +1,13 @@
 <!-- Sidebar -->
 <div class="sidebar" [class.expanded]="isSidebarVisible">
     <div class="logo">
-        <a class="logo_just" routerLink="/home">
+        <a class="logo_just" routerLink="home">
             <img src="assets/Seal_of_the_Department_of_Highway_of_Thailand.svg.png" alt="Just Scan Me">
             <span *ngIf="isSidebarVisible">Just Scan Me</span>
         </a>
     </div>
     <ul class="nav">
-        <li><a routerLink="/home"><img src="assets/home.png" width="30" alt=""> <span *ngIf="isSidebarVisible">หน้าหลัก</span></a></li>
+        <li><a routerLink="home"><img src="assets/home.png" width="30" alt=""> <span *ngIf="isSidebarVisible">หน้าหลัก</span></a></li>
         <li><a routerLink="/upload"><img src="assets/file.png" width="30" alt=""> <span *ngIf="isSidebarVisible">นำเข้า KML</span></a></li>
     </ul>
 </div>
@@ -21,7 +21,7 @@
         </a>
 
         <!-- Home -->
-        <a routerLink="/home" class="Home_header">
+        <a routerLink="home" class="Home_header">
             <img src="assets/home.png" width="25" alt=""> Home
         </a>
 

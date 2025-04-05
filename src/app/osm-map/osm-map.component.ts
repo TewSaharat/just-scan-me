@@ -127,7 +127,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       const bounds = this.map.getBounds();
       const data = await firstValueFrom(
         this.http.get<Marker[]>(
-          `https://just-scan-me-backend-production.up.railway.app/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
+          `https://api.justscanme.net/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
         )
       );
 

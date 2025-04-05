@@ -158,9 +158,8 @@ export class EditFormComponent {
       this.data.status = true;
     }
     const now = new Date();
-    // const saveUrl = 'https://just-scan-me-backend-production.up.railway.app/api/save-electric-pole';
-    const saveUrl =
-      'https://just-scan-me-backend-production.up.railway.app/api/save-electric-pole';
+    // const saveUrl = 'https://api.justscanme.net/api/save-electric-pole';
+    const saveUrl = 'https://api.justscanme.net/api/save-electric-pole';
     this.http.post(saveUrl, this.data).subscribe({
       next: () => {
         alert('บันทึกข้อมูลสำเร็จ!');
@@ -175,7 +174,7 @@ export class EditFormComponent {
   }
 
   loadMarkerData(name_id: string) {
-    const apiUrl = `https://just-scan-me-backend-production.up.railway.app/api/marker/${name_id}`;
+    const apiUrl = `https://api.justscanme.net/api/marker/${name_id}`;
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
         // กำหนดค่า response ให้กับ `data`
@@ -195,8 +194,7 @@ export class EditFormComponent {
   }
 
   loadStatusData() {
-    const apiUrl =
-      'https://just-scan-me-backend-production.up.railway.app/api/routes';
+    const apiUrl = 'https://api.justscanme.net/api/routes';
 
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
