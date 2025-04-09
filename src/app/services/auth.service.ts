@@ -7,14 +7,9 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
+  private apiUrl = 'https://api.justscanme.net/api';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   private userSubject = new BehaviorSubject<any>(this.getUserFromStorage());
-
-  isLoggedIn(): Observable<boolean> {
-    return this.isLoggedInSubject.asObservable();
-  }
-
-  private apiUrl = 'https://api.justscanme.net/api';
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private userRole = new BehaviorSubject<string>('user');
 
@@ -26,57 +21,29 @@ export class AuthService {
       .pipe(
         tap((response) => {
           if (response.token) {
-            localStorage.setItem('token', response.token);
-            localStorage.setItem('user', JSON.stringify(response.user));
-
-            this.isLoggedInSubject.next(true); // ✅ อัปเดตค่า isLoggedIn
-            this.userSubject.next(response.user); // ✅ อัปเดต user
+            this.saveToken(response.token, response.user);
             console.log('User logged in successfully and status updated.');
           }
         })
       );
   }
 
-  isTokenExpired(): boolean {
-    const token = localStorage.getItem('token');
-    if (!token) return true; // ถ้าไม่มี Token ถือว่าหมดอายุ
-
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1])); // ถอดรหัส Payload ของ JWT
-      const exp = payload.exp * 1000; // แปลงวินาทีเป็นมิลลิวินาที
-      const now = Date.now();
-
-      return now >= exp; // ถ้าถึงหรือเกินเวลา exp ให้ถือว่าหมดอายุ
-    } catch (error) {
-      console.error('Invalid Token Format', error);
-      return true; // ถ้า Token ผิดพลาด ให้ถือว่าหมดอายุ
-    }
-  }
-
   logout() {
-    const token = localStorage.getItem('token');
-
+    const token = this.getToken();
     if (!token || this.isTokenExpired()) {
       console.warn('No valid token found. Clearing session locally.');
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      this.isLoggedInSubject.next(false);
-      this.userSubject.next(null);
+      this.clearSession();
       return;
     }
 
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.isLoggedInSubject.next(false);
-    this.userSubject.next(null);
-    console.log('Token removed from LocalStorage!');
+    this.clearSession(); // Clear local session first
 
     this.http
       .post(
-        'https://api.justscanme.net/api/logout',
+        `${this.apiUrl}/logout`,
         {},
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
         }
       )
       .subscribe({
@@ -116,22 +83,52 @@ export class AuthService {
     );
   }
 
+  // ✅ บันทึก Token และ User อย่างถูกต้อง
   saveToken(token: string, user: any) {
     localStorage.setItem('auth_token', token);
+    localStorage.setItem('user', JSON.stringify(user));
     this.isLoggedInSubject.next(true);
     this.userSubject.next(user);
   }
 
-  private hasToken(): boolean {
-    return !!localStorage.getItem('token');
+  // ✅ อ่าน Token
+  getToken(): string | null {
+    return localStorage.getItem('auth_token');
   }
 
+  // ✅ เช็กว่ามี Token หรือไม่ (ใช้ชื่อที่ถูกต้อง)
+  private hasToken(): boolean {
+    return !!localStorage.getItem('auth_token');
+  }
+
+  // ✅ อ่าน user จาก localStorage
   private getUserFromStorage(): any {
     return JSON.parse(localStorage.getItem('user') || '{}');
   }
 
-  getToken(): string | null {
-    return localStorage.getItem('auth_token');
+  isTokenExpired(): boolean {
+    const token = this.getToken();
+    if (!token) return true;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const exp = payload.exp * 1000;
+      return Date.now() >= exp;
+    } catch (error) {
+      console.error('Invalid Token Format', error);
+      return true;
+    }
+  }
+
+  clearSession() {
+    localStorage.removeItem('auth_token');
+    localStorage.removeItem('user');
+    this.isLoggedInSubject.next(false);
+    this.userSubject.next(null);
+  }
+
+  isLoggedIn(): Observable<boolean> {
+    return this.isLoggedInSubject.asObservable();
   }
 
   isAdmin(): boolean {

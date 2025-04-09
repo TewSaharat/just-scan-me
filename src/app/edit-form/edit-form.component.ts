@@ -158,7 +158,6 @@ export class EditFormComponent {
       this.data.status = true;
     }
     const now = new Date();
-    // const saveUrl = 'https://api.justscanme.net/api/save-electric-pole';
     const saveUrl = 'https://api.justscanme.net/api/save-electric-pole';
     this.http.post(saveUrl, this.data).subscribe({
       next: () => {

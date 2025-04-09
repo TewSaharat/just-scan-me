@@ -13,7 +13,8 @@ import { AuthService } from '../services/auth.service';
     CommonModule,
     LogninSinginComponent,
     RouterModule,
-    BodyComponent
+    BodyComponent,
+    
 ],
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.css']
@@ -32,40 +33,30 @@ export class HomePageComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-
-        this.authService.isLoggedIn().subscribe((status: boolean) => {
-            this.isLoggedIn = status;
-        });
-    
-        this.authService.getUser().subscribe((user: any) => {
-
-            this.user = user;
-        });
-
-        const token = localStorage.getItem('token');
+        const token = this.authService.getToken(); // ✅ ดึง token ที่ถูกต้อง
+      
         if (!token || this.authService.isTokenExpired()) {
-            this.logout(); // ✅ ลบ Token และเปลี่ยน UI
-            return;
+          this.logout();
+          return;
         }
-    
-        // ✅ Subscribe เพื่อตรวจสอบสถานะการล็อกอินแบบ Reactive
+      
         this.authService.isLoggedIn().subscribe((status: boolean) => {
-            this.isLoggedIn = status;
+          this.isLoggedIn = status;
         });
-        // ✅ ดึงข้อมูลผู้ใช้ ถ้าพบ error 401 ให้ logout
+      
         this.authService.getUser().subscribe({
-            next: (user: any) => {
-                this.user = user;
-            },
-            error: (err) => {
-                console.error("Error fetching user:", err);
-                if (err.status === 401) { // ✅ เช็คว่าเป็น Unauthorized ก่อน Logout
-                    this.logout();
-                }
+          next: (user: any) => {
+            this.user = user;
+          },
+          error: (err) => {
+            console.error("Error fetching user:", err);
+            if (err.status === 401) {
+              this.logout();
             }
+          }
         });
-
-    }
+      }
+      
     
 
     checkLoginStatus() {
