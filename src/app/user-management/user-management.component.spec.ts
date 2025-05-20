@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UploadKMLComponent } from './upload-kml.component';
+import { UserManagementComponent } from './user-management.component';
 
-describe('UploadKMLComponent', () => {
-  let component: UploadKMLComponent;
-  let fixture: ComponentFixture<UploadKMLComponent>;
+describe('UserManagementComponent', () => {
+  let component: UserManagementComponent;
+  let fixture: ComponentFixture<UserManagementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UploadKMLComponent]
+      imports: [UserManagementComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(UploadKMLComponent);
+
+    fixture = TestBed.createComponent(UserManagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -57,20 +57,18 @@ export class KmlUploadComponent {
     console.log('Uploading file:', this.selectedFile.name);
     console.log('Uploading cat_id:', this.selectedcat_id);
 
-    this.http
-      .post('https://api.justscanme.net/api/upload-kml', formData)
-      .subscribe({
-        next: () => {
-          this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
-          this.isLoading = false;
-          console.log('Upload Success');
-        },
-        error: (error) => {
-          console.error('Error response:', error);
-          this.uploadStatus = `❌ ${error.error.message}`;
-          this.isLoading = false;
-        },
-      });
+    this.http.post('http://127.0.0.1:8000/api/upload-kml', formData).subscribe({
+      next: () => {
+        this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
+        this.isLoading = false;
+        console.log('Upload Success');
+      },
+      error: (error) => {
+        console.error('Error response:', error);
+        this.uploadStatus = `❌ ${error.error.message}`;
+        this.isLoading = false;
+      },
+    });
   }
 
   toggleSidebar() {

@@ -9,6 +9,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EditFormComponent } from '../edit-form/edit-form.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-body',
@@ -24,9 +25,11 @@ export class BodyComponent implements OnInit, OnDestroy {
   constructor(
     private http: HttpClient,
     private wsService: WebSocketService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthService,
   ) {}
 
+  
   selectedDistrict: string = 'all'; // ค่าเริ่มต้นแสดงทุกเขต
   showNormal: boolean = true; // ควบคุมการแสดงสถานะปกติ
   showFaulty: boolean = true; // ควบคุมการแสดงสถานะเสีย
@@ -34,7 +37,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   selectedCategory: string = 'all';
   selectedRoute: string = 'all';
   filteredRoutesData: any[] = [];
-
+isCategoryLocked = true;
   routesData: any[] = [];
   private ws: WebSocket | null = null;
 
@@ -46,6 +49,19 @@ export class BodyComponent implements OnInit, OnDestroy {
   totalFaultySG: number = 0; // จำนวน SG ที่เสีย
 
   ngOnInit() {
+
+    this.authService.getUserRole().subscribe((role) => {
+      if (role === 'admin' || role === 'Advanced_users') {
+        this.selectedCategory = 'all';
+        this.isCategoryLocked = false; // ให้เปลี่ยนได้
+      } else {
+        this.authService.getUserCategory().subscribe((category) => {
+          this.selectedCategory = category; // ✅ ใช้เฉพาะตัวเลข category_code
+          this.isCategoryLocked = true; // ✅ ล็อกไม่ให้เปลี่ยน dropdown
+        });
+      }
+    });
+    
     // ฟังการอัพเดทข้อมูลเมื่อได้รับจาก WebSocket
     this.wsService.onUpdate((message) => {
       if (message.type === 'update') {
@@ -98,7 +114,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     };
 
     this.http
-      .get<any[]>('https://api.justscanme.net/api/routes', { params })
+      .get<any[]>('http://127.0.0.1:8000/api/routes', { params })
       .subscribe(
         (data) => {
           if (!Array.isArray(data)) {
@@ -173,20 +189,37 @@ export class BodyComponent implements OnInit, OnDestroy {
     }));
   }
 
-  fetchRoutes() {
-    const apiUrl = 'https://api.justscanme.net/api/get-routes';
-    this.http.get<any[]>(apiUrl).subscribe({
-      next: (data) => {
-        this.filteredRoutesData = this.mapCategoryName(
-          data.filter((route) => route.status === 0)
-        ).sort((a, b) => Date.parse(b.report_time) - Date.parse(a.report_time));
-      },
-      error: (err) => console.error('Error fetching data:', err),
-    });
+fetchRoutes() {
+  const apiUrl = 'http://127.0.0.1:8000/api/get-routes';
+
+  // ฟังก์ชันช่วยแปลงวันที่จาก "dd-MM-yyyy HH:mm" เป็น Date object
+  function parseDateString(dateStr: string): Date {
+    const [datePart, timePart] = dateStr.split(' ');
+    const [day, month, year] = datePart.split('-').map(Number);
+    const [hours, minutes] = timePart.split(':').map(Number);
+    return new Date(year, month - 1, day, hours, minutes);
   }
 
+  this.http.get<any[]>(apiUrl).subscribe({
+    next: (data) => {
+      this.filteredRoutesData = this.mapCategoryName(
+        data.filter((route) => {
+          const isCategoryMatch =
+            this.selectedCategory === 'all' || route.cat_id == this.selectedCategory;
+          return route.status === 0 && isCategoryMatch;
+        })
+      ).sort(
+        (a, b) => parseDateString(b.report_time).getTime() - parseDateString(a.report_time).getTime()
+      );
+    },
+    error: (err) => console.error('Error fetching data:', err),
+  });
+
+}
+
+
   downloadNotifyExcel() {
-    const url = 'https://api.justscanme.net/api/export-notify-to-excel';
+    const url = 'http://127.0.0.1:8000/api/export-notify-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -198,7 +231,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     });
   }
   downloadRepairExcel() {
-    const url = 'https://api.justscanme.net/api/export-repair-to-excel';
+    const url = 'http://127.0.0.1:8000/api/export-repair-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

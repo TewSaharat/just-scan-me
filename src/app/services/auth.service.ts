@@ -7,13 +7,14 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://api.justscanme.net/api';
+  private apiUrl = 'http://127.0.0.1:8000/api';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   private userSubject = new BehaviorSubject<any>(this.getUserFromStorage());
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private userRole = new BehaviorSubject<string>('user');
+  private userCategory = new BehaviorSubject<string>('all');
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {this.loadUserFromToken();}
 
   login(email: string, password: string): Observable<any> {
     return this.http
@@ -31,7 +32,7 @@ export class AuthService {
   logout() {
     const token = this.getToken();
     if (!token || this.isTokenExpired()) {
-      console.warn('No valid token found. Clearing session locally.');
+
       this.clearSession();
       return;
     }
@@ -56,7 +57,6 @@ export class AuthService {
   getUser(): Observable<any> {
     const token = this.getToken();
     if (!token || this.isTokenExpired()) {
-      console.warn('No valid token, ไม่เรียก API /me');
       return new Observable((observer) => {
         observer.error('No valid token');
       });
@@ -104,6 +104,7 @@ export class AuthService {
   // ✅ อ่าน user จาก localStorage
   private getUserFromStorage(): any {
     return JSON.parse(localStorage.getItem('user') || '{}');
+    
   }
 
   isTokenExpired(): boolean {
@@ -133,5 +134,24 @@ export class AuthService {
 
   isAdmin(): boolean {
     return this.userRole.value === 'admin';
+  }
+
+  private loadUserFromToken(): void {
+    const token = this.getToken();
+    if (token && !this.isTokenExpired()) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      this.userCategory.next(payload.Category_code || 'all');
+      this.userRole.next(payload.role);
+      
+  
+    }
+    
+  }
+  getUserRole(): Observable<string> {
+    return this.userRole.asObservable();
+  }
+
+  getUserCategory(): Observable<string> {
+    return this.userCategory.asObservable();
   }
 }

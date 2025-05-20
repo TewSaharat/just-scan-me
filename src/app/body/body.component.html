@@ -1,16 +1,20 @@
 
-
 <div class="body">
   <div class="filters-container">
-    <select (change)="onSelectCategory($event)">
-        <option disabled>เลือกสถานะ</option>
-        <option value="1">หมวดนครพนม</option>
-        <option value="2">หมวดศรีสงคราม</option>
-        <option value="3">หมวดปลาปาก</option>
-        <option value="4">หมวดท่าอุเทน</option>
-        <option value="5">หมวดนาแก</option>
-        <option value="all" selected>แสดงทุกหมวด</option>
+    <select 
+  (change)="onSelectCategory($event)" 
+  [value]="selectedCategory" 
+  [disabled]="isCategoryLocked">
+
+      <option disabled>เลือกหมวดหมู่</option>
+      <option value="1">หมวดนครพนม</option>
+      <option value="2">หมวดศรีสงคราม</option>
+      <option value="3">หมวดปลาปาก</option>
+      <option value="4">หมวดท่าอุเทน</option>
+      <option value="5">หมวดนาแก</option>
+      <option value="all" selected>แสดงทุกหมวด</option>
     </select>
+    
 
     <select  (change)="onSelectRoute($event)">
         <option disabled>เลือกสถานะ</option>
@@ -75,8 +79,8 @@
   </div>
   
   <div class="table-container">
-      <ul class ="downlaod_excel"><li><a><img src="assets/excel.png" width="30" alt="ดาวโหลดไฟล์" (click)="downloadNotifyExcel()" (click)="downloadRepairExcel()"></a></li></ul>
-    
+      <ul class ="downlaod_excel"><li><a><img src="assets/excel.png" width="30" alt="ดาวโหลดไฟล์" (click)="downloadRepairExcel()"></a></li></ul>
+    <!-- (click)="downloadNotifyExcel()" -->
       <table class="table_body" style="width:100%; border-collapse: collapse; text-align: center;">
         <tr>
           <th>ชื่อเสา</th>
@@ -87,7 +91,7 @@
           <th>latitude</th>
           <th>longtude</th>
           <th>สาเหตุ</th>
-          <th>วันเวลาแจ้ง</th>
+          <th>วันเวลาที่แจ้ง</th>
           <th>สถานะ</th>
         </tr>
         <tr *ngFor="let route of filteredRoutesData" (click)="onRowClick(route)">

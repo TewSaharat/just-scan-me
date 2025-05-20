@@ -4,21 +4,21 @@
       <!-- Left Column -->
       <div class="form-column">
           <label>ชนิดของหลอดไฟ</label>
-          <select [(ngModel)]="data.lampType_edit">
+          <select [(ngModel)]="data.lampType_edit" [disabled]="isViewer" >
               <option *ngFor="let type of lampType_edit" [value]="type">{{ type }}</option>
           </select>
 
           <label>ตู้คอนโทรล</label>
-          <input type="text" [(ngModel)]="data.control" />
+          <input type="text" [(ngModel)]="data.control" [disabled]="isViewer" />
 
           <label>วันที่ก่อสร้าง</label>
-          <input type="date" [(ngModel)]="data.constructionDate" />
+          <input type="date" [(ngModel)]="data.constructionDate" [disabled]="isViewer" />
 
           <label>สัญญาที่</label>
-          <input type="text" [(ngModel)]="data.contractNumber" />
+          <input type="text" [(ngModel)]="data.contractNumber" [disabled]="isViewer" />
 
           <label>หมายเหตุ</label>
-          <input type="text" [(ngModel)]="data.notes" />
+          <input type="text" [(ngModel)]="data.notes"  [disabled]="isViewer" />
       </div>
 
       <!-- Right Column -->
@@ -33,44 +33,44 @@
 
           <div *ngIf="toggleStatusTemp; else complaintTemplate">
               <label>วิธีซ่อม</label>
-              <input type="text" [(ngModel)]="data.repairMethod" />
+              <input type="text" [(ngModel)]="data.repairMethod" [disabled]="isViewer"  />
 
               <label>รายการที่ซ่อม</label>
               <div class="repair-item-grid">
                   <div *ngFor="let item of repairItemList" class="repair-item">
-                      <input type="checkbox" [(ngModel)]="data.repairItems[item.value]" />
+                      <input type="checkbox" [(ngModel)]="data.repairItems[item.value]" [disabled]="isViewer"  />
                       <span>{{ item.label }}</span>
                   </div>
               </div>
 
               <label><b>ชนิดตู้ควบคุม</b></label>
-              <select [(ngModel)]="data.controlType">
+              <select [(ngModel)]="data.controlType" [disabled]="isViewer" >
                   <option value="switchboard">Switchboard (เบรกเกอร์)</option>
                   <option value="safetySwitch">Safety switch (ฟิวส์)</option>
               </select>
 
               <label><b>วันที่ซ่อมครั้งล่าสุด</b></label>
-              <input type="text" [(ngModel)]="data.lastRepairDate" />
+              <input type="text" [(ngModel)]="data.lastRepairDate"  [disabled]="isViewer" />
           </div>
 
           <ng-template #complaintTemplate>
               <label>ช่องทางร้องเรียน</label>
-              <input type="text" [(ngModel)]="data.complaintChannel" />
+              <input type="text" [(ngModel)]="data.complaintChannel" [disabled]="isViewer"  />
 
               <label>รหัสเรื่อง</label>
-              <input type="text" [(ngModel)]="data.complaintCode" />
+              <input type="text" [(ngModel)]="data.complaintCode"  [disabled]="isViewer" />
 
               <label>เรื่อง</label>
-              <input type="text" [(ngModel)]="data.complaintTopic" />
+              <input type="text" [(ngModel)]="data.complaintTopic" [disabled]="isViewer" />
 
               <label>สาเหตุ</label>
-              <input type="text" [(ngModel)]="data.complaintReason" />
+              <input type="text" [(ngModel)]="data.complaintReason" [disabled]="isViewer" />
           </ng-template>
       </div>
   </div>
 
   <div class="form-actions">
-      <button type="button" (click)="onSave()">บันทึก</button>
+      <button type="button" (click)="onSave()" [disabled]="isViewer" >บันทึก</button>
       <button type="button" (click)="onCancel()">ยกเลิก</button>
   </div>
 </div>

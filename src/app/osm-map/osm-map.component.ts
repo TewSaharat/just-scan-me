@@ -44,6 +44,8 @@ export class OsmMapComponent implements OnInit, OnChanges {
   @Input() showNormal: boolean = true;
   @Input() showFaulty: boolean = true;
   @Output() dataUpdated = new EventEmitter<void>();
+ 
+
   isLoading: boolean = false;
 
   map!: L.Map;
@@ -81,7 +83,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
 
   loadMap(): void {
-    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 12);
+    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 14);
 
     const streetLayer = L.tileLayer(
       'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
@@ -127,10 +129,10 @@ export class OsmMapComponent implements OnInit, OnChanges {
       const bounds = this.map.getBounds();
       const data = await firstValueFrom(
         this.http.get<Marker[]>(
-          `https://api.justscanme.net/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
+          `http://127.0.0.1:8000/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
         )
+       
       );
-
       if (data) {
         this.markers = data.filter(
           (marker) => marker.lat !== null && marker.longitude !== null
@@ -146,6 +148,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
 
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
+
     if (this.markerGroup) {
       this.markerGroup.clearLayers();
     }
@@ -264,10 +267,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
             cursor: pointer;">
           พิมพ์ QRCode
         </button>
-        <button onclick="window.open('https://www.google.com/maps?q=&layer=c&cbll=${marker.lat},${marker.longitude}')" 
-          style="background-color:#ff9800; color: white; border: none; padding: 5px 10px; margin-top: 5px; border-radius: 5px; cursor: pointer;">
-          เปิด Street View
-        </button>
+        
       </div>
     </div>
   `;
