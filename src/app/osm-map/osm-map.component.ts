@@ -1,12 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import {Component, OnInit,Input, OnChanges, SimpleChanges, Output, EventEmitter,} from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
@@ -59,9 +51,9 @@ export class OsmMapComponent implements OnInit, OnChanges {
     // ✅ โหลด MarkerCluster ตอน runtime
     const markerClusterModule = await import('leaflet.markercluster');
     MarkerCluster = markerClusterModule.default ?? markerClusterModule;
-    this.loadMap();
-    setTimeout(() => this.fetchMarkers(), 100);
 
+    this.loadMap();
+    await this.fetchMarkers();
     this.filterChange$.pipe(debounceTime(300)).subscribe(() => {
       this.fetchMarkers();
     });
@@ -162,10 +154,14 @@ export class OsmMapComponent implements OnInit, OnChanges {
       const statusMatch =
         (this.showNormal && marker.status === 1) ||
         (this.showFaulty && marker.status === 0);
-      return (
-        marker.lat !== null && marker.longitude !== null,
-        categoryMatch && routeMatch && statusMatch
-      );
+        return (
+          marker.lat !== null && 
+          marker.longitude !== null && 
+          categoryMatch && 
+          routeMatch && 
+          statusMatch
+        );
+
     });
 
     // ✅ ซูมไปยังหมุดที่กรองแล้ว
@@ -279,25 +275,24 @@ export class OsmMapComponent implements OnInit, OnChanges {
   `;
   }
 
-  private setupPopupEventListeners(marker: Marker): void {
-    const editButton = document.querySelector(
-      `.edit-button[data-id="${marker.name_id}"]`
-    );
-    if (editButton && !editButton.getAttribute('data-listener')) {
-      editButton.setAttribute('data-listener', 'true');
-      editButton.addEventListener('click', () => this.openEditForm(marker));
-    }
+private setupPopupEventListeners(marker: Marker): void {
+  const popupElement = document.querySelector('.leaflet-popup-content');
+  if (!popupElement) return;
 
-    const qrButton = document.querySelector(
-      `.qrcode[data-id="${marker.name_id}"]`
-    );
-    if (qrButton && !qrButton.getAttribute('data-listener')) {
-      qrButton.setAttribute('data-listener', 'true');
-      qrButton.addEventListener('click', () =>
-        this.generateQRCode(marker.name_id!)
-      );
-    }
+  const editButton = popupElement.querySelector(`.edit-button[data-id="${marker.name_id}"]`);
+  const qrButton = popupElement.querySelector(`.qrcode[data-id="${marker.name_id}"]`);
+
+  if (editButton && !editButton.getAttribute('data-listener')) {
+    editButton.setAttribute('data-listener', 'true');
+    editButton.addEventListener('click', () => this.openEditForm(marker));
   }
+
+  if (qrButton && !qrButton.getAttribute('data-listener')) {
+    qrButton.setAttribute('data-listener', 'true');
+    qrButton.addEventListener('click', () => this.generateQRCode(marker.name_id!));
+  }
+}
+
 
   openEditForm(marker: Marker): void {
     const dialogRef = this.dialog.open(EditFormComponent, {

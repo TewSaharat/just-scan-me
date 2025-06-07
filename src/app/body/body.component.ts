@@ -35,6 +35,8 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   selectedCategory: string = 'all';
   selectedRoute: string = 'all';
+  
+
   filteredRoutesData: any[] = [];
   isCategoryLocked = true;
   routesData: any[] = [];
@@ -47,29 +49,42 @@ export class BodyComponent implements OnInit, OnDestroy {
   totalFaultyDB: number = 0; // จำนวน DB ที่เสีย
   totalFaultySG: number = 0; // จำนวน SG ที่เสีย
 
-  ngOnInit() {
-    this.authService.getUserRole().subscribe((role) => {
-      if (role === 'admin' || role === 'Advanced_users') {
-        this.selectedCategory = 'all';
-        this.isCategoryLocked = false; // ให้เปลี่ยนได้
-      } else {
-        this.authService.getUserCategory().subscribe((category) => {
-          this.selectedCategory = category; // ✅ ใช้เฉพาะตัวเลข category_code
-          this.isCategoryLocked = true; // ✅ ล็อกไม่ให้เปลี่ยน dropdown
-        });
-      }
-    });
-
-    // ฟังการอัพเดทข้อมูลเมื่อได้รับจาก WebSocket
-    this.wsService.onUpdate((message) => {
-      if (message.type === 'update') {
-        this.fetchRoutes(); // รีเฟรชข้อมูลเมื่อได้รับการอัพเดทจาก WebSocket
+ngOnInit() {
+  this.authService.isLoggedIn().subscribe((loggedIn) => {
+    if (!loggedIn) {
+      // ยังไม่ login -> ปลดล็อก dropdown ให้เลือกได้
+      this.selectedCategory = 'all';  // หรือค่าที่ต้องการเป็น default
+      this.isCategoryLocked = false;
+      this.fetchFilteredRoutes();
+      this.fetchRoutes();
+    } else {
+      // login แล้ว ให้เช็ค role เหมือนเดิม
+      this.authService.getUserRole().subscribe((role) => {
+        if (role === 'admin' || role === 'Advanced_users') {
+          this.selectedCategory = 'all';
+          this.isCategoryLocked = false;
+        } else {
+          this.authService.getUserCategory().subscribe((category) => {
+            this.selectedCategory = category;
+            this.isCategoryLocked = true;
+          });
+        }
         this.fetchFilteredRoutes();
-      }
-    });
-    this.fetchFilteredRoutes();
-    this.fetchRoutes();
-  }
+        this.fetchRoutes();
+      });
+    }
+  });
+
+  this.wsService.onUpdate((message) => {
+    if (message.type === 'update') {
+      this.fetchRoutes();
+      this.fetchFilteredRoutes();
+    }
+  });
+}
+
+
+
   handleDataUpdated() {
     this.fetchRoutes(); // ✅ โหลดข้อมูลตารางใหม่ (status = 0)
     this.fetchFilteredRoutes(); // ✅ โหลดข้อมูลทั้งหมดใหม่
@@ -109,6 +124,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     const params: any = {
       category: this.selectedCategory,
       routes: this.selectedRoute,
+       district: this.selectedDistrict
     };
 
     this.http
