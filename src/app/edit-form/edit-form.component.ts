@@ -77,15 +77,16 @@ export class EditFormComponent {
     this.authService.getUser().subscribe(
       (user) => {
         this.isLoggedIn = true;
-        this.isAdmin = user.role === 'admin' || user.role === 'Advanced_users' || user.role === 'user';
+        this.isAdmin =
+          user.role === 'admin' ||
+          user.role === 'Advanced_users' ||
+          user.role === 'user';
         this.isViewer = user.role === 'viewer';
-        
       },
       (error) => {
         console.error('Auth Error:', error);
         this.isLoggedIn = false;
       }
-      
     );
 
     // ตรวจสอบว่ามีข้อมูลส่งเข้ามาหรือไม่
@@ -146,30 +147,37 @@ export class EditFormComponent {
       alert('คุณไม่มีสิทธิ์ในการบันทึกข้อมูล');
       return;
     }
-    
-  
+
     const hasRepairItems = Object.values(this.data.repairItems).some(
       (value) => value
     );
     const hasDataFilled =
       (this.data.controller_edit && this.data.controller_edit.trim() !== '') ||
-      (this.data.constructionDate && this.data.constructionDate.trim() !== '') ||
+      (this.data.constructionDate &&
+        this.data.constructionDate.trim() !== '') ||
       (this.data.contractNumber && this.data.contractNumber.trim() !== '') ||
       (this.data.notes && this.data.notes.trim() !== '') ||
-      (this.data.complaintChannel && this.data.complaintChannel.trim() !== '') ||
+      (this.data.complaintChannel &&
+        this.data.complaintChannel.trim() !== '') ||
       (this.data.complaintCode && this.data.complaintCode.trim() !== '') ||
       (this.data.complaintTopic && this.data.complaintTopic.trim() !== '') ||
       (this.data.complaintReason && this.data.complaintReason.trim() !== '');
-  
+
     if (hasRepairItems || hasDataFilled) {
       this.data.status = true;
     }
-  
-    // แปลง repairItems ให้เป็น string ที่คั่นด้วย comma
-    const repairItemsString = Object.keys(this.data.repairItems)
-      .filter((key) => this.data.repairItems[key])
+
+    // // แปลง repairItems ให้เป็น string ที่คั่นด้วย comma
+    // const repairItemsString = Object.keys(this.data.repairItems)
+    //   .filter((key) => this.data.repairItems[key])
+    //   .join(', ');
+
+    // ดึง label ที่ถูกเลือกไว้
+    const selectedRepairLabels = this.repairItemList
+      .filter((item) => this.data.repairItems[item.value])
+      .map((item) => item.label)
       .join(', ');
-  
+
     // 🟡 เพิ่มบันทึกวันที่ซ่อมล่าสุด (lastRepairDate)
     const now = new Date();
     const y = now.getFullYear();
@@ -178,22 +186,23 @@ export class EditFormComponent {
     const h = now.getHours().toString().padStart(2, '0');
     const min = now.getMinutes().toString().padStart(2, '0');
     this.data.lastRepairDate = `${y}-${m}-${d}เวลา${h}:${min}`;
-  
+
     // ส่งข้อมูล
     const saveUrl = 'http://127.0.0.1:8000/api/save-electric-pole';
-    this.http.post(saveUrl, { ...this.data, repairItems: repairItemsString }).subscribe({
-      next: () => {
-        alert('บันทึกข้อมูลสำเร็จ!');
-        this.dialogRef.close(true);
-        this.dataSaved.emit(); // แจ้งไปยัง BodyComponent ว่าบันทึกสำเร็จ
-      },
-      error: (err) => {
-        console.error('Error:', err);
-        alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
-      },
-    });
+    this.http
+      .post(saveUrl, { ...this.data, repairItems: selectedRepairLabels })
+      .subscribe({
+        next: () => {
+          alert('บันทึกข้อมูลสำเร็จ!');
+          this.dialogRef.close(true);
+          this.dataSaved.emit(); // แจ้งไปยัง BodyComponent ว่าบันทึกสำเร็จ
+        },
+        error: (err) => {
+          console.error('Error:', err);
+          alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
+        },
+      });
   }
-  
 
   loadMarkerData(name_id: string) {
     const apiUrl = `http://127.0.0.1:8000/api/marker/${name_id}`;

@@ -14,7 +14,9 @@ export class AuthService {
   private userRole = new BehaviorSubject<string>('user');
   private userCategory = new BehaviorSubject<string>('all');
 
-  constructor(private http: HttpClient) {this.loadUserFromToken();}
+  constructor(private http: HttpClient) {
+    this.loadUserFromToken();
+  }
 
   login(email: string, password: string): Observable<any> {
     return this.http
@@ -32,7 +34,6 @@ export class AuthService {
   logout() {
     const token = this.getToken();
     if (!token || this.isTokenExpired()) {
-
       this.clearSession();
       return;
     }
@@ -104,7 +105,6 @@ export class AuthService {
   // ✅ อ่าน user จาก localStorage
   private getUserFromStorage(): any {
     return JSON.parse(localStorage.getItem('user') || '{}');
-    
   }
 
   isTokenExpired(): boolean {
@@ -142,10 +142,7 @@ export class AuthService {
       const payload = JSON.parse(atob(token.split('.')[1]));
       this.userCategory.next(payload.Category_code || 'all');
       this.userRole.next(payload.role);
-      
-  
     }
-    
   }
   getUserRole(): Observable<string> {
     return this.userRole.asObservable();

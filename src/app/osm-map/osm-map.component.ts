@@ -29,6 +29,7 @@ interface Marker {
   routes: string;
   cat_id: number;
   status: number;
+  current?: number;
 }
 
 @Component({
@@ -44,7 +45,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
   @Input() showNormal: boolean = true;
   @Input() showFaulty: boolean = true;
   @Output() dataUpdated = new EventEmitter<void>();
- 
 
   isLoading: boolean = false;
 
@@ -131,7 +131,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
         this.http.get<Marker[]>(
           `http://127.0.0.1:8000/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
         )
-       
       );
       if (data) {
         this.markers = data.filter(
@@ -168,6 +167,13 @@ export class OsmMapComponent implements OnInit, OnChanges {
         categoryMatch && routeMatch && statusMatch
       );
     });
+
+    // ✅ ซูมไปยังหมุดที่กรองแล้ว
+    if (filteredMarkers.length > 0) {
+      const latlngs = filteredMarkers.map((m) => L.latLng(m.lat, m.longitude));
+      const bounds = L.latLngBounds(latlngs);
+      this.map.fitBounds(bounds, { padding: [50, 50] });
+    }
 
     setTimeout(() => {
       filteredMarkers.forEach((marker) => {
@@ -240,7 +246,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       <hr>
       <div>
         สถานะอุปกรณ์:<br>
-        หลอด: <span style="color: ${statusColor};">${statusText}</span><br>
+        หลอด: <span style="color: ${statusColor};">${statusText} (กระแส: ${marker.current ?? '-' } A)</span><br>
         บัลลาสต์: <span style="color: ${statusColor};">${statusText}</span><br>
         คาปาซิเตอร์: <span style="color: ${statusColor};">${statusText}</span><br>
         ฟิวส์/กล่อง: <span style="color: ${statusColor};">${statusText}</span>

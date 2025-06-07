@@ -26,7 +26,7 @@ export class DownloadComponent implements OnInit {
       // สร้าง Array ของ Promises
       const tasks = response.map((data) => {
         const { name_id, cat_id, routes } = data;
-        const url = `http://localhost:4200//notify?name_id=${encodeURIComponent(
+        const url = `https://chonburihighway1.com//notify?name_id=${encodeURIComponent(
           name_id
         )}`;
         return this.createQRCodeAndAddToZip(url, name_id, cat_id, routes, zip);

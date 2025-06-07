@@ -1,0 +1,34 @@
+    <div class="header_body">
+        <ul class="title">แผนที่การแจ้งซ่อม</ul>
+        <ul class="title">แขวงทางหลวงนครพนม</ul>
+    </div>
+    
+<div class="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h2>สมัครสมาชิก</h2>
+
+    <label>ชื่อ-นามสกุล</label>
+    <input formControlName="name" type="text" placeholder="กรอกชื่อ-นามสกุล" />
+
+    <label>อีเมล</label>
+    <input formControlName="email" type="email" placeholder="your@email.com" />
+
+    <label>รหัสผ่าน</label>
+    <input formControlName="password" type="password" placeholder="รหัสผ่านขั้นต่ำ 6 ตัว" />
+
+    <label>วันเดือนปีเกิด (พ.ศ.)</label>
+    <input formControlName="birthdate_thai" type="date" />
+
+    <label>หมวดที่ดูแล</label>
+    <select formControlName="Category_code">
+      <option value="" disabled selected>เลือกหมวดหมู่</option>
+      <option value="1">หมวดนครพนม</option>
+      <option value="2">หมวดศรีสงคราม</option>
+      <option value="3">หมวดปลาปาก</option>
+      <option value="4">หมวดท่าอุเทน</option>
+      <option value="5">หมวดนาแก</option>
+    </select>
+
+    <button type="submit">สมัครสมาชิก</button>
+  </form>
+</div>

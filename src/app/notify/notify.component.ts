@@ -29,7 +29,9 @@ export class NotifyComponent implements OnInit {
   }
 
   loadMarkerData(name_id: string) {
-    const apiUrl = `http://127.0.0.1:8000/api/marker/${encodeURIComponent(name_id)}`;
+    const apiUrl = `http://127.0.0.1:8000/api/marker/${encodeURIComponent(
+      name_id
+    )}`;
     this.http.get(apiUrl).subscribe({
       next: (response) => {
         console.log('Marker Data:', response);

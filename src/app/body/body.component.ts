@@ -26,10 +26,9 @@ export class BodyComponent implements OnInit, OnDestroy {
     private http: HttpClient,
     private wsService: WebSocketService,
     private dialog: MatDialog,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
-  
   selectedDistrict: string = 'all'; // ค่าเริ่มต้นแสดงทุกเขต
   showNormal: boolean = true; // ควบคุมการแสดงสถานะปกติ
   showFaulty: boolean = true; // ควบคุมการแสดงสถานะเสีย
@@ -37,7 +36,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   selectedCategory: string = 'all';
   selectedRoute: string = 'all';
   filteredRoutesData: any[] = [];
-isCategoryLocked = true;
+  isCategoryLocked = true;
   routesData: any[] = [];
   private ws: WebSocket | null = null;
 
@@ -49,7 +48,6 @@ isCategoryLocked = true;
   totalFaultySG: number = 0; // จำนวน SG ที่เสีย
 
   ngOnInit() {
-
     this.authService.getUserRole().subscribe((role) => {
       if (role === 'admin' || role === 'Advanced_users') {
         this.selectedCategory = 'all';
@@ -61,7 +59,7 @@ isCategoryLocked = true;
         });
       }
     });
-    
+
     // ฟังการอัพเดทข้อมูลเมื่อได้รับจาก WebSocket
     this.wsService.onUpdate((message) => {
       if (message.type === 'update') {
@@ -189,34 +187,35 @@ isCategoryLocked = true;
     }));
   }
 
-fetchRoutes() {
-  const apiUrl = 'http://127.0.0.1:8000/api/get-routes';
+  fetchRoutes() {
+    const apiUrl = 'http://127.0.0.1:8000/api/get-routes';
 
-  // ฟังก์ชันช่วยแปลงวันที่จาก "dd-MM-yyyy HH:mm" เป็น Date object
-  function parseDateString(dateStr: string): Date {
-    const [datePart, timePart] = dateStr.split(' ');
-    const [day, month, year] = datePart.split('-').map(Number);
-    const [hours, minutes] = timePart.split(':').map(Number);
-    return new Date(year, month - 1, day, hours, minutes);
+    // ฟังก์ชันช่วยแปลงวันที่จาก "dd-MM-yyyy HH:mm" เป็น Date object
+    function parseDateString(dateStr: string): Date {
+      const [datePart, timePart] = dateStr.split(' ');
+      const [day, month, year] = datePart.split('-').map(Number);
+      const [hours, minutes] = timePart.split(':').map(Number);
+      return new Date(year, month - 1, day, hours, minutes);
+    }
+
+    this.http.get<any[]>(apiUrl).subscribe({
+      next: (data) => {
+        this.filteredRoutesData = this.mapCategoryName(
+          data.filter((route) => {
+            const isCategoryMatch =
+              this.selectedCategory === 'all' ||
+              route.cat_id == this.selectedCategory;
+            return route.status === 0 && isCategoryMatch;
+          })
+        ).sort(
+          (a, b) =>
+            parseDateString(b.report_time).getTime() -
+            parseDateString(a.report_time).getTime()
+        );
+      },
+      error: (err) => console.error('Error fetching data:', err),
+    });
   }
-
-  this.http.get<any[]>(apiUrl).subscribe({
-    next: (data) => {
-      this.filteredRoutesData = this.mapCategoryName(
-        data.filter((route) => {
-          const isCategoryMatch =
-            this.selectedCategory === 'all' || route.cat_id == this.selectedCategory;
-          return route.status === 0 && isCategoryMatch;
-        })
-      ).sort(
-        (a, b) => parseDateString(b.report_time).getTime() - parseDateString(a.report_time).getTime()
-      );
-    },
-    error: (err) => console.error('Error fetching data:', err),
-  });
-
-}
-
 
   downloadNotifyExcel() {
     const url = 'http://127.0.0.1:8000/api/export-notify-to-excel';

@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 export class UserManagementComponent implements OnInit {
   users: any[] = [];
   currentUser: any;
-  allowedStatuses = ['user', 'admin', 'viewer','Advanced_users'   ]; // สามารถเพิ่ม role อื่นได้ที่นี่
+  allowedStatuses = ['user', 'admin', 'viewer', 'Advanced_users']; // สามารถเพิ่ม role อื่นได้ที่นี่
 
   districtMap: { [key: number]: string } = {
     1: 'หมวดนครพนม',
@@ -24,7 +24,6 @@ export class UserManagementComponent implements OnInit {
     4: 'หมวดท่าอุเทน',
     5: 'หมวดนาแก',
   };
-  
 
   constructor(
     private authService: AuthService,
@@ -56,9 +55,11 @@ export class UserManagementComponent implements OnInit {
   loadUsers() {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    this.http.get<any[]>('http://127.0.0.1:8000/api/users', { headers }).subscribe((data) => {
-      this.users = data;
-    });
+    this.http
+      .get<any[]>('http://127.0.0.1:8000/api/users', { headers })
+      .subscribe((data) => {
+        this.users = data;
+      });
   }
 
   confirmChange(user: any) {
@@ -79,16 +80,21 @@ export class UserManagementComponent implements OnInit {
 
     // ใช้ setTimeout เพื่อหลีกเลี่ยง block UI ตรง ๆ
     setTimeout(() => {
-      const confirmed = window.confirm(`คุณต้องการเปลี่ยนสถานะของ ${user.name} เป็น ${user.newStatus} หรือไม่?`);
+      const confirmed = window.confirm(
+        `คุณต้องการเปลี่ยนสถานะของ ${user.name} เป็น ${user.newStatus} หรือไม่?`
+      );
       if (confirmed) {
         const token = this.authService.getToken();
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  
+        const headers = new HttpHeaders().set(
+          'Authorization',
+          `Bearer ${token}`
+        );
+
         // ส่งคำขอ PUT เพื่อเปลี่ยน role
         this.http
           .put(
-            `http://127.0.0.1:8000/api/users/${user.id}/role`,  // ปรับเส้นทางให้ถูกต้อง
-            { role: user.newStatus },  // ส่ง role ที่ต้องการเปลี่ยน
+            `http://127.0.0.1:8000/api/users/${user.id}/role`, // ปรับเส้นทางให้ถูกต้อง
+            { role: user.newStatus }, // ส่ง role ที่ต้องการเปลี่ยน
             { headers }
           )
           .subscribe(() => {
@@ -97,6 +103,5 @@ export class UserManagementComponent implements OnInit {
           });
       }
     }, 0);
-    
   }
 }

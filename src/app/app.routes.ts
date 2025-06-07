@@ -5,6 +5,8 @@ import { QrCodePageComponent } from './qr-code-page/qr-code-page.component';
 import { KmlUploadComponent } from './kml-upload/kml-upload.component';
 import { DownloadComponent } from './download/download.component';
 import { UserManagementComponent } from './user-management/user-management.component';
+import { RegisterComponent } from './register/register.component';
+
 
 
 export const routes: Routes = [
@@ -13,7 +15,9 @@ export const routes: Routes = [
     {path: 'notify',component:NotifyComponent},
     {path: 'QrCode',component:QrCodePageComponent},
     {path:'upload',component:KmlUploadComponent},
-    {path: 'download',component:DownloadComponent },
-    {path: 'UserManagement', component:UserManagementComponent } // Redirect to home for any unknown routes
+    {path: 'download-qrcode',component:DownloadComponent },
+    {path: 'UserManagement', component:UserManagementComponent }, // Redirect to home for any unknown routes
+    {path: 'Register',component:RegisterComponent },
+
 ];
 
