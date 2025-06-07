@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, viewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WebSocketService } from '../websocket.service'; // นำเข้า WebSocketService
 import { OsmMapComponent } from '../osm-map/osm-map.component';
@@ -35,7 +35,6 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   selectedCategory: string = 'all';
   selectedRoute: string = 'all';
-  
 
   filteredRoutesData: any[] = [];
   isCategoryLocked = true;
@@ -49,41 +48,43 @@ export class BodyComponent implements OnInit, OnDestroy {
   totalFaultyDB: number = 0; // จำนวน DB ที่เสีย
   totalFaultySG: number = 0; // จำนวน SG ที่เสีย
 
-ngOnInit() {
-  this.authService.isLoggedIn().subscribe((loggedIn) => {
-    if (!loggedIn) {
-      // ยังไม่ login -> ปลดล็อก dropdown ให้เลือกได้
-      this.selectedCategory = 'all';  // หรือค่าที่ต้องการเป็น default
-      this.isCategoryLocked = false;
-      this.fetchFilteredRoutes();
-      this.fetchRoutes();
-    } else {
-      // login แล้ว ให้เช็ค role เหมือนเดิม
-      this.authService.getUserRole().subscribe((role) => {
-        if (role === 'admin' || role === 'Advanced_users') {
-          this.selectedCategory = 'all';
-          this.isCategoryLocked = false;
-        } else {
-          this.authService.getUserCategory().subscribe((category) => {
-            this.selectedCategory = category;
-            this.isCategoryLocked = true;
-          });
-        }
+  ngOnInit() {
+    this.authService.isLoggedIn().subscribe((loggedIn) => {
+      if (!loggedIn) {
+        // ยังไม่ login -> ปลดล็อก dropdown ให้เลือกได้
+        this.selectedCategory = 'all'; // หรือค่าที่ต้องการเป็น default
+        this.isCategoryLocked = false;
         this.fetchFilteredRoutes();
         this.fetchRoutes();
-      });
-    }
-  });
+      } else {
+        // login แล้ว ให้เช็ค role เหมือนเดิม
+        this.authService.getUserRole().subscribe((role) => {
+          if (role === 'admin' || role === 'Advanced_users') {
+            this.selectedCategory = 'all';
+            this.isCategoryLocked = false;
+          } else {
+            this.authService.getUserCategory().subscribe((category) => {
+              this.selectedCategory = category;
+              this.isCategoryLocked = true;
+            });
+          }
+          this.fetchFilteredRoutes();
+          this.fetchRoutes();
+        });
+      }
+    });
 
-  this.wsService.onUpdate((message) => {
-    if (message.type === 'update') {
+    this.wsService.onUpdate((message) => {
+      if (message.type === 'update') {
+        this.fetchRoutes();
+        this.fetchFilteredRoutes();
+      }
+    });
+
+    setInterval(() => {
       this.fetchRoutes();
-      this.fetchFilteredRoutes();
-    }
-  });
-}
-
-
+    }, 15 * 60 * 1000); // รีเฟรชข้อมูลทุก 15 นาที
+  }
 
   handleDataUpdated() {
     this.fetchRoutes(); // ✅ โหลดข้อมูลตารางใหม่ (status = 0)
@@ -121,11 +122,11 @@ ngOnInit() {
   }
 
   fetchFilteredRoutes() {
-    const params: any = {
-      category: this.selectedCategory,
-      routes: this.selectedRoute,
-       district: this.selectedDistrict
-    };
+     const params: any = {
+    category: this.selectedCategory === 'all' ? '' : this.selectedCategory,
+    routes: this.selectedRoute === 'all' ? '' : this.selectedRoute,
+    district: this.selectedDistrict === 'all' ? '' : this.selectedDistrict,
+  };
 
     this.http
       .get<any[]>('http://127.0.0.1:8000/api/routes', { params })
@@ -154,9 +155,11 @@ ngOnInit() {
 
   calculateStatistics() {
     this.totalMarkers = this.routesData.length;
+
     this.totalDB = this.routesData.filter((marker) =>
       marker.name_id?.toLowerCase().includes('db')
     ).length;
+
     this.totalSG = this.routesData.filter((marker) =>
       marker.name_id?.toLowerCase().includes('sg')
     ).length;
@@ -164,13 +167,15 @@ ngOnInit() {
     this.totalFaulty = this.routesData.filter(
       (marker) => marker.status === 0
     ).length;
+
     this.totalFaultyDB = this.routesData.filter(
       (marker) =>
-        marker.name_id?.toLowerCase().includes('db') && marker.status === 0
+        marker.status === 0 && marker.name_id?.toLowerCase().includes('db')
     ).length;
+
     this.totalFaultySG = this.routesData.filter(
       (marker) =>
-        marker.name_id?.toLowerCase().includes('sg') && marker.status === 0
+        marker.status === 0 && marker.name_id?.toLowerCase().includes('sg')
     ).length;
   }
 
@@ -182,15 +187,17 @@ ngOnInit() {
 
     switch (cat_id) {
       case 1:
-        return 'หมวดนครพนม';
+        return 'หมวดทางหลวงพนัสนิคม';
       case 2:
-        return 'หมวดศรีสงคราม';
+        return 'หมวดทางหลวงบ้านบึง';
       case 3:
-        return 'หมวดปลาปาก';
+        return 'หมวดทางหลวงศรีราชา';
       case 4:
-        return 'หมวดท่าอุเทน';
+        return 'หมวดทางหลวงบางละมุง';
       case 5:
-        return 'หมวดนาแก';
+        return 'หมวดทางหลวงสัตหีบ';
+      case 6:
+        return 'หมวดทางหลวงเมืองชลบุรี';
       default:
         return 'ไม่ทราบหมวด';
     }
@@ -216,6 +223,7 @@ ngOnInit() {
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
+        console.log('RAW DATA FROM API:', data);
         this.filteredRoutesData = this.mapCategoryName(
           data.filter((route) => {
             const isCategoryMatch =
@@ -223,11 +231,15 @@ ngOnInit() {
               route.cat_id == this.selectedCategory;
             return route.status === 0 && isCategoryMatch;
           })
-        ).sort(
-          (a, b) =>
-            parseDateString(b.report_time).getTime() -
-            parseDateString(a.report_time).getTime()
-        );
+        ).sort((a, b) => {
+          const aTime = a.report_time
+            ? parseDateString(a.report_time).getTime()
+            : 0;
+          const bTime = b.report_time
+            ? parseDateString(b.report_time).getTime()
+            : 0;
+          return bTime - aTime;
+        });
       },
       error: (err) => console.error('Error fetching data:', err),
     });

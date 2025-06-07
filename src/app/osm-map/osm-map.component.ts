@@ -1,4 +1,4 @@
-import {Component, OnInit,Input, OnChanges, SimpleChanges, Output, EventEmitter,} from '@angular/core';
+import {Component, OnInit,Input, OnChanges, SimpleChanges, Output, EventEmitter,NgZone } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
@@ -29,7 +29,7 @@ interface Marker {
   templateUrl: './osm-map.component.html',
   styleUrls: ['./osm-map.component.css'],
   standalone: true,
-  imports: [MatDialogModule, CommonModule, ScrollingModule],
+  imports: [MatDialogModule, CommonModule, ScrollingModule,],
 })
 export class OsmMapComponent implements OnInit, OnChanges {
   @Input() selectedCategory: string = 'all';
@@ -39,13 +39,15 @@ export class OsmMapComponent implements OnInit, OnChanges {
   @Output() dataUpdated = new EventEmitter<void>();
 
   isLoading: boolean = false;
+  isFirstFit = true;
+  private hasFitOnce = false;
 
   map!: L.Map;
   markers: Marker[] = [];
   markerGroup!: L.LayerGroup;
   private filterChange$ = new Subject<void>();
 
-  constructor(private http: HttpClient, private dialog: MatDialog) {}
+  constructor(private http: HttpClient, private dialog: MatDialog,private zone: NgZone) {}
 
   async ngOnInit(): Promise<void> {
     // ✅ โหลด MarkerCluster ตอน runtime
@@ -75,7 +77,11 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
 
   loadMap(): void {
-    this.map = L.map('map').setView([17.5656463201181, 104.6081251946405], 14);
+
+    
+    this.map = L.map('map',{}
+
+    ).setView([17.5656463201181, 104.6081251946405], 18);
 
     const streetLayer = L.tileLayer(
       'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
@@ -110,6 +116,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       disableClusteringAtZoom: 8,
       chunkedLoading: true,
       removeOutsideVisibleBounds: true,
+      
     });
 
     this.map.addLayer(this.markerGroup);
@@ -137,14 +144,14 @@ export class OsmMapComponent implements OnInit, OnChanges {
     }
   }
 
+
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
 
-    if (this.markerGroup) {
-      this.markerGroup.clearLayers();
-    }
+    this.markerGroup.clearLayers();
 
     const filteredMarkers = this.markers.filter((marker) => {
+      // กรองตามเงื่อนไข
       const categoryMatch =
         this.selectedCategory === 'all' ||
         marker.cat_id === Number(this.selectedCategory);
@@ -154,26 +161,29 @@ export class OsmMapComponent implements OnInit, OnChanges {
       const statusMatch =
         (this.showNormal && marker.status === 1) ||
         (this.showFaulty && marker.status === 0);
-        return (
-          marker.lat !== null && 
-          marker.longitude !== null && 
-          categoryMatch && 
-          routeMatch && 
-          statusMatch
-        );
-
+      return (
+        marker.lat !== null &&
+        marker.longitude !== null &&
+        categoryMatch &&
+        routeMatch &&
+        statusMatch
+      );
     });
 
-    // ✅ ซูมไปยังหมุดที่กรองแล้ว
     if (filteredMarkers.length > 0) {
       const latlngs = filteredMarkers.map((m) => L.latLng(m.lat, m.longitude));
       const bounds = L.latLngBounds(latlngs);
-      this.map.fitBounds(bounds, { padding: [50, 50] });
+
+      // ทำ fitBounds ภายใน NgZone.run() เพื่อ Angular รู้การเปลี่ยนแปลง (ถ้ามี)
+      this.zone.run(() => {
+        this.map.fitBounds(bounds, { padding: [50, 50] });
+      });
     }
 
     setTimeout(() => {
       filteredMarkers.forEach((marker) => {
         if (!marker.name_id) return;
+
         const iconUrl = this.getDynamicIconUrl(marker);
         const dynamicIcon = L.icon({
           iconUrl,
@@ -195,6 +205,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       });
     }, 100);
   }
+
 
   getCategoryName(category: number | string): string {
     switch (category.toString()) {

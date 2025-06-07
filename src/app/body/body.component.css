@@ -86,7 +86,7 @@ select, input[type="checkbox"] {
 
 }
 .map-container{
-    height: 350px;
+    height: 500px;
     width: 100;
     background-color: #fff;
     border-radius: 8px;
