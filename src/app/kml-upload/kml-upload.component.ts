@@ -58,7 +58,7 @@ export class KmlUploadComponent {
     console.log('Uploading cat_id:', this.selectedcat_id);
 
     this.http
-      .post('http://localhost:8000/api/upload-kml', formData)
+      .post('https://api.chonburihighway1.com/api/upload-kml', formData)
       .subscribe({
         next: () => {
           this.uploadStatus = '✅ อัปโหลดสำเร็จ!';

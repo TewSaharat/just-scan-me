@@ -50,7 +50,7 @@ export class LogninSinginComponent {
     const token = localStorage.getItem('token');
     this.http
       .post(
-        'http://127.0.0.1:8000/api/logout',
+        'https://api.chonburihighway1.com/api/logout',
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
