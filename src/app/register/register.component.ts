@@ -37,11 +37,9 @@ export class RegisterComponent {
       birthdate_thai: convertedBirthdate,
     };
 
-    this.http
-      .post('https://api.chonburihighway1.com/api/register', payload)
-      .subscribe({
-        next: (res) => alert('สมัครสมาชิกสำเร็จ'),
-        error: (err) => alert('เกิดข้อผิดพลาดในการสมัครสมาชิก'),
-      });
+    this.http.post('http://127.0.0.1:8000/api/register', payload).subscribe({
+      next: (res) => alert('สมัครสมาชิกสำเร็จ'),
+      error: (err) => alert('เกิดข้อผิดพลาดในการสมัครสมาชิก'),
+    });
   }
 }

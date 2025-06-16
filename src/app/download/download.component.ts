@@ -10,7 +10,7 @@ import { saveAs } from 'file-saver'; // ใช้ไลบรารี FileSaver
   styleUrls: ['./download.component.css'],
 })
 export class DownloadComponent implements OnInit {
-  apiUrl: string = 'https://api.chonburihighway1.com/api/routes'; // URL API
+  apiUrl: string = 'http://127.0.0.1:8000/api/routes'; // URL API
 
   constructor(private http: HttpClient) {}
 

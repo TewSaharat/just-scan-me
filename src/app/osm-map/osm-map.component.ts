@@ -139,7 +139,7 @@ export class OsmMapComponent implements OnInit, OnChanges {
       const bounds = this.map.getBounds();
       const data = await firstValueFrom(
         this.http.get<Marker[]>(
-          `https://api.chonburihighway1.com/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
+          `http://127.0.0.1:8000/api/routes?bounds=${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`
         )
       );
       if (data) {

@@ -206,7 +206,7 @@ export class EditFormComponent {
     this.data.lastRepairDate = `${y}-${m}-${d}เวลา${h}:${min}`;
 
     // ส่งข้อมูล
-    const saveUrl = 'https://api.chonburihighway1.com/api/save-electric-pole';
+    const saveUrl = 'http://127.0.0.1:8000/api/save-electric-pole';
     this.http
       .post(saveUrl, { ...this.data, repairItems: selectedRepairLabels })
       .subscribe({
@@ -227,7 +227,7 @@ export class EditFormComponent {
   }
 
   loadMarkerData(name_id: string) {
-    const apiUrl = `https://api.chonburihighway1.com/api/marker/${name_id}`;
+    const apiUrl = `http://127.0.0.1:8000/api/marker/${name_id}`;
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
         // กำหนดค่า response ให้กับ `data`
@@ -247,7 +247,7 @@ export class EditFormComponent {
   }
 
   loadStatusData() {
-    const apiUrl = 'https://api.chonburihighway1.com/api/routes';
+    const apiUrl = 'http://127.0.0.1:8000/api/routes';
 
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
