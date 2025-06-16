@@ -35375,7 +35375,9 @@ var xC = (() => {
       });
     }
     loadMarkerData(e) {
-      let i = `http://127.0.0.1:8000/api/marker/${encodeURIComponent(e)}`;
+      let i = `https://just-scan-me-backend.onrender.com/api/marker/${encodeURIComponent(
+        e
+      )}`;
       this.http.get(i).subscribe({
         next: (r) => {
           console.log("Marker Data:", r);
@@ -35400,7 +35402,10 @@ var xC = (() => {
           .padStart(2, "0")}:${e.getMinutes().toString().padStart(2, "0")}`,
         r = { name_id: this.name_id, status: !1, report_time: i };
       this.http
-        .post("http://127.0.0.1:8000/api/save-electric-pole", r)
+        .post(
+          "https://just-scan-me-backend.onrender.com/api/save-electric-pole",
+          r
+        )
         .subscribe({
           next: () => {
             console.log("Data saved successfully"), this.dataSaved.emit();
@@ -37873,7 +37878,7 @@ var Ri = (() => {
   class t {
     constructor(e) {
       (this.http = e),
-        (this.apiUrl = "http://127.0.0.1:8000/api"),
+        (this.apiUrl = "https://just-scan-me-backend.onrender.com/api"),
         (this.isLoggedInSubject = new It(this.hasToken())),
         (this.userSubject = new It(this.getUserFromStorage())),
         (this.isAuthenticated = new It(!1)),
@@ -38085,7 +38090,7 @@ var aD = (() => {
       let e = localStorage.getItem("token");
       this.http
         .post(
-          "http://127.0.0.1:8000/api/logout",
+          "https://just-scan-me-backend.onrender.com/api/logout",
           {},
           { headers: { Authorization: `Bearer ${e}` } }
         )
@@ -38557,7 +38562,7 @@ var lD = (() => {
       (this.data.lastRepairDate = `${a}-${c}-${d}\u0E40\u0E27\u0E25\u0E32${f}:${p}`),
         this.http
           .post(
-            "http://127.0.0.1:8000/api/save-electric-pole",
+            "https://just-scan-me-backend.onrender.com/api/save-electric-pole",
             Te(X({}, this.data), { repairItems: r })
           )
           .subscribe({
@@ -38577,7 +38582,7 @@ var lD = (() => {
           });
     }
     loadMarkerData(e) {
-      let i = `http://127.0.0.1:8000/api/marker/${e}`;
+      let i = `https://just-scan-me-backend.onrender.com/api/marker/${e}`;
       this.http.get(i).subscribe({
         next: (r) => {
           this.data = Te(X(X({}, this.data), r), {
@@ -38591,16 +38596,18 @@ var lD = (() => {
       });
     }
     loadStatusData() {
-      this.http.get("http://127.0.0.1:8000/api/routes").subscribe({
-        next: (i) => {
-          i &&
-            ((this.data.lastRepairDate = i.lastRepairDate ?? ""),
-            (this.data.control = i.control ?? ""));
-        },
-        error: (i) => {
-          console.error("Error fetching status data:", i);
-        },
-      });
+      this.http
+        .get("https://just-scan-me-backend.onrender.com/api/routes")
+        .subscribe({
+          next: (i) => {
+            i &&
+              ((this.data.lastRepairDate = i.lastRepairDate ?? ""),
+              (this.data.control = i.control ?? ""));
+          },
+          error: (i) => {
+            console.error("Error fetching status data:", i);
+          },
+        });
     }
     onCancel() {
       this.dialogRef.close();
@@ -39002,7 +39009,7 @@ var ux,
             let e = this.map.getBounds(),
               i = yield cf(
                 this.http.get(
-                  `http://127.0.0.1:8000/api/routes?bounds=${e.getSouth()},${e.getWest()},${e.getNorth()},${e.getEast()}`
+                  `https://just-scan-me-backend.onrender.com/api/routes?bounds=${e.getSouth()},${e.getWest()},${e.getNorth()},${e.getEast()}`
                 )
               );
             i &&
@@ -39557,7 +39564,9 @@ var px = (() => {
         this.selectedRoute !== "all" && (e.routes = this.selectedRoute),
         this.selectedDistrict !== "all" && (e.district = this.selectedDistrict),
         this.http
-          .get("http://127.0.0.1:8000/api/routes", { params: e })
+          .get("https://just-scan-me-backend.onrender.com/api/routes", {
+            params: e,
+          })
           .subscribe(
             (i) => {
               Array.isArray(i) &&
@@ -39626,7 +39635,7 @@ var px = (() => {
       );
     }
     fetchRoutes() {
-      let e = "http://127.0.0.1:8000/api/get-routes";
+      let e = "https://just-scan-me-backend.onrender.com/api/get-routes";
       function i(r) {
         let [s, a] = r.split(" "),
           [c, d, f] = s.split("-").map(Number),
@@ -39652,9 +39661,12 @@ var px = (() => {
     }
     downloadNotifyExcel() {
       this.http
-        .get("http://127.0.0.1:8000/api/export-notify-to-excel", {
-          responseType: "blob",
-        })
+        .get(
+          "https://just-scan-me-backend.onrender.com/api/export-notify-to-excel",
+          {
+            responseType: "blob",
+          }
+        )
         .subscribe((i) => {
           let r = new Blob([i], {
               type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -39667,9 +39679,12 @@ var px = (() => {
     }
     downloadRepairExcel() {
       this.http
-        .get("http://127.0.0.1:8000/api/export-repair-to-excel", {
-          responseType: "blob",
-        })
+        .get(
+          "https://just-scan-me-backend.onrender.com/api/export-repair-to-excel",
+          {
+            responseType: "blob",
+          }
+        )
         .subscribe((i) => {
           let r = new Blob([i], {
               type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -40279,19 +40294,21 @@ var gx = (() => {
         e.append("cat_id", this.selectedcat_id.toString()),
         console.log("Uploading file:", this.selectedFile.name),
         console.log("Uploading cat_id:", this.selectedcat_id),
-        this.http.post("http://127.0.0.1:8000/api/upload-kml", e).subscribe({
-          next: () => {
-            (this.uploadStatus =
-              "\u2705 \u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08!"),
-              (this.isLoading = !1),
-              console.log("Upload Success");
-          },
-          error: (i) => {
-            console.error("Error response:", i),
-              (this.uploadStatus = `\u274C ${i.error.message}`),
-              (this.isLoading = !1);
-          },
-        });
+        this.http
+          .post("https://just-scan-me-backend.onrender.com/api/upload-kml", e)
+          .subscribe({
+            next: () => {
+              (this.uploadStatus =
+                "\u2705 \u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08!"),
+                (this.isLoading = !1),
+                console.log("Upload Success");
+            },
+            error: (i) => {
+              console.error("Error response:", i),
+                (this.uploadStatus = `\u274C ${i.error.message}`),
+                (this.isLoading = !1);
+            },
+          });
     }
     toggleSidebar() {
       this.isSidebarVisible = !this.isSidebarVisible;
@@ -40407,7 +40424,8 @@ var bx = Wo(g_()),
 var Cx = (() => {
   class t {
     constructor(e) {
-      (this.http = e), (this.apiUrl = "http://127.0.0.1:8000/api/routes");
+      (this.http = e),
+        (this.apiUrl = "https://just-scan-me-backend.onrender.com/api/routes");
     }
     ngOnInit() {
       this.getDataFromAPI();
@@ -40655,7 +40673,9 @@ var Dx = (() => {
       let e = this.authService.getToken(),
         i = new rn().set("Authorization", `Bearer ${e}`);
       this.http
-        .get("http://127.0.0.1:8000/api/users", { headers: i })
+        .get("https://just-scan-me-backend.onrender.com/api/users", {
+          headers: i,
+        })
         .subscribe((r) => {
           this.users = r;
         });
@@ -40689,7 +40709,7 @@ var Dx = (() => {
             s = new rn().set("Authorization", `Bearer ${r}`);
           this.http
             .put(
-              `http://127.0.0.1:8000/api/users/${e.id}/role`,
+              `https://just-scan-me-backend.onrender.com/api/users/${e.id}/role`,
               { role: e.newStatus },
               { headers: s }
             )
@@ -40804,7 +40824,7 @@ var xx = (() => {
           .padStart(2, "0")}-${i.getDate().toString().padStart(2, "0")}`,
         a = Te(X({}, e), { birthdate_thai: s });
       this.http
-        .post("http://127.0.0.1:8000/api/register", a)
+        .post("https://just-scan-me-backend.onrender.com/api/register", a)
         .subscribe({
           next: (c) =>
             alert(

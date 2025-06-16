@@ -65,22 +65,30 @@ export class KmlUploadComponent {
     formData.append('file', this.selectedFile);
     formData.append('cat_id', this.selectedcat_id.toString());
 
-    this.http.post('http://127.0.0.1:8000/api/upload-kml', formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).subscribe({
-      next: () => {
-        this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
-        this.isLoading = false;
-        console.log('Upload Success');
-      },
-      error: (error) => {
-        console.error('Error response:', error);
-        this.uploadStatus = `❌ ${error.error?.message || 'อัปโหลดไม่สำเร็จ'}`;
-        this.isLoading = false;
-      },
-    });
+    this.http
+      .post(
+        'https://just-scan-me-backend.onrender.com/api/upload-kml',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .subscribe({
+        next: () => {
+          this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
+          this.isLoading = false;
+          console.log('Upload Success');
+        },
+        error: (error) => {
+          console.error('Error response:', error);
+          this.uploadStatus = `❌ ${
+            error.error?.message || 'อัปโหลดไม่สำเร็จ'
+          }`;
+          this.isLoading = false;
+        },
+      });
   }
 
   toggleSidebar() {

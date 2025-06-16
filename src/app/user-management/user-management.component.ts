@@ -56,7 +56,9 @@ export class UserManagementComponent implements OnInit {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http
-      .get<any[]>('http://127.0.0.1:8000/api/users', { headers })
+      .get<any[]>('https://just-scan-me-backend.onrender.com/api/users', {
+        headers,
+      })
       .subscribe((data) => {
         this.users = data;
       });
@@ -93,7 +95,7 @@ export class UserManagementComponent implements OnInit {
         // ส่งคำขอ PUT เพื่อเปลี่ยน role
         this.http
           .put(
-            `http://127.0.0.1:8000/api/users/${user.id}/role`, // ปรับเส้นทางให้ถูกต้อง
+            `https://just-scan-me-backend.onrender.com/api/users/${user.id}/role`, // ปรับเส้นทางให้ถูกต้อง
             { role: user.newStatus }, // ส่ง role ที่ต้องการเปลี่ยน
             { headers }
           )

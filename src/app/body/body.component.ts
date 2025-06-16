@@ -129,7 +129,9 @@ export class BodyComponent implements OnInit, OnDestroy {
       params.district = this.selectedDistrict;
 
     this.http
-      .get<any[]>('http://127.0.0.1:8000/api/routes', { params })
+      .get<any[]>('https://just-scan-me-backend.onrender.com/api/routes', {
+        params,
+      })
       .subscribe(
         (data) => {
           if (!Array.isArray(data)) {
@@ -215,7 +217,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   fetchRoutes() {
-    const apiUrl = 'http://127.0.0.1:8000/api/get-routes';
+    const apiUrl = 'https://just-scan-me-backend.onrender.com/api/get-routes';
 
     // ฟังก์ชันช่วยแปลงวันที่จาก "dd-MM-yyyy HH:mm" เป็น Date object
     function parseDateString(dateStr: string): Date {
@@ -249,7 +251,8 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   downloadNotifyExcel() {
-    const url = 'http://127.0.0.1:8000/api/export-notify-to-excel';
+    const url =
+      'https://just-scan-me-backend.onrender.com/api/export-notify-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -261,7 +264,8 @@ export class BodyComponent implements OnInit, OnDestroy {
     });
   }
   downloadRepairExcel() {
-    const url = 'http://127.0.0.1:8000/api/export-repair-to-excel';
+    const url =
+      'https://just-scan-me-backend.onrender.com/api/export-repair-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

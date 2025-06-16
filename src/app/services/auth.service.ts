@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api';
+  private apiUrl = 'https://just-scan-me-backend.onrender.com/api';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   private userSubject = new BehaviorSubject<any>(this.getUserFromStorage());
   private isAuthenticated = new BehaviorSubject<boolean>(false);

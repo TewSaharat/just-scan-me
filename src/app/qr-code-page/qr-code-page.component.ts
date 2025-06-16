@@ -26,7 +26,7 @@ this.generateQRCode(this.name_id);
 }
 
   generateQRCode(name_id: string): void {
-    const url = `https://chonburihighway1.com/notify?name_id=${encodeURIComponent(name_id)}`;
+    const url = `https://just-scan-me.vercel.app/notify?name_id=${encodeURIComponent(name_id)}`;
     QRCode.toDataURL(url, (err, url) => {
       if (err) {
         console.error('Error generating QR code', err);

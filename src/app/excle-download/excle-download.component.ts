@@ -22,7 +22,8 @@ export class ExcleDownloadComponent {
   }
 
   downloadNotifyExcel() {
-    const url = 'http://127.0.0.1:8000/api/export-notify-to-excel';
+    const url =
+      'https://just-scan-me-backend.onrender.com/api/export-notify-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -36,7 +37,8 @@ export class ExcleDownloadComponent {
   }
 
   downloadRepairExcel() {
-    const url = 'http://127.0.0.1:8000/api/export-repair-to-excel';
+    const url =
+      'https://just-scan-me-backend.onrender.com/api/export-repair-to-excel';
     this.http.get(url, { responseType: 'blob' }).subscribe((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
