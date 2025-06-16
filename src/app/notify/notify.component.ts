@@ -29,7 +29,7 @@ export class NotifyComponent implements OnInit {
   }
 
   loadMarkerData(name_id: string) {
-    const apiUrl = `http://127.0.0.1:8000/api/marker/${encodeURIComponent(
+    const apiUrl = `https://api.chonburihighway1.com/api/marker/${encodeURIComponent(
       name_id
     )}`;
     this.http.get(apiUrl).subscribe({
@@ -67,7 +67,7 @@ export class NotifyComponent implements OnInit {
       report_time: report_time, // วันที่และเวลา
     };
 
-    const apiUrl = `http://127.0.0.1:8000/api/save-electric-pole`;
+    const apiUrl = `https://api.chonburihighway1.com/api/save-electric-pole`;
     this.http.post(apiUrl, updateData).subscribe({
       next: () => {
         console.log('Data saved successfully');

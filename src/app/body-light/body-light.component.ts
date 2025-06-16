@@ -14,11 +14,13 @@ export class BodyLightComponent {
   @Input() totalFaultyDB: number = 0;
   @Input() totalFaultySG: number = 0;
   @Input() totalFaulty: number = 0;
-  
+    ngOnChanges() {
+    
+  }
   get faultyBulbs(): number {
    
     return (this.totalFaultyDB * 2) + this.totalFaultySG;
+  }
 
 }
 
-}
