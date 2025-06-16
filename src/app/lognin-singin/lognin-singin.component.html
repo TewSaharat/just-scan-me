@@ -1,29 +1,44 @@
 <div class="popup-overlay" (click)="closePopup()"></div>
-<div class="popup">
-  
-  <div *ngIf="!isLoggedIn">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" [(ngModel)]="email" required />
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" name="password" [(ngModel)]="password" required />
-    </div>
-    
-    <div class="button-group">
-      <button type="submit" class="btn-login">Login</button>
-      <button type="button" (click)="closePopup()" class="btn-close">ปิด</button>
-    </div>
-    
-    
-  </form>
+
+<div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <div *ngIf="loginSuccess" class="success-container">
+    <lottie-player
+      src="https://assets10.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px; margin: auto;"
+      autoplay
+    ></lottie-player>
   </div>
 
-  <div *ngIf="isLoggedIn">
-    <button (click)="logout()" class="btn-logout">Logout</button>
-    
-  </div>
+<div *ngIf="loginError" class="error-container">
+  <lottie-player
+    src="https://lottie.host/9ad4e8f7-c6c0-44d3-8aaf-542db78af29c/6SLYllOfgM.json"
+    background="transparent"
+    speed="1"
+    style="width: 300px; height: 300px; margin: auto;"
+    autoplay
+  ></lottie-player>
+  <p style="color: red; text-align: center;">เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบอีเมลหรือรหัสผ่าน</p>
+</div>
 
+
+
+  <div *ngIf="!loginSuccess && !isLoggedIn">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="emailInput">Email</label>
+        <input id="emailInput" type="email" name="email" [(ngModel)]="email" required />
+      </div>
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" name="password" [(ngModel)]="password" required />
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn-login" title="Login">Login</button>
+        <button type="button" (click)="closePopup()" class="btn-close" title="Close popup">ปิด</button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -6,6 +6,7 @@ import { KmlUploadComponent } from './kml-upload/kml-upload.component';
 import { DownloadComponent } from './download/download.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { RegisterComponent } from './register/register.component';
+import { ExcleDownloadComponent } from './excle-download/excle-download.component';
 
 
 
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path: 'download-qrcode',component:DownloadComponent },
     {path: 'UserManagement', component:UserManagementComponent }, // Redirect to home for any unknown routes
     {path: 'Register',component:RegisterComponent },
+    {path: 'excel-download', component:ExcleDownloadComponent },
 
 ];
 

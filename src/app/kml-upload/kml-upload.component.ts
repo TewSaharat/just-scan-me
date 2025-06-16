@@ -20,20 +20,32 @@ export class KmlUploadComponent {
   isSidebarVisible = false;
 
   cat_id = [
-    { id: 1, name: 'หมวดนครพนม' },
-    { id: 2, name: 'หมวดศรีสงคราม' },
-    { id: 3, name: 'หมวดปลาปาก' },
-    { id: 4, name: 'หมวดท่าอุเทน' },
-    { id: 5, name: 'หมวดนาแก' },
+    { id: 1, name: 'หมวดทางหลวงพนัสนิคม' },
+    { id: 2, name: 'หมวดทางหลวงบ้านบึง' },
+    { id: 3, name: 'หมวดทางหลวงศรีราชา' },
+    { id: 4, name: 'หมวดทางหลวงบางละมุง' },
+    { id: 5, name: 'หมวดทางหลวงสัตหีบ' },
+    { id: 6, name: 'หมวดทางหลวงเมืองชลบุรี' },
   ];
 
   constructor(private http: HttpClient) {}
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('auth_token');
+  }
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
   uploadFile() {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      this.uploadStatus = '❌ กรุณาล็อกอินก่อนทำการอัปโหลด';
+      console.error('ไม่พบ token กรุณาล็อกอินก่อน');
+      return;
+    }
+
     if (!this.selectedFile) {
       this.uploadStatus = 'กรุณาเลือกไฟล์ก่อน!';
       console.error('Error: ไม่มีไฟล์ที่เลือก');
@@ -53,24 +65,22 @@ export class KmlUploadComponent {
     formData.append('file', this.selectedFile);
     formData.append('cat_id', this.selectedcat_id.toString());
 
-    // ✅ ตรวจสอบว่าฟอร์มมีไฟล์จริง
-    console.log('Uploading file:', this.selectedFile.name);
-    console.log('Uploading cat_id:', this.selectedcat_id);
-
-    this.http
-      .post('http://localhost:8000/api/upload-kml', formData)
-      .subscribe({
-        next: () => {
-          this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
-          this.isLoading = false;
-          console.log('Upload Success');
-        },
-        error: (error) => {
-          console.error('Error response:', error);
-          this.uploadStatus = `❌ ${error.error.message}`;
-          this.isLoading = false;
-        },
-      });
+    this.http.post('http://127.0.0.1:8000/api/upload-kml', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).subscribe({
+      next: () => {
+        this.uploadStatus = '✅ อัปโหลดสำเร็จ!';
+        this.isLoading = false;
+        console.log('Upload Success');
+      },
+      error: (error) => {
+        console.error('Error response:', error);
+        this.uploadStatus = `❌ ${error.error?.message || 'อัปโหลดไม่สำเร็จ'}`;
+        this.isLoading = false;
+      },
+    });
   }
 
   toggleSidebar() {

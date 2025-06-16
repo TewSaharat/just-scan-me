@@ -8,7 +8,6 @@ import L from 'leaflet';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { EditFormComponent } from '../edit-form/edit-form.component';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -122,11 +121,12 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   fetchFilteredRoutes() {
-     const params: any = {
-    category: this.selectedCategory === 'all' ? '' : this.selectedCategory,
-    routes: this.selectedRoute === 'all' ? '' : this.selectedRoute,
-    district: this.selectedDistrict === 'all' ? '' : this.selectedDistrict,
-  };
+    const params: any = {};
+    if (this.selectedCategory !== 'all')
+      params.category = this.selectedCategory;
+    if (this.selectedRoute !== 'all') params.routes = this.selectedRoute;
+    if (this.selectedDistrict !== 'all')
+      params.district = this.selectedDistrict;
 
     this.http
       .get<any[]>('http://127.0.0.1:8000/api/routes', { params })
@@ -154,29 +154,33 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   calculateStatistics() {
-    this.totalMarkers = this.routesData.length;
+    this.totalMarkers = this.routesData.length; // เพิ่มบรรทัดนี้
+    this.totalDB = 0;
+    this.totalSG = 0;
+    this.totalFaulty = 0;
+    this.totalFaultyDB = 0;
+    this.totalFaultySG = 0;
 
-    this.totalDB = this.routesData.filter((marker) =>
-      marker.name_id?.toLowerCase().includes('db')
-    ).length;
+    for (const marker of this.routesData) {
+      const name = marker.name_id?.toLowerCase() || '';
+      const isFaulty = marker.status === 0;
 
-    this.totalSG = this.routesData.filter((marker) =>
-      marker.name_id?.toLowerCase().includes('sg')
-    ).length;
-
-    this.totalFaulty = this.routesData.filter(
-      (marker) => marker.status === 0
-    ).length;
-
-    this.totalFaultyDB = this.routesData.filter(
-      (marker) =>
-        marker.status === 0 && marker.name_id?.toLowerCase().includes('db')
-    ).length;
-
-    this.totalFaultySG = this.routesData.filter(
-      (marker) =>
-        marker.status === 0 && marker.name_id?.toLowerCase().includes('sg')
-    ).length;
+      if (name.includes('db')) {
+        this.totalDB++;
+        if (isFaulty) {
+          this.totalFaulty++;
+          this.totalFaultyDB++;
+        }
+      } else if (name.includes('sg')) {
+        this.totalSG++;
+        if (isFaulty) {
+          this.totalFaulty++;
+          this.totalFaultySG++;
+        }
+      } else {
+        if (isFaulty) this.totalFaulty++;
+      }
+    }
   }
 
   getCategoryName(cat_id: any): string {
@@ -223,7 +227,6 @@ export class BodyComponent implements OnInit, OnDestroy {
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
-        console.log('RAW DATA FROM API:', data);
         this.filteredRoutesData = this.mapCategoryName(
           data.filter((route) => {
             const isCategoryMatch =

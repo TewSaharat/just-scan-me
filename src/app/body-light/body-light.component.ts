@@ -16,7 +16,9 @@ export class BodyLightComponent {
   @Input() totalFaulty: number = 0;
   
   get faultyBulbs(): number {
+   
     return (this.totalFaultyDB * 2) + this.totalFaultySG;
 
 }
+
 }

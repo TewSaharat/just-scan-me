@@ -96,6 +96,8 @@ select, input[type="checkbox"] {
 
 .table-container {
     height: 30%;
+    margin: 20px;
+    margin-top: 100px;
     overflow-y: auto; /* เพิ่มแถบเลื่อนในส่วนนี้ */
     white-space: nowrap; /* ป้องกันการตัดคำในเซลล์ */
     background-color: #fff;

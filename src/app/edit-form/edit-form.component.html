@@ -71,6 +71,42 @@
 
   <div class="form-actions">
       <button type="button" (click)="onSave()" [disabled]="isViewer" >บันทึก</button>
+      
       <button type="button" (click)="onCancel()">ยกเลิก</button>
   </div>
+<div *ngIf="showLottieMessage" class="lottie-overlay">
+  <lottie-player
+    [src]="lottieMessageUrl"
+    background="transparent"
+    speed="1"
+    style="width: 300px; height: 300px; margin: auto;"
+    autoplay
+  ></lottie-player>
+  <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+    {{ lottieMessageText }}
+  </p>
+</div>
+  <!-- Lottie แจ้งผล -->
+<div *ngIf="loginSuccess" class="lottie-overlay">
+  <lottie-player
+    src="https://assets10.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+    background="transparent"
+    speed="1"
+    style="width: 300px; height: 300px; margin: auto;"
+    autoplay
+  ></lottie-player>
+</div>
+
+<div *ngIf="loginError" class="lottie-overlay">
+  <lottie-player
+    src="https://lottie.host/9ad4e8f7-c6c0-44d3-8aaf-542db78af29c/6SLYllOfgM.json"
+    background="transparent"
+    speed="1"
+    style="width: 300px; height: 300px; margin: auto;"
+    autoplay
+  ></lottie-player>
+  
+  
+</div>
+
 </div>

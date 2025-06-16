@@ -32,6 +32,7 @@
     </div>
   
     <!-- แสดงข้อความแจ้งเตือน -->
+     <p style="color: red;" *ngIf="!isLoggedIn()">⚠ กรุณาล็อกอินก่อนใช้งาน</p>
     <p class="status-message">{{ uploadStatus }}</p>
   </div>
 </div>

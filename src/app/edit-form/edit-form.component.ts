@@ -1,4 +1,5 @@
 import { Component, Inject, EventEmitter, Output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -6,7 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -15,6 +16,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './edit-form.component.html',
   styleUrls: ['./edit-form.component.css'],
   imports: [FormsModule, CommonModule, MatDialogModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class EditFormComponent {
   constructor(
@@ -33,6 +35,12 @@ export class EditFormComponent {
   isLoggedIn = false;
   isAdmin = false;
   isViewer = false;
+  loginSuccess = false;
+  loginError = false;
+
+  showLottieMessage = false;
+  lottieMessageUrl = '';
+  lottieMessageText = '';
 
   data = {
     lampType_edit: 'HPS',
@@ -51,6 +59,16 @@ export class EditFormComponent {
     repairItems: {} as Record<string, boolean>,
     control: '',
   };
+
+  showLottie(message: string, url: string) {
+    this.lottieMessageText = message;
+    this.lottieMessageUrl = url;
+    this.showLottieMessage = true;
+
+    setTimeout(() => {
+      this.showLottieMessage = false;
+    }, 3000); // ซ่อนหลัง 3 วินาที
+  }
 
   repairItemList = [
     { label: 'หลอดไฮเพรสเซอร์ 250 W', value: 'bulb250W' },
@@ -140,11 +158,17 @@ export class EditFormComponent {
 
   onSave() {
     if (!this.isLoggedIn) {
-      alert('คุณต้องล็อกอินก่อนบันทึกข้อมูล');
+      this.showLottie(
+        'คุณต้องล็อกอินก่อนบันทึกข้อมูล',
+        'https://lottie.host/9ad4e8f7-c6c0-44d3-8aaf-542db78af29c/6SLYllOfgM.json'
+      );
       return;
     }
     if (this.isViewer) {
-      alert('คุณไม่มีสิทธิ์ในการบันทึกข้อมูล');
+      this.showLottie(
+        'คุณไม่มีสิทธิ์ในการบันทึกข้อมูล',
+        'https://lottie.host/9ad4e8f7-c6c0-44d3-8aaf-542db78af29c/6SLYllOfgM.json'
+      );
       return;
     }
 
@@ -167,12 +191,6 @@ export class EditFormComponent {
       this.data.status = true;
     }
 
-    // // แปลง repairItems ให้เป็น string ที่คั่นด้วย comma
-    // const repairItemsString = Object.keys(this.data.repairItems)
-    //   .filter((key) => this.data.repairItems[key])
-    //   .join(', ');
-
-    // ดึง label ที่ถูกเลือกไว้
     const selectedRepairLabels = this.repairItemList
       .filter((item) => this.data.repairItems[item.value])
       .map((item) => item.label)
@@ -193,13 +211,17 @@ export class EditFormComponent {
       .post(saveUrl, { ...this.data, repairItems: selectedRepairLabels })
       .subscribe({
         next: () => {
-          alert('บันทึกข้อมูลสำเร็จ!');
-          this.dialogRef.close(true);
-          this.dataSaved.emit(); // แจ้งไปยัง BodyComponent ว่าบันทึกสำเร็จ
+          this.loginSuccess = true;
+          setTimeout(() => {
+            this.dialogRef.close(true);
+            this.loginSuccess = false;
+            this.dataSaved.emit();
+          }, 2500); // แสดง Lottie สักครู่ก่อนปิด
         },
         error: (err) => {
           console.error('Error:', err);
-          alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
+          this.loginError = true;
+          setTimeout(() => (this.loginError = false), 3000);
         },
       });
   }

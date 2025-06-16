@@ -1,4 +1,13 @@
-import {Component, OnInit,Input, OnChanges, SimpleChanges, Output, EventEmitter,NgZone } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  Output,
+  EventEmitter,
+  NgZone,
+} from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { QrCodePageComponent } from '../qr-code-page/qr-code-page.component';
@@ -29,7 +38,7 @@ interface Marker {
   templateUrl: './osm-map.component.html',
   styleUrls: ['./osm-map.component.css'],
   standalone: true,
-  imports: [MatDialogModule, CommonModule, ScrollingModule,],
+  imports: [MatDialogModule, CommonModule, ScrollingModule],
 })
 export class OsmMapComponent implements OnInit, OnChanges {
   @Input() selectedCategory: string = 'all';
@@ -47,7 +56,11 @@ export class OsmMapComponent implements OnInit, OnChanges {
   markerGroup!: L.LayerGroup;
   private filterChange$ = new Subject<void>();
 
-  constructor(private http: HttpClient, private dialog: MatDialog,private zone: NgZone) {}
+  constructor(
+    private http: HttpClient,
+    private dialog: MatDialog,
+    private zone: NgZone
+  ) {}
 
   async ngOnInit(): Promise<void> {
     // ✅ โหลด MarkerCluster ตอน runtime
@@ -77,11 +90,10 @@ export class OsmMapComponent implements OnInit, OnChanges {
   }
 
   loadMap(): void {
-
-    
-    this.map = L.map('map',{}
-
-    ).setView([17.5656463201181, 104.6081251946405], 18);
+    this.map = L.map('map', {}).setView(
+      [17.5656463201181, 104.6081251946405],
+      18
+    );
 
     const streetLayer = L.tileLayer(
       'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
@@ -116,7 +128,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
       disableClusteringAtZoom: 8,
       chunkedLoading: true,
       removeOutsideVisibleBounds: true,
-      
     });
 
     this.map.addLayer(this.markerGroup);
@@ -143,7 +154,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
       this.isLoading = false; // โหลดเสร็จ
     }
   }
-
 
   filterMarkers(): void {
     if (!this.map || !this.markerGroup) return;
@@ -206,7 +216,6 @@ export class OsmMapComponent implements OnInit, OnChanges {
     }, 100);
   }
 
-
   getCategoryName(category: number | string): string {
     switch (category.toString()) {
       case '1':
@@ -253,7 +262,9 @@ export class OsmMapComponent implements OnInit, OnChanges {
       <hr>
       <div>
         สถานะอุปกรณ์:<br>
-        หลอด: <span style="color: ${statusColor};">${statusText} (กระแส: ${marker.current ?? '-' } A)</span><br>
+        หลอด: <span style="color: ${statusColor};">${statusText} (กระแส: ${
+      marker.current ?? '-'
+    } A)</span><br>
         บัลลาสต์: <span style="color: ${statusColor};">${statusText}</span><br>
         คาปาซิเตอร์: <span style="color: ${statusColor};">${statusText}</span><br>
         ฟิวส์/กล่อง: <span style="color: ${statusColor};">${statusText}</span>
@@ -286,24 +297,29 @@ export class OsmMapComponent implements OnInit, OnChanges {
   `;
   }
 
-private setupPopupEventListeners(marker: Marker): void {
-  const popupElement = document.querySelector('.leaflet-popup-content');
-  if (!popupElement) return;
+  private setupPopupEventListeners(marker: Marker): void {
+    const popupElement = document.querySelector('.leaflet-popup-content');
+    if (!popupElement) return;
 
-  const editButton = popupElement.querySelector(`.edit-button[data-id="${marker.name_id}"]`);
-  const qrButton = popupElement.querySelector(`.qrcode[data-id="${marker.name_id}"]`);
+    const editButton = popupElement.querySelector(
+      `.edit-button[data-id="${marker.name_id}"]`
+    );
+    const qrButton = popupElement.querySelector(
+      `.qrcode[data-id="${marker.name_id}"]`
+    );
 
-  if (editButton && !editButton.getAttribute('data-listener')) {
-    editButton.setAttribute('data-listener', 'true');
-    editButton.addEventListener('click', () => this.openEditForm(marker));
+    if (editButton && !editButton.getAttribute('data-listener')) {
+      editButton.setAttribute('data-listener', 'true');
+      editButton.addEventListener('click', () => this.openEditForm(marker));
+    }
+
+    if (qrButton && !qrButton.getAttribute('data-listener')) {
+      qrButton.setAttribute('data-listener', 'true');
+      qrButton.addEventListener('click', () =>
+        this.generateQRCode(marker.name_id!)
+      );
+    }
   }
-
-  if (qrButton && !qrButton.getAttribute('data-listener')) {
-    qrButton.setAttribute('data-listener', 'true');
-    qrButton.addEventListener('click', () => this.generateQRCode(marker.name_id!));
-  }
-}
-
 
   openEditForm(marker: Marker): void {
     const dialogRef = this.dialog.open(EditFormComponent, {
